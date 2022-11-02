@@ -4,7 +4,6 @@
 #include <QString>
 #include <QVector>
 
-#include <QTextStream>
 
 class FileManager
 {
@@ -39,50 +38,21 @@ public:
         QVector<Ticket> tickets;
     };
 
-    QString loadProjects() {
-
-    };
-
-    void saveProjects(QString projects) {
-        std::
-    };
-
-    QString compileProjects(QVector<Project> projects) {
-        QString compiledData = "";
-        for (Project currentProject : projects) {
-            compiledData += QString::number(currentProject.uniqueIdentifier) + "/," +
-                currentProject.name + "/," + currentProject.description + "/,";
-
-            for (Ticket currentTicket : currentProject.tickets) {
-                compiledData += "/~" + QString::number(currentTicket.uniqueIdentifier) + "/," +
-                    QString::number(currentTicket.creationTime) + "/," +
-                    QString::number(currentTicket.priority) + "/," + currentTicket.title + "/," +
-                    currentTicket.system + "/," + currentTicket.progress + "/," +
-                    currentTicket.description + "/," + (currentTicket.isOpen ? "1" : "0") + "/,";
-
-                for (Log currentLog : currentTicket.logs) {
-                    compiledData += "/`" + QString::number(currentLog.uniqueIdentifier) + "/," +
-                        QString::number(currentLog.creationTime) + "/," + currentLog.description +
-                        "/," + (currentLog.isConsole ? '1' : '0') + "/`";
-                } compiledData += "/~";
-            } compiledData += "/,";
-        } return compiledData;
-    };
-
-    QVector<Project> interpretProjects(QString projectData) {
+    QVector<Project> formatProjects(QString projectData) {
+        projectData = "0/,UntitledMMO/,An MMO/,/~0/,1667343548/,0/,Crash on load/,Save System/,Actively Worked On/,Game crashes when trying to save, big problem/,1/,/`0/,1667343548/,Ticket created/,1/`/`0/,1667843654/,This needs to be fixed asap./,0/`/~/,";
         QVector<Project> projects;
-
         bool readingSpecial = false;
         QVector<int> columns = {0};
         QString itemStr = "";
-
         Log currentLog;
         Ticket currentTicket;
         Project currentProject;
-
         for (QChar const &c: projectData) {
-            if (c == '/') readingSpecial = true;
-            else if (readingSpecial) {
+            if (c == '/') {
+                readingSpecial = true;
+                continue;
+            }
+            if (readingSpecial) {
                 readingSpecial = false;
                 if (c == ',') {
                     switch (columns.size()) {
@@ -99,10 +69,6 @@ public:
                             break;
                         case 3:
                             projects.push_back(currentProject);
-                            Project newProject;
-                            currentProject = newProject;
-                            columns[0] = 0;
-                            continue;
                         }
                         break;
                     case 2:
@@ -130,43 +96,32 @@ public:
                                 break;
                             case 7:
                                 currentTicket.isOpen = (itemStr[0] == '1');
+                                break;
+                            case 
                         }
-                        break;
-                    case 3:
-                        switch (columns[0]) {
-                            case 0:
-                                currentLog.uniqueIdentifier = itemStr.toInt();
-                                break;
-                            case 1:
-                                currentLog.creationTime = itemStr.toInt();
-                                break;
-                            case 2:
-                                currentLog.description = itemStr;
-                                break;
-                            case 3:
-                                currentLog.isConsole = (itemStr[0] == '1');
-                        }
-                    } columns[0]++;
+                    }
+                    columns[0]++;
                 } else if (c == '~') {
                     if (columns.size() == 2) {
                         columns.pop_front();
-                        currentProject.tickets.push_back(currentTicket);
-
-                        Ticket newTicket;
-                        currentTicket = newTicket;
-                    } else columns.push_front(0);
+                    } else {
+                        columns.push_front(0);
+                    }
                 } else if (c == '`') {
                     if (columns.size() == 3) {
                         columns.pop_front();
-                        currentTicket.logs.push_back(currentLog);
-
-                        Log newLog;
-                        currentLog = newLog;
-                    } else columns.push_front(0);
-                } itemStr = "";
-            } else itemStr.append(c);
-        } return projects;
+                    } else {
+                        columns.push_front(0);
+                    }
+                }
+                itemStr = "";
+                continue;
+            }
+            itemStr.append(c);
+        }
+        return projects;
     };
+
 };
 
 #endif // FILEMANAGER_H
