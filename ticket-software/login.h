@@ -2,6 +2,7 @@
 #define LOGIN_H
 
 #include <QMainWindow>
+#include "profile.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Login; }
@@ -15,7 +16,11 @@ public:
     Login(QWidget *parent = nullptr);
     ~Login();
 
+private slots:
+    void on_logInBtn_clicked();
+
 private:
     Ui::Login *ui;
+    Profile *profile = new Profile();
 };
 #endif // LOGIN_H
