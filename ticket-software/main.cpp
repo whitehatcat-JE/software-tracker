@@ -1,10 +1,12 @@
 #include "login.h"
+#include "profile.h""
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    Profile p;
     Login w;
-    w.show();
+    p.show();
     return a.exec();
 }
