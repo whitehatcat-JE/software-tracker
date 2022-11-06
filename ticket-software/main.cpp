@@ -1,4 +1,4 @@
-#include "login.h"
+#include "assignments.h"
 #include <QApplication>
 #include <QDebug>
 #include "filemanager.h"
@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     qInfo() << projects[1].tickets[0].title;
     qInfo() << projects[1].tickets[0].description;
     QApplication a(argc, argv);
-    Login w;
+    Assignments w;
     w.show();
     return a.exec();
 }
