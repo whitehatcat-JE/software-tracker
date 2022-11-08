@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QPushButton>
+#include <QLabel>
 
 namespace Ui {
 class Assignments;

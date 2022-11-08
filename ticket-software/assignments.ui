@@ -324,7 +324,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
    <property name="widgetResizable">
     <bool>true</bool>
    </property>
-   <widget class="QWidget" name="scrollAreaWidgetContents">
+   <widget class="QWidget" name="assignmentCategories">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -354,29 +354,33 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="ticketsButton">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>75</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">font-size: 36px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:#CA0736;</string>
-       </property>
-       <property name="text">
-        <string>Tickets                                                                                                            ►</string>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-      </widget>
+      <layout class="QVBoxLayout" name="ticketsLayout">
+       <item>
+        <widget class="QPushButton" name="ticketsButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>75</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font-size: 36px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:#CA0736;</string>
+         </property>
+         <property name="text">
+          <string>Tickets                                                                                                            ►</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
       <widget class="QPushButton" name="groupsButton">

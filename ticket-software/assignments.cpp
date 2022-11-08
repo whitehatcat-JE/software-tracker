@@ -1,7 +1,6 @@
 #include "assignments.h"
 #include "ui_assignments.h"
 
-#include <QDebug>
 Assignments::Assignments(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Assignments)
@@ -32,7 +31,11 @@ void Assignments::on_ticketsButton_toggled(bool checked)
             button->setObjectName("displayedTicket" + QString::number(i));
             button->setText("Hello World");
             button->setStyleSheet("background-color: #32ACBE; color: white; height: 50px; font-family: Inter; font-size: 36px; font-weight: bold; text-align: left; padding-left: 10px;");
-            ui->assignedItems->widget()->layout()->addWidget(button);
+
+            QLabel *label = new QLabel("metadata", button);
+            label->setText("Created on: 9/12/22 - Physics Engine - Untitled MMO - Actively Working On");
+            label->setStyleSheet("font-family: Inter; font-size: 20px; text-align: right; margin-left:250px; font-weight: normal; vertical-align: middle;");
+            ui->ticketsLayout->addWidget(button);
         }
     }
 }
