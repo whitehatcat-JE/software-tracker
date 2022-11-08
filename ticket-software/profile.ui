@@ -28,8 +28,8 @@
   <widget class="QPushButton" name="Edit">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>380</y>
+     <x>860</x>
+     <y>450</y>
      <width>31</width>
      <height>24</height>
     </rect>
@@ -50,7 +50,7 @@
     <string>Edit</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="Background">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -66,8 +66,25 @@
     <string/>
    </property>
   </widget>
-  <zorder>pushButton</zorder>
+  <widget class="QLabel" name="PFP">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>501</width>
+     <height>501</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>:/Images/Images/PFP/empty.png</pixmap>
+   </property>
+  </widget>
+  <zorder>Background</zorder>
   <zorder>Edit</zorder>
+  <zorder>PFP</zorder>
  </widget>
  <resources/>
  <connections/>
