@@ -1,7 +1,6 @@
 #include "assignments.h"
 #include <QApplication>
 #include <QDebug>
-#include "filemanager.h"
 int main(int argc, char *argv[])
 {
     FileManager myFiles;

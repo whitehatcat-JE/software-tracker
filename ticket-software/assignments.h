@@ -4,6 +4,10 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QLabel>
+#include <QVBoxLayout>
+#include <QWidget>
+
+#include "filemanager.h"
 
 namespace Ui {
 class Assignments;
