@@ -331,17 +331,26 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <property name="bottomMargin">
-        <number>5</number>
+        <number>0</number>
        </property>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <property name="spacing">
+          <number>50</number>
+         </property>
          <property name="rightMargin">
-          <number>5</number>
+          <number>25</number>
          </property>
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_4">
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <property name="spacing">
+              <number>0</number>
+             </property>
              <item>
               <widget class="QLabel" name="label">
                <property name="minimumSize">
@@ -408,13 +417,16 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
          </item>
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_5">
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <item>
             <spacer name="verticalSpacer_2">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
              <property name="sizeType">
-              <enum>QSizePolicy::Preferred</enum>
+              <enum>QSizePolicy::Minimum</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -442,10 +454,13 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap>Images/editIcon.png</pixmap>
+              <pixmap resource="Images.qrc">:/Image/Images/editIcon.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
              </property>
             </widget>
            </item>
@@ -481,13 +496,16 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
          </item>
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_6">
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <item>
             <spacer name="verticalSpacer_3">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
              <property name="sizeType">
-              <enum>QSizePolicy::Preferred</enum>
+              <enum>QSizePolicy::Minimum</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -515,10 +533,13 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap>Images/editIcon.png</pixmap>
+              <pixmap resource="Images.qrc">:/Image/Images/archiveIcon.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
              </property>
             </widget>
            </item>
@@ -559,6 +580,9 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Expanding</enum>
+         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
@@ -577,6 +601,8 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
   <zorder>layoutWidget</zorder>
   <zorder>assignedItems</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="Images.qrc"/>
+ </resources>
  <connections/>
 </ui>

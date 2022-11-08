@@ -1,3 +1,7 @@
 <RCC>
-    <qresource prefix="/image"/>
+    <qresource prefix="/Image">
+        <file>Images/editIcon.png</file>
+        <file>Images/archiveIcon.png</file>
+        <file>Images/hiddenPasswordIcon.png</file>
+    </qresource>
 </RCC>
