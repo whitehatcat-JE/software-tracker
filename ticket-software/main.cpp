@@ -1,9 +1,9 @@
-#include "assignments.h"
+#include "project.h"
 #include <QApplication>
 #include <QDebug>
 int main(int argc, char *argv[])
 {
-    FileManager myFiles;
+    /*FileManager myFiles;
     QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
     qInfo() << projects[0].uniqueIdentifier;
     qInfo() << projects[0].name;
@@ -17,9 +17,9 @@ int main(int argc, char *argv[])
     qInfo() << projects[1].description;
 
     qInfo() << projects[1].tickets[0].title;
-    qInfo() << projects[1].tickets[0].description;
+    qInfo() << projects[1].tickets[0].description;*/
     QApplication a(argc, argv);
-    Assignments w;
+    Project w;
     w.show();
     return a.exec();
 }
