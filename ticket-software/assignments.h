@@ -19,7 +19,6 @@ class Assignments : public QWidget
 public:
     explicit Assignments(QWidget *parent = nullptr);
     ~Assignments();
-
 private slots:
     void on_ticketsButton_toggled(bool checked);
 
@@ -27,8 +26,11 @@ private slots:
 
     void on_projectsButton_toggled(bool checked);
 
+
 private:
     Ui::Assignments *ui;
+
+    void on_projectButton_triggered(int id);
 };
 
 #endif // ASSIGNMENTS_H

@@ -1,6 +1,10 @@
 #include "assignments.h"
 #include "ui_assignments.h"
 
+#include "project.h"
+
+#include <QDebug>
+
 Assignments::Assignments(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Assignments)
@@ -103,8 +107,16 @@ void Assignments::on_projectsButton_toggled(bool checked)
             button->setObjectName("displayedProject" + QString::number(projectIdx));
             button->setText(projects[projectIdx].name);
             button->setStyleSheet("background-color: #32ACBE; color: white; height: 50px; font-family: Inter; font-size: 24px; font-weight: bold; text-align: left; padding-left: 10px; border:none;");
+            int projectIdentifer = projects[projectIdx].uniqueIdentifier;
+            connect(button, &QPushButton::clicked, [this, projectIdentifer] { on_projectButton_triggered(projectIdentifer); });
             ui->projectsLayout->addWidget(button);
+
         }
     }
 }
 
+void Assignments::on_projectButton_triggered(int id) {
+    Project* sWindow = new Project(id);
+    sWindow->show();
+    this->hide();
+}
