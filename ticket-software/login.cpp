@@ -30,25 +30,11 @@ void Login::on_logInBtn_clicked()
             if(password->text() == loginAccess.at(i).at(1)){
                 signedIn = true;
                 userIndex = i;
-                QMessageBox box(this);
-                box.setIcon(QMessageBox::Information);
-                box.setText("You have successfully signed up");
-                box.setWindowTitle("Sign Up");
-                box.setStandardButtons(QMessageBox::Ok);
-                int returnVal = box.exec();
-
                 //Determine messagebox button pressed
-                switch(returnVal){
-                case QMessageBox::Ok:
-                    QMessageBox::information(this, "Login", "Login Successful");
-                    hide();
-                    profile->show();
-                };
 
-                break;
-            }
-            else{
-                QMessageBox::warning(this, "Login", "Incorrect Password");
+                QMessageBox::information(this, "Login", "Login Successful");
+                hide();
+                profile->show();
             }
         }
         else{
@@ -56,7 +42,7 @@ void Login::on_logInBtn_clicked()
         }
     }
     if(!signedIn){
-        QMessageBox::warning(this, "Login", "No user found with matching password");
+        QMessageBox::warning(this, "Login", "Incorrect username or password. Please try again");
     }
 }
 //void Login::on_BTNSign_clicked(){

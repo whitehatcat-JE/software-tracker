@@ -1,4 +1,5 @@
 #include "filemanager.h"
+#include <QDebug>
 
 FileManager::FileManager(){}
 // Loads project data from disk
@@ -156,10 +157,9 @@ void FileManager::WriteFile(QString fileName, QVector<QString> fileContent){
     file.open(QIODevice::ReadWrite | QIODevice::Append);
 
     if(!file.isOpen()){
+        qDebug() << "File Not open";
         return;
     }
-
-
     QTextStream stream(&file);
     for(int i = 0; i < fileContent.size(); i++){
         stream << fileContent.at(i);
@@ -204,9 +204,11 @@ QVector<QVector<QString>> FileManager::ReadFile(QString fileName, int numColumns
     QFile file(fileName);
     file.open(QIODevice::ReadOnly);
     if(!file.isOpen()){
+        qDebug() << "No File Open";
         return columns;
     }
 
+    //for(QVector<QString> : fileContent)
 
     QTextStream stream(&file);
 

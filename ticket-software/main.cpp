@@ -1,4 +1,5 @@
 #include "project.h"
+#include "login.h"
 #include <QApplication>
 #include <QDebug>
 int main(int argc, char *argv[])
@@ -19,7 +20,7 @@ int main(int argc, char *argv[])
     qInfo() << projects[1].tickets[0].title;
     qInfo() << projects[1].tickets[0].description;*/
     QApplication a(argc, argv);
-    Project w;
+    Login w;
     w.show();
     return a.exec();
 }
