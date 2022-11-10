@@ -34,6 +34,7 @@ Project::Project(int projectID, QWidget *parent) :
         }
         break;
     }
+
     ui->title->setText(projects[projectIdx].name);
     ui->details->setText(projects[projectIdx].description);
 }
