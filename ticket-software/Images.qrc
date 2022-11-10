@@ -4,5 +4,6 @@
         <file>Images/archiveIcon.png</file>
         <file>Images/hiddenPasswordIcon.png</file>
         <file>Images/searchIcon.png</file>
+        <file>Images/editEnabledIcon.png</file>
     </qresource>
 </RCC>

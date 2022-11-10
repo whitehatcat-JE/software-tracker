@@ -23,6 +23,10 @@ public:
 private slots:
     void on_lineEditPassword_textChanged(const QString &query);
 
+    void on_detailsButton_toggled(bool checked);
+
+    void on_detailsButton_2_toggled(bool checked);
+
 private:
     Ui::Project *ui;
     int assignedIdentifier;

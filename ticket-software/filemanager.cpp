@@ -16,7 +16,7 @@ QString FileManager::loadProjects() {
 void FileManager::saveProjects(QString projectData) {
     // Open file from disk
     QFile file("projectsDB.txt");
-    file.open(QIODevice::ReadWrite | QIODevice::Append);
+    file.open(QIODevice::WriteOnly | QIODevice::Truncate);
     // Writes project data to disk
     QTextStream stream(&file);
     stream << projectData;

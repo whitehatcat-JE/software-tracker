@@ -1,6 +1,6 @@
 #include "project.h"
 #include "ui_project.h"
-
+#include <qDebug>
 Project::Project(int projectID, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Project)
@@ -73,6 +73,50 @@ void Project::on_lineEditPassword_textChanged(const QString &query)
             displayedTickets.push_back(button);
         }
         break;
+    }
+}
+
+
+void Project::on_detailsButton_toggled(bool checked)
+{
+    if (checked) {
+        ui->detailsButton->setText(" Save");
+        ui->details->setReadOnly(false);
+        ui->details->setStyleSheet("font-size: 24px;font-family: Inter;color: #010511; font-weight:lighter; background-color:white; border:0px;");
+    } else {
+        FileManager myFiles;
+        QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
+        for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
+            if (projects[projectIdx].uniqueIdentifier == assignedIdentifier) {
+                projects[projectIdx].description = ui->details->toPlainText();
+                myFiles.saveProjects(myFiles.compileProjects(projects));
+                break;
+            }
+        }
+        ui->detailsButton->setText("");
+        ui->details->setReadOnly(true);
+        ui->details->setStyleSheet("font-size: 24px;font-family: Inter;color: #D4F8F6; font-weight:lighter; background-color:transparent; border:0px;");
+    }
+}
+
+
+void Project::on_detailsButton_2_toggled(bool checked)
+{
+    if (checked) {
+        ui->title->setReadOnly(false);
+        ui->title->setStyleSheet("font-size: 72px;font-family: Inter;color: #010511; font-weight:bold; background-color:white; border:0px;");
+    } else {
+        FileManager myFiles;
+        QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
+        for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
+            if (projects[projectIdx].uniqueIdentifier == assignedIdentifier) {
+                projects[projectIdx].name = ui->title->text();
+                myFiles.saveProjects(myFiles.compileProjects(projects));
+                break;
+            }
+        }
+        ui->title->setReadOnly(true);
+        ui->title->setStyleSheet("font-size: 72px;font-family: Inter;color: white; font-weight:bold; background-color:transparent; border:0px;");
     }
 }
 
