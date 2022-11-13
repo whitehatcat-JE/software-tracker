@@ -5,6 +5,7 @@
 #include <QDateTime>
 #include <QString>
 #include <QByteArray>
+#include <QMessageBox>
 
 namespace Ui {
 class AddTicket;

@@ -8,7 +8,7 @@ QString FileManager::loadProjects() {
     file.open(QIODevice::ReadOnly);
     // Reads file data
     QTextStream stream(&file);
-    QString projectData = stream.readLine();
+    QString projectData = stream.readAll();
     file.close();
     return projectData;
 };

@@ -1,4 +1,4 @@
-#include "addticket.h".h"
+#include "ticket.h"
 #include <QApplication>
 #include <QDebug>
 
@@ -6,7 +6,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    AddTicket w(0);
+    Ticket w(0, 1668372117);
     w.show();
     return a.exec();
 }

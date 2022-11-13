@@ -608,7 +608,7 @@ hr { height: 1px; border-width: 0; }
           <string notr="true">border:none; background-color:transparent;font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-style:italic;</string>
          </property>
          <property name="text">
-          <string> </string>
+          <string/>
          </property>
          <property name="icon">
           <iconset resource="Images.qrc">
