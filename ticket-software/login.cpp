@@ -1,9 +1,14 @@
 #include "login.h"
 #include "ui_login.h"
 #include "filemanager.h"
+#include "SHA256.h"
 
+#include <cstring>
+#include <sstream>
+#include <iomanip>
 #include <QMessageBox>
 #include <QVector>
+//#include <qDebug>
 
 
 Login::Login(QWidget *parent)
@@ -24,18 +29,36 @@ void Login::on_logInBtn_clicked()
     bool signedIn = false;
     QLineEdit* username = ui->lineEditUsername;
     QLineEdit* password = ui->lineEditPassword;
-    QVector<QVector<QString>> loginAccess = fManager.ReadFile("LoginInformation", 3);
+    std::string hashedPassword = username->text().toStdString() + password->text().toStdString();
+       SHA256 sha;
+       sha.update(hashedPassword);
+       uint8_t* digest = sha.digest();
+       std::string userPass = SHA256::toString(digest);
+    //qDebug() << QString::fromStdString(userPass);
+    QVector<QVector<QString>> loginAccess = fManager.ReadFile("LoginInformation", 100);
     for(int i = 0; i < loginAccess.size(); i++){
         if(username->text() == loginAccess.at(i).at(0)){
-            if(password->text() == loginAccess.at(i).at(1)){
+
+            if( QString::fromStdString(userPass) == loginAccess.at(i).at(1)){
                 signedIn = true;
                 userIndex = i;
                 //Determine messagebox button pressed
+                QMessageBox box(this);
+                box.setIcon(QMessageBox::Information);
+                box.setText("Login Successful");
+                box.setWindowTitle("Sign Up");
+                box.setStandardButtons(QMessageBox::Ok);
+                int returnVal = box.exec();
 
-                QMessageBox::information(this, "Login", "Login Successful");
+                //Determine messagebox button pressed
+                switch(returnVal){
+                case QMessageBox::Ok:
+                //QMessageBox::information(this, "Login", "Login Successful");
                 hide();
                 profile->show();
             }
+
+                }
         }
         else{
             continue;
@@ -45,51 +68,4 @@ void Login::on_logInBtn_clicked()
         QMessageBox::warning(this, "Login", "Incorrect username or password. Please try again");
     }
 }
-//void Login::on_BTNSign_clicked(){
-//    QLineEdit* username = ui->lineEditUsername;
-//    QLineEdit* password = ui->lineEditPassword;
-//    QVector<QString> content;
-//    QVector<QVector<QString>> fileToCheck;
-
-//    content.append(username->text());
-//    content.append(password->text());
-//    content.append("1");
-
-//    if(fManager.CheckValidUser(username->text(), "LoginInformation")){
-//        fManager.WriteFile("LoginInformation", content);
-
-//        //Define message box content
-//        QMessageBox box(this);
-//        box.setIcon(QMessageBox::Information);
-//        box.setText("You have successfully signed up");
-//        box.setWindowTitle("Sign Up");
-//        box.setStandardButtons(QMessageBox::Ok);
-//        int returnVal = box.exec();
-
-//        //Determine messagebox button pressed
-//        switch(returnVal){
-//        QMessageBox::information(this, "Login", "Login Successful");
-//        hide();
-//        profile->show();
-//        };
-
-//    }
-//    else{
-//        QMessageBox::warning(this, "Sign Up", "User with this name already exists");
-//    }
-//}
-
-/*{
-    QString username = ui->lineEditUsername->text();
-    QString password = ui->lineEditPassword->text();
-
-    if(username == "test" && password == "test") {
-        QMessageBox::information(this, "Login", "Login Successful");
-        hide();
-        profile->show();
-    }
-    else {
-        QMessageBox::warning(this, "Login", "Username and/or password not recognised");
-    }
-}*/
 

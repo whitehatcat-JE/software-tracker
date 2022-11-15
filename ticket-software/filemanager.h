@@ -39,6 +39,21 @@ public:
 
         QVector<Ticket> tickets; // List of tickets associated with project
     };
+
+   /* struct User {
+        QString username;
+        QString password;
+        QString job;
+        QString activeTimes;
+        QString location;
+        QString email;
+        QString phone;
+        int accessLevel;
+        int profilePicID;
+        int uniqueIdentifier;
+
+    };*/
+
     // Loads projects data from disk
     QString loadProjects();
     // Saves projects data to disk
