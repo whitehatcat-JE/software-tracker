@@ -6,7 +6,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Ticket w(0, 1668372117);
+    Ticket w(0, 1667343548);
     w.show();
     return a.exec();
 }

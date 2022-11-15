@@ -21,6 +21,9 @@ public:
 private slots:
     void on_archiveButton_toggled(bool checked);
 
+    void on_postButton_clicked();
+    void reloadLogs();
+
 private:
     Ui::Ticket *ui;
     int IDProject;

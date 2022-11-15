@@ -408,6 +408,12 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>300</height>
+              </size>
+             </property>
              <property name="styleSheet">
               <string notr="true">font-size: 24px;font-family: Inter;color: #D4F8F6; font-weight:lighter; padding:5px; background-color:transparent;</string>
              </property>
@@ -589,7 +595,7 @@ hr { height: 1px; border-width: 0; }
             </spacer>
            </item>
            <item>
-            <widget class="QTextEdit" name="details">
+            <widget class="QTextEdit" name="postEntryText">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
@@ -639,7 +645,7 @@ hr { height: 1px; border-width: 0; }
               <number>10</number>
              </property>
              <item>
-              <widget class="QPushButton" name="pushButton_9">
+              <widget class="QPushButton" name="postButton">
                <property name="minimumSize">
                 <size>
                  <width>100</width>
@@ -676,7 +682,11 @@ hr { height: 1px; border-width: 0; }
             </layout>
            </item>
            <item>
-            <layout class="QVBoxLayout" name="posts"/>
+            <layout class="QVBoxLayout" name="posts">
+             <property name="bottomMargin">
+              <number>10</number>
+             </property>
+            </layout>
            </item>
            <item>
             <spacer name="verticalSpacer">

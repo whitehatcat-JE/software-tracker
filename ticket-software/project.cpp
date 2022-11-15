@@ -1,6 +1,6 @@
 #include "project.h"
 #include "ui_project.h"
-#include <qDebug>
+
 Project::Project(int projectID, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Project)

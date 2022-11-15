@@ -138,6 +138,7 @@ QVector<FileManager::Project> FileManager::interpretProjects(QString projectData
             } else if (c == '`') { // Adds new log to ticket
                 if (columns.size() == 3) { // Places log data in ticket
                     columns.pop_front();
+                    currentLog.isConsole = (itemStr[0] == '1');
                     currentTicket.logs.push_back(currentLog);
 
                     Log newLog;
