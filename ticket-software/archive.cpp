@@ -8,6 +8,14 @@ Archive::Archive(int projectID, QWidget *parent) :
     ui->setupUi(this);
     IDProject = projectID;
 
+    FileManager myFiles;
+    QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
+
+    for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
+        if (projects[projectIdx].uniqueIdentifier != IDProject) { continue; }
+
+    }
+
     reloadTickets();
 }
 

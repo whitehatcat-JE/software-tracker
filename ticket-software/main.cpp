@@ -1,6 +1,7 @@
 #include "archive.h"
 #include "ticket.h"
 #include "project.h"
+#include "management.h"
 #include <QApplication>
 #include <QDebug>
 
@@ -8,7 +9,8 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Ticket w(0, 1668371875);
+    //Ticket w(0, 1668371875);
+    Management w;
     //Archive w(0);
     //Ticket w(0, 1667343548);
     //Project w(0);
