@@ -50,6 +50,14 @@ Ticket::~Ticket()
 }
 
 void Ticket::reloadLogs() {
+    QVector<QLabel*> list = ui->assignedItems->findChildren<QLabel *>(QString(), Qt::FindChildrenRecursively);
+    for (int widIdx = 0; widIdx < list.size(); widIdx++) {
+        if (list.at(widIdx)->objectName() == "logStuff") { delete list.at(widIdx); }
+    }
+    QVector<QPushButton*> listB = ui->assignedItems->findChildren<QPushButton *>(QString(), Qt::FindChildrenRecursively);
+    for (int widIdx = 0; widIdx < listB.size(); widIdx++) {
+        if (listB.at(widIdx)->objectName() == "logStuff") { delete listB.at(widIdx); }
+    }
     FileManager myFiles;
     QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
     for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
@@ -78,6 +86,9 @@ void Ticket::reloadLogs() {
                         logInfoLayout->addWidget(logUser);
                         logInfoLayout->addWidget(logUserIcon);
                         ui->posts->addLayout(logInfoLayout);
+                        logDetails->setObjectName("logStuff");
+                        logUser->setObjectName("logStuff");
+                        logUserIcon->setObjectName("logStuff");
                     } else {
                         QLabel *logText = new QLabel(this);
                         logText->setStyleSheet("font-size: 24px;font-family: Inter;color: #D4F8F6; font-weight:lighter; padding:5px; background-color:#32ACBE;");
@@ -103,22 +114,18 @@ void Ticket::reloadLogs() {
                         logInfoLayout->addWidget(logUserIcon);
                         ui->posts->addWidget(logText);
                         ui->posts->addLayout(logInfoLayout);
+                        logText->setObjectName("logStuff");
+                        logDetails->setObjectName("logStuff");
+                        logUser->setObjectName("logStuff");
+                        logUserIcon->setObjectName("logStuff");
                     }
                     QLabel *logSpacing = new QLabel(this);
+                    logSpacing->setObjectName("logStuff");
                     logSpacing->setStyleSheet("background-color:transparent; font-size:10px;");
                     ui->posts->addWidget(logSpacing);
                 }
             }
         }
-    }
-    QObjectList list = ui->posts->children();
-    for (int i = 0; i < list.size(); i++) {
-        QObjectList subList = list.at(i)->children();
-
-        for (int x = 0; x < list.size(); x++) {
-            delete subList.at(x);
-        }
-        list.at(i)->deleteLater();
     }
 }
 
@@ -174,6 +181,7 @@ void Ticket::on_archiveButton_toggled(bool checked)
         ui->archiveButton->setText("Close Ticket");
         ui->archiveButton->setStyleSheet("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:#CA0736; border-radius:1px;");
     }
+    reloadLogs();
 }
 
 void Ticket::on_postButton_clicked()
@@ -201,5 +209,6 @@ void Ticket::on_postButton_clicked()
         }
     }
     myFiles.saveProjects(myFiles.compileProjects(projects));
+    reloadLogs();
 }
 

@@ -1,10 +1,16 @@
 #ifndef TICKET_H
 #define TICKET_H
 
-#include <QWidget>
 #include "filemanager.h"
+
+#include <QWidget>
 #include <QDateTime>
 #include <QByteArray>
+#include <QLabel>
+#include <QPushButton>
+#include <QHBoxLayout>
+#include <QIcon>
+#include <QMessageBox>
 
 namespace Ui {
 class Ticket;
