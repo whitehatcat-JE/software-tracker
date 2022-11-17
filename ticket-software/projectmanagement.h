@@ -15,8 +15,13 @@ public:
     explicit ProjectManagement(QWidget *parent = nullptr);
     ~ProjectManagement();
 
+private slots:
+    void on_createProjectButton_clicked();
+
 private:
     Ui::ProjectManagement *ui;
+    void reloadProjects();
+    void deleteProject(int projectID);
 };
 
 #endif // PROJECTMANAGEMENT_H

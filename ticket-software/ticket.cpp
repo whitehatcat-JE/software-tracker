@@ -35,6 +35,7 @@ Ticket::Ticket(int projectID, int ticketID, QWidget *parent) :
                 if (!projects[projectIdx].tickets[ticketIdx].isOpen) {
                     ui->archiveButton->setText("Re-open Ticket");
                     ui->archiveButton->setDown(true);
+
                     ui->archiveButton->setStyleSheet("font-size: 24px;font-family: Inter;color:#CA0736; font-weight:bold; border:none; background-color:rgb(255, 255, 255); border-radius:1px;");
                 }
                 break;
