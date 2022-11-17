@@ -14,6 +14,10 @@ Assignments::Assignments(QWidget *parent) :
 
 Assignments::~Assignments()
 {
+    FileManager myFiles;
+    FileManager::StateData currentState;
+    currentState.newPage = 1;
+    myFiles.saveState(currentState);
     delete ui;
 }
 

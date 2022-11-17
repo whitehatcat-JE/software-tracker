@@ -39,6 +39,14 @@ public:
 
         QVector<Ticket> tickets; // List of tickets associated with project
     };
+
+    struct StateData {
+        int userID;
+        int newPage;
+        int pageData;
+        QString password;
+    };
+
     // Loads projects data from disk
     QString loadProjects();
     // Saves projects data to disk
@@ -47,6 +55,9 @@ public:
     QString compileProjects(QVector<Project> projects);
     // Stores all project data contained within QString as Structs / Vectors, for easier access
     QVector<Project> interpretProjects(QString projectData);
+
+    void saveState(StateData state);
+    StateData loadState();
 };
 
 #endif // FILEMANAGER_H

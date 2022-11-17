@@ -1,5 +1,5 @@
 #include "filemanager.h"
-
+#include <qDebug>
 FileManager::FileManager(){}
 // Loads project data from disk
 QString FileManager::loadProjects() {
@@ -148,3 +148,35 @@ QVector<FileManager::Project> FileManager::interpretProjects(QString projectData
         } else itemStr.append(c); // Adds new char to current item
     } return projects;
 };
+
+void FileManager::saveState(StateData state) {
+    // Open file from disk
+    QFile file("cachedState.csv");
+    file.open(QIODevice::ReadWrite | QIODevice::Append);
+    // Writes project data to disk
+    QTextStream stream(&file);
+    stream << state.userID << ',' << state.password << ',' << state.newPage << ',' << state.pageData << "\n";
+    file.close();
+}
+
+FileManager::StateData FileManager::loadState() {
+    FileManager::StateData myState;
+    QFile file("cachedState.csv");
+    file.open(QIODevice::ReadOnly);
+    if (!file.isOpen()) {
+        myState.newPage = 0;
+        myState.userID = 0;
+        myState.password = "";
+        myState.pageData = 0;
+        return myState;
+    }
+    QTextStream stream(&file);
+    QString stateInfo = stream.readLine();
+    QVector<QString> stateInfoVec;
+    stateInfoVec.append(stateInfo.split(","));
+    myState.userID = stateInfoVec[0].toInt();
+    myState.password = stateInfoVec[1];
+    myState.newPage = stateInfoVec[2].toInt();
+    myState.pageData = stateInfoVec[3].toInt();
+    return myState;
+}

@@ -5,16 +5,28 @@
 #include <QApplication>
 #include <QDebug>
 #include "assignments.h"
+#include "filemanager.h"
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    //Ticket w(0, 1668371875);
-    ProjectManagement w;
-    //Archive w(0);
-    //Ticket w(0, 1667343548);
-    //Project w(0);
-    //Assignments w;
-    w.show();
-    return a.exec();
+    FileManager myFiles;
+    do {
+        FileManager::StateData state = myFiles.loadState();
+        QApplication a(argc, argv);
+        Assignments assignment;
+        ProjectManagement projectManage;
+        switch (state.newPage) {
+            case 0:
+                assignment.show();
+                break;
+            case 1:
+                projectManage.show();
+                break;
+        }
+        a.exec();
+    } while(myFiles.loadState().newPage != 0);
+    //QApplication b(argc, argv);
+    //x.show();
+    //b.exec();
+    //return a.exec();
 }

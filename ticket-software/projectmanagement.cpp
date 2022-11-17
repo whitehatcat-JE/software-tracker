@@ -66,6 +66,10 @@ void ProjectManagement::reloadProjects() {
 
 ProjectManagement::~ProjectManagement()
 {
+    FileManager myFiles;
+    FileManager::StateData currentState;
+    currentState.newPage = 0;
+    myFiles.saveState(currentState);
     delete ui;
 }
 
