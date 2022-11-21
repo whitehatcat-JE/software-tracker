@@ -48,6 +48,19 @@ public:
         QString password;
     };
 
+    struct TicketIDs {
+        int projectID;
+        int ticketID;
+    };
+
+    struct Group {
+        int ID;
+        QString name;
+        QVector<TicketIDs> tickets = {};
+        QVector<int> projects = {};
+        QVector<int> users = {};
+    };
+
     // Loads projects data from disk
     QString loadProjects();
     // Saves projects data to disk
@@ -60,6 +73,9 @@ public:
     void saveState(StateData state);
     void clearState();
     StateData loadState();
+
+    QVector<Group> loadGroups();
+    void saveGroups(QVector<Group>);
 };
 
 #endif // FILEMANAGER_H

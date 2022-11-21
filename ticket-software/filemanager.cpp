@@ -190,3 +190,81 @@ void FileManager::clearState() {
     QFile file ("cachedState.csv");
     file.remove();
 }
+
+QVector<FileManager::Group> FileManager::loadGroups() {
+    QFile groupFile("groups.csv");
+    groupFile.open(QIODevice::ReadOnly);
+
+    QFile relationFile("groupRelations.csv");
+    relationFile.open(QIODevice::ReadOnly);
+    if (!groupFile.isOpen() || !relationFile.isOpen()) { return {}; }
+
+    QVector<FileManager::Group> groups = {};
+
+    while (!groupFile.atEnd()) {
+        QByteArray line = groupFile.readLine();
+        FileManager::Group newGroup;
+        newGroup.ID = line.split(',')[0].toInt();
+        newGroup.name = line.split(',')[1];
+        groups.push_back(newGroup);
+    }
+
+    while (!relationFile.atEnd()) {
+        QByteArray line = relationFile.readLine();
+        QVector<QByteArray> lineVec = line.split(',').toVector();
+        if (lineVec[1].toInt() == 0) {
+            FileManager::TicketIDs newTicket;
+            newTicket.projectID = lineVec[2].toInt();
+            newTicket.ticketID = lineVec[3].toInt();
+            for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
+                if (groups[groupIdx].ID == lineVec[0].toInt()) {
+                    groups[groupIdx].tickets.push_back(newTicket);
+                    break;
+                }
+            }
+        } else if (lineVec[1].toInt() == 1) {
+            for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
+                if (groups[groupIdx].ID == lineVec[0].toInt()) {
+                    groups[groupIdx].projects.push_back(lineVec[2].toInt());
+                    break;
+                }
+            }
+        } else if (lineVec[1].toInt() == 2) {
+            for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
+                if (groups[groupIdx].ID == lineVec[0].toInt()) {
+                    groups[groupIdx].users.push_back(lineVec[2].toInt());
+                    break;
+                }
+            }
+        }
+    }
+    groupFile.close();
+    relationFile.close();
+    return groups;
+}
+
+void FileManager::saveGroups(QVector<FileManager::Group> groups) {
+    QFile groupFile("groups.csv");
+    groupFile.open(QIODevice::ReadWrite | QIODevice::Truncate);
+    QTextStream gStream(&groupFile);
+    QFile relationFile("groupRelations.csv");
+    relationFile.open(QIODevice::ReadWrite | QIODevice::Truncate);
+    QTextStream rStream(&relationFile);
+    if (!groupFile.isOpen() || !relationFile.isOpen()) { return; }
+
+    for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
+        gStream << groups[groupIdx].ID << "," << groups[groupIdx].name << "\n";
+        for (int ticketIdx = 0; ticketIdx < groups[groupIdx].tickets.size(); ticketIdx++) {
+            rStream << groups[groupIdx].ID << ",0," << groups[groupIdx].tickets[ticketIdx].projectID
+                    << groups[groupIdx].tickets[ticketIdx].ticketID << "\n";
+        }
+        for (int projectIdx = 0; projectIdx < groups[groupIdx].projects.size(); projectIdx++) {
+            rStream << groups[groupIdx].ID << ",1," << groups[groupIdx].projects[projectIdx] << "\n";
+        }
+        for (int userIdx = 0; userIdx < groups[groupIdx].users.size(); userIdx++) {
+            rStream << groups[groupIdx].ID << ",2," << groups[groupIdx].users[userIdx] << "\n";
+        }
+    }
+    groupFile.close();
+    relationFile.close();
+}
