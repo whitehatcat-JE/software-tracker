@@ -27,10 +27,17 @@ private slots:
     void on_projectsButton_toggled(bool checked);
 
 
+    void on_logoutButton_clicked();
+
+    void on_managementButton_clicked();
+
+    void on_profileButton_clicked();
+
 private:
     Ui::Assignments *ui;
-
+    bool closing = true;
     void on_projectButton_triggered(int id);
+    void openTicket(int projectID, int ticketID);
 };
 
 #endif // ASSIGNMENTS_H

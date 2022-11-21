@@ -7,6 +7,8 @@
 #include <QByteArray>
 #include <QMessageBox>
 
+#include "filemanager.h"
+
 namespace Ui {
 class AddTicket;
 }
@@ -22,9 +24,12 @@ public:
 private slots:
     void on_createTicket_clicked();
 
+    void on_backButton_clicked();
+
 private:
     Ui::AddTicket *ui;
     int assignedIdentifier;
+    bool closing = true;
 };
 
 #endif // ADDTICKET_H

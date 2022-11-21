@@ -103,7 +103,7 @@
        <enum>QLayout::SetMaximumSize</enum>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="profileButton">
         <property name="styleSheet">
          <string notr="true">font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;</string>
         </property>
@@ -148,7 +148,7 @@
        <enum>QLayout::SetMaximumSize</enum>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton_6">
+       <widget class="QPushButton" name="assignButton">
         <property name="styleSheet">
          <string notr="true">font-size: 24px;font-family: Inter;color: #32ACBE; font-weight:bold; border:none;</string>
         </property>
@@ -193,7 +193,7 @@
        <enum>QLayout::SetMaximumSize</enum>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton_7">
+       <widget class="QPushButton" name="managementButton">
         <property name="styleSheet">
          <string notr="true">font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;</string>
         </property>
@@ -254,7 +254,7 @@
        <enum>QLayout::SetMaximumSize</enum>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton_8">
+       <widget class="QPushButton" name="logoutButton">
         <property name="styleSheet">
          <string notr="true">font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;</string>
         </property>
@@ -489,30 +489,28 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
             </spacer>
            </item>
            <item>
-            <widget class="QLabel" name="label_3">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
+            <widget class="QPushButton" name="archiveButton">
+             <property name="styleSheet">
+              <string notr="true">border:none; background-color:transparent;font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-style:italic;</string>
              </property>
-             <property name="maximumSize">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="Images.qrc">
+               <normaloff>:/Image/Images/archiveIcon.png</normaloff>:/Image/Images/archiveIcon.png</iconset>
+             </property>
+             <property name="iconSize">
               <size>
                <width>50</width>
                <height>50</height>
               </size>
              </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="pixmap">
-              <pixmap resource="Images.qrc">:/Image/Images/archiveIcon.png</pixmap>
-             </property>
-             <property name="scaledContents">
+             <property name="checkable">
               <bool>true</bool>
              </property>
-             <property name="margin">
-              <number>5</number>
+             <property name="flat">
+              <bool>false</bool>
              </property>
             </widget>
            </item>
@@ -739,7 +737,7 @@ hr { height: 1px; border-width: 0; }
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="createTicketButton">
          <property name="minimumSize">
           <size>
            <width>200</width>

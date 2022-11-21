@@ -1,5 +1,5 @@
 #include "filemanager.h"
-#include <qDebug>
+#include <QDebug>
 FileManager::FileManager(){}
 // Loads project data from disk
 QString FileManager::loadProjects() {
@@ -152,10 +152,12 @@ QVector<FileManager::Project> FileManager::interpretProjects(QString projectData
 void FileManager::saveState(StateData state) {
     // Open file from disk
     QFile file("cachedState.csv");
-    file.open(QIODevice::ReadWrite | QIODevice::Append);
+    file.open(QIODevice::ReadWrite | QIODevice::Truncate);
     // Writes project data to disk
     QTextStream stream(&file);
-    stream << state.userID << ',' << state.password << ',' << state.newPage << ',' << state.pageData << "\n";
+    stream << state.userID << ',' << state.password << ',' <<
+          state.newPage << ',' << state.pageData << ',' <<
+          state.secondaryPageData << "\n";
     file.close();
 }
 
@@ -164,10 +166,11 @@ FileManager::StateData FileManager::loadState() {
     QFile file("cachedState.csv");
     file.open(QIODevice::ReadOnly);
     if (!file.isOpen()) {
-        myState.newPage = 0;
+        myState.newPage = 2;
         myState.userID = 0;
         myState.password = "";
         myState.pageData = 0;
+        myState.secondaryPageData = 0;
         return myState;
     }
     QTextStream stream(&file);
@@ -178,5 +181,12 @@ FileManager::StateData FileManager::loadState() {
     myState.password = stateInfoVec[1];
     myState.newPage = stateInfoVec[2].toInt();
     myState.pageData = stateInfoVec[3].toInt();
+    myState.secondaryPageData = stateInfoVec[4].toInt();
+    file.close();
     return myState;
+}
+
+void FileManager::clearState() {
+    QFile file ("cachedState.csv");
+    file.remove();
 }

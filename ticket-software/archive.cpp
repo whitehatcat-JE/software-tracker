@@ -11,16 +11,22 @@ Archive::Archive(int projectID, QWidget *parent) :
     FileManager myFiles;
     QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
 
+
     for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
         if (projects[projectIdx].uniqueIdentifier != IDProject) { continue; }
-
+        ui->title->setText(projects[projectIdx].name);
     }
-
     reloadTickets();
 }
 
 Archive::~Archive()
 {
+    if (closing) {
+        FileManager myFiles;
+        FileManager::StateData currentState;
+        currentState.newPage = -1;
+        myFiles.saveState(currentState);
+    }
     delete ui;
 }
 
@@ -104,5 +110,55 @@ void Archive::deleteTicket(int ticketID) {
 }
 
 void Archive::openTicket(int ticketID) {
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 4;
+    state.pageData = IDProject;
+    state.secondaryPageData = ticketID;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
 
+void Archive::on_assignButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 2;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+
+void Archive::on_profileButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 1;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+
+void Archive::on_managementButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 7;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+
+void Archive::on_logoutButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 0;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
 }

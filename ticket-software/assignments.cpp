@@ -1,8 +1,6 @@
 #include "assignments.h"
 #include "ui_assignments.h"
 
-#include "project.h"
-
 #include <QDebug>
 
 Assignments::Assignments(QWidget *parent) :
@@ -14,10 +12,12 @@ Assignments::Assignments(QWidget *parent) :
 
 Assignments::~Assignments()
 {
-    FileManager myFiles;
-    FileManager::StateData currentState;
-    currentState.newPage = 1;
-    myFiles.saveState(currentState);
+    if (closing) {
+        FileManager myFiles;
+        FileManager::StateData currentState;
+        currentState.newPage = -1;
+        myFiles.saveState(currentState);
+    }
     delete ui;
 }
 
@@ -38,11 +38,15 @@ void Assignments::on_ticketsButton_toggled(bool checked)
         QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
         for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
             for (int ticketIdx = 0; ticketIdx < projects[projectIdx].tickets.size(); ticketIdx++) {
+                if (!projects[projectIdx].tickets[ticketIdx].isOpen) { continue; }
                 QPushButton *button = new QPushButton(this);
                 button->setObjectName("displayedTicket" + QString::number(ticketIdx));
                 button->setText(projects[projectIdx].tickets[ticketIdx].title);
                 button->setStyleSheet("background-color: #32ACBE; color: white; height: 50px; font-family: Inter; font-size: 24px; font-weight: bold; text-align: left; padding-left: 10px; border:none;");
+                int projectID = projects[projectIdx].uniqueIdentifier;
+                int ticketID = projects[projectIdx].tickets[ticketIdx].creationTime;
 
+                connect(button, &QPushButton::clicked, [this, projectID, ticketID] { openTicket(projectID, ticketID); });
                 QLabel *label = new QLabel("metadata", button);
                 QString metadataString = "Created on: 9/12/22 - ";
                 metadataString += projects[projectIdx].tickets[ticketIdx].system + " - ";
@@ -114,13 +118,60 @@ void Assignments::on_projectsButton_toggled(bool checked)
             int projectIdentifer = projects[projectIdx].uniqueIdentifier;
             connect(button, &QPushButton::clicked, [this, projectIdentifer] { on_projectButton_triggered(projectIdentifer); });
             ui->projectsLayout->addWidget(button);
-
         }
     }
 }
 
 void Assignments::on_projectButton_triggered(int id) {
-    Project* sWindow = new Project(id);
-    sWindow->show();
-    this->hide();
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 3;
+    state.pageData = id;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
 }
+
+void Assignments::on_logoutButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 0;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+
+void Assignments::on_managementButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 7;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+
+void Assignments::on_profileButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 1;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+void Assignments::openTicket(int projectID, int ticketID) {
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 4;
+    state.pageData = projectID;
+    state.secondaryPageData = ticketID;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+

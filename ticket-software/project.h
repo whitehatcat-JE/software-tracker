@@ -8,6 +8,7 @@
 #include <QVector>
 
 #include "filemanager.h"
+
 namespace Ui {
 class Project;
 }
@@ -27,10 +28,25 @@ private slots:
 
     void on_detailsButton_2_toggled(bool checked);
 
+    void on_assignButton_clicked();
+
+    void on_profileButton_clicked();
+
+    void on_managementButton_clicked();
+
+    void on_logoutButton_clicked();
+
+    void on_createTicketButton_clicked();
+
+    void on_archiveButton_clicked();
+
 private:
     Ui::Project *ui;
     int assignedIdentifier;
+    bool closing = true;
     QVector<QPushButton*> displayedTickets;
+
+    void openTicket(int ticketID);
 };
 
 #endif // PROJECT_H

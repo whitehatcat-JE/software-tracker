@@ -44,6 +44,7 @@ public:
         int userID;
         int newPage;
         int pageData;
+        int secondaryPageData;
         QString password;
     };
 
@@ -57,6 +58,7 @@ public:
     QVector<Project> interpretProjects(QString projectData);
 
     void saveState(StateData state);
+    void clearState();
     StateData loadState();
 };
 

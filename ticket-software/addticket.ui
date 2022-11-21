@@ -295,25 +295,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QLineEdit" name="title">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>50</y>
-     <width>591</width>
-     <height>82</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font-size: 50px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:transparent;</string>
-   </property>
-   <property name="text">
-    <string>◄ Untitled MMO</string>
-   </property>
-   <property name="readOnly">
-    <bool>true</bool>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="ticketTitle">
    <property name="geometry">
     <rect>
@@ -526,7 +507,7 @@ hr { height: 1px; border-width: 0; }
     <string> Greg</string>
    </property>
    <property name="icon">
-    <iconset resource="Images.qrc">
+    <iconset>
      <normaloff>:/Image/Images/placeholderProfileIcon.png</normaloff>:/Image/Images/placeholderProfileIcon.png</iconset>
    </property>
    <property name="iconSize">
@@ -536,9 +517,29 @@ hr { height: 1px; border-width: 0; }
     </size>
    </property>
   </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>70</y>
+     <width>571</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>35</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size: 50px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:transparent; text-align:left;</string>
+   </property>
+   <property name="text">
+    <string>◄ Untitled MMO</string>
+   </property>
+  </widget>
  </widget>
- <resources>
-  <include location="Images.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

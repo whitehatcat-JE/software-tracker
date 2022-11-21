@@ -19,13 +19,19 @@ AddTicket::AddTicket(int projectID, QWidget *parent) :
     int projectIdx = 0;
     for (;projectIdx < projects.size(); projectIdx++) {
         if (projects[projectIdx].uniqueIdentifier != projectID) { continue;}
-        ui->title->setText("◄ " + projects[projectIdx].name);
+        ui->backButton->setText("◄ " + projects[projectIdx].name);
         ui->extraData->setText("- " + projects[projectIdx].name + " - Unresolved");
     }
 }
 
 AddTicket::~AddTicket()
 {
+    if (closing) {
+        FileManager myFiles;
+        FileManager::StateData currentState;
+        currentState.newPage = -1;
+        myFiles.saveState(currentState);
+    }
     delete ui;
 }
 
@@ -65,5 +71,24 @@ void AddTicket::on_createTicket_clicked()
             myFiles.saveProjects(myFiles.compileProjects(projects));
         }
     }
+
+    FileManager::StateData state;
+    state.newPage = 3;
+    state.pageData = assignedIdentifier;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+
+void AddTicket::on_backButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 3;
+    state.pageData = assignedIdentifier;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
 }
 

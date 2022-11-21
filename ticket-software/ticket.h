@@ -1,8 +1,6 @@
 #ifndef TICKET_H
 #define TICKET_H
 
-#include "filemanager.h"
-
 #include <QWidget>
 #include <QDateTime>
 #include <QByteArray>
@@ -11,6 +9,8 @@
 #include <QHBoxLayout>
 #include <QIcon>
 #include <QMessageBox>
+
+#include "filemanager.h"
 
 namespace Ui {
 class Ticket;
@@ -25,15 +25,25 @@ public:
     ~Ticket();
 
 private slots:
-    void on_archiveButton_toggled(bool checked);
-
     void on_postButton_clicked();
     void reloadLogs();
+
+    void on_profileButton_clicked();
+
+    void on_assignButton_clicked();
+
+    void on_managementButton_clicked();
+
+    void on_logoutButton_clicked();
+
+    void on_archiveButton_clicked();
 
 private:
     Ui::Ticket *ui;
     int IDProject;
     int IDTicket;
+
+    bool closing = true;
 };
 
 #endif // TICKET_H

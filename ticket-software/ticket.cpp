@@ -34,8 +34,6 @@ Ticket::Ticket(int projectID, int ticketID, QWidget *parent) :
                 ui->detailsText->setText(details);
                 if (!projects[projectIdx].tickets[ticketIdx].isOpen) {
                     ui->archiveButton->setText("Re-open Ticket");
-                    ui->archiveButton->setDown(true);
-
                     ui->archiveButton->setStyleSheet("font-size: 24px;font-family: Inter;color:#CA0736; font-weight:bold; border:none; background-color:rgb(255, 255, 255); border-radius:1px;");
                 }
                 break;
@@ -47,6 +45,12 @@ Ticket::Ticket(int projectID, int ticketID, QWidget *parent) :
 
 Ticket::~Ticket()
 {
+    if (closing) {
+        FileManager myFiles;
+        FileManager::StateData currentState;
+        currentState.newPage = -1;
+        myFiles.saveState(currentState);
+    }
     delete ui;
 }
 
@@ -130,61 +134,6 @@ void Ticket::reloadLogs() {
     }
 }
 
-void Ticket::on_archiveButton_toggled(bool checked)
-{
-    FileManager myFiles;
-    QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
-    for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
-        if (projects[projectIdx].uniqueIdentifier != IDProject) { continue; }
-        for (int ticketIdx = 0; ticketIdx < projects[projectIdx].tickets.size(); ticketIdx++) {
-            if (projects[projectIdx].tickets[ticketIdx].creationTime == IDTicket) {
-                projects[projectIdx].tickets[ticketIdx].isOpen = !checked;
-            }
-        }
-    }
-    myFiles.saveProjects(myFiles.compileProjects(projects));
-    if (checked) {
-        FileManager myFiles;
-        QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
-        FileManager::Log newLog;
-        newLog.creationTime = QDateTime::currentDateTime().toSecsSinceEpoch();
-        newLog.description = "Ticket closed";
-        newLog.uniqueIdentifier = 0;
-        newLog.isConsole = true;
-        for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
-            if (projects[projectIdx].uniqueIdentifier != IDProject) { continue; }
-            for (int ticketIdx = 0; ticketIdx < projects[projectIdx].tickets.size(); ticketIdx++) {
-                if (projects[projectIdx].tickets[ticketIdx].creationTime == IDTicket) {
-                    projects[projectIdx].tickets[ticketIdx].logs.append(newLog);
-                }
-            }
-        }
-        myFiles.saveProjects(myFiles.compileProjects(projects));
-        ui->archiveButton->setText("Re-open Ticket");
-        ui->archiveButton->setStyleSheet("font-size: 24px;font-family: Inter;color:#CA0736; font-weight:bold; border:none; background-color:rgb(255, 255, 255); border-radius:1px;");
-    } else {
-        FileManager myFiles;
-        QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
-        FileManager::Log newLog;
-        newLog.creationTime = QDateTime::currentDateTime().toSecsSinceEpoch();
-        newLog.description = "Ticket re-opened";
-        newLog.uniqueIdentifier = 0;
-        newLog.isConsole = true;
-        for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
-            if (projects[projectIdx].uniqueIdentifier != IDProject) { continue; }
-            for (int ticketIdx = 0; ticketIdx < projects[projectIdx].tickets.size(); ticketIdx++) {
-                if (projects[projectIdx].tickets[ticketIdx].creationTime == IDTicket) {
-                    projects[projectIdx].tickets[ticketIdx].logs.append(newLog);
-                }
-            }
-        }
-        myFiles.saveProjects(myFiles.compileProjects(projects));
-        ui->archiveButton->setText("Close Ticket");
-        ui->archiveButton->setStyleSheet("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:#CA0736; border-radius:1px;");
-    }
-    reloadLogs();
-}
-
 void Ticket::on_postButton_clicked()
 {
     if (ui->postEntryText->toPlainText().size() == 0) {
@@ -210,6 +159,77 @@ void Ticket::on_postButton_clicked()
         }
     }
     myFiles.saveProjects(myFiles.compileProjects(projects));
+    reloadLogs();
+}
+
+void Ticket::on_assignButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 2;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+void Ticket::on_profileButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 1;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+void Ticket::on_managementButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 7;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+void Ticket::on_logoutButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 0;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+void Ticket::on_archiveButton_clicked()
+{
+    bool isOpen = false;
+    FileManager myFiles;
+    QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
+    for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
+        if (projects[projectIdx].uniqueIdentifier != IDProject) { continue; }
+        for (int ticketIdx = 0; ticketIdx < projects[projectIdx].tickets.size(); ticketIdx++) {
+            if (projects[projectIdx].tickets[ticketIdx].creationTime == IDTicket) {
+                projects[projectIdx].tickets[ticketIdx].isOpen = !projects[projectIdx].tickets[ticketIdx].isOpen;
+                isOpen = projects[projectIdx].tickets[ticketIdx].isOpen;
+                FileManager::Log newLog;
+                newLog.creationTime = QDateTime::currentDateTime().toSecsSinceEpoch();
+                newLog.description = isOpen ? "Ticket re-opened" : "Ticket closed";
+                newLog.uniqueIdentifier = 0;
+                newLog.isConsole = true;
+                projects[projectIdx].tickets[ticketIdx].logs.append(newLog);
+            }
+        }
+    }
+    myFiles.saveProjects(myFiles.compileProjects(projects));
+    if (isOpen) {
+        ui->archiveButton->setText("Close Ticket");
+        ui->archiveButton->setStyleSheet("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:#CA0736; border-radius:1px;");
+    } else {
+        ui->archiveButton->setText("Re-open Ticket");
+        ui->archiveButton->setStyleSheet("font-size: 24px;font-family: Inter;color:#CA0736; font-weight:bold; border:none; background-color:rgb(255, 255, 255); border-radius:1px;");
+    }
     reloadLogs();
 }
 

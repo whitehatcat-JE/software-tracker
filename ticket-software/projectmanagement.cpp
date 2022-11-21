@@ -66,10 +66,12 @@ void ProjectManagement::reloadProjects() {
 
 ProjectManagement::~ProjectManagement()
 {
-    FileManager myFiles;
-    FileManager::StateData currentState;
-    currentState.newPage = 0;
-    myFiles.saveState(currentState);
+    if (closing) {
+        FileManager myFiles;
+        FileManager::StateData currentState;
+        currentState.newPage = -1;
+        myFiles.saveState(currentState);
+    }
     delete ui;
 }
 
@@ -105,4 +107,47 @@ void ProjectManagement::deleteProject(int projectID) {
     }
     myFiles.saveProjects(myFiles.compileProjects(newProjects));
     reloadProjects();
+}
+
+void ProjectManagement::on_assignButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 2;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+
+void ProjectManagement::on_profileButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 1;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+
+void ProjectManagement::on_managementButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 7;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+
+void ProjectManagement::on_logoutButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 0;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
 }
