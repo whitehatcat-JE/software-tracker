@@ -65,23 +65,22 @@ void Assignments::on_groupsButton_toggled(bool checked)
 {
     if (checked == false) {
         ui->groupsButton->setText("Groups                                                                                                            ►");
-        QObjectList list = ui->assignedItems->widget()->children();
-        for (int i = 0; i < list.size(); i++) {
-            QString name = list.at(i)->objectName();
-            if (name.contains("displayedGroup")) {
-                delete list.at(i);
-            }
+        QVector<QWidget*> widgets = ui->assignedItems->findChildren<QWidget *>(QString(), Qt::FindChildrenRecursively);
+        for (int widIdx = 0; widIdx < widgets.size(); widIdx++) {
+            if (widgets.at(widIdx)->objectName() == "displayedGroup") { delete widgets.at(widIdx); }
         }
     } else {
         ui->groupsButton->setText("Groups                                                                                                            ▼");
-        for (int i = 0; i < 8; i++) {
+        FileManager myFiles;
+        QVector<FileManager::Group> groups = myFiles.loadGroups();
+        for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
             QWidget *groupParent = new QWidget();
-            groupParent->setObjectName("displayedGroup" + QString::number(i));
+            groupParent->setObjectName("displayedGroup");
             ui->groupsLayout->addWidget(groupParent);
             QVBoxLayout *layout = new QVBoxLayout(groupParent);
             layout->setContentsMargins(0, 0, 0, 0);
             QPushButton *button = new QPushButton(this);
-            button->setText("Update 1.0.2 Team");
+            button->setText(groups[groupIdx].name);
             button->setStyleSheet("background-color: #010511; color: white; height: 75px; font-family: Inter; font-size: 24px; font-weight: bold; text-align: left; padding-left: 10px; border:none;");
 
             QLabel *label = new QLabel("groupIndicator", button);

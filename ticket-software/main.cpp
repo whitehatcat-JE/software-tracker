@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
             page.show();
             a.exec();
         } else if (state.newPage == 11) {
-            ManagementSelection page;
+            ManagementSelection page(state.pageData, state.secondaryPageData);
             page.show();
             a.exec();
         }

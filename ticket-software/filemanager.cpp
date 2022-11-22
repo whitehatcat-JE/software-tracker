@@ -200,18 +200,24 @@ QVector<FileManager::Group> FileManager::loadGroups() {
     if (!groupFile.isOpen() || !relationFile.isOpen()) { return {}; }
 
     QVector<FileManager::Group> groups = {};
-
+    QVector<int> groupIDs;
     while (!groupFile.atEnd()) {
         QByteArray line = groupFile.readLine();
         FileManager::Group newGroup;
-        newGroup.ID = line.split(',')[0].toInt();
-        newGroup.name = line.split(',')[1];
+        QVector<QByteArray> lineVec = line.split(',').toVector();
+        newGroup.ID = lineVec[0].toInt();
+        newGroup.name = lineVec[1];
         groups.push_back(newGroup);
+        groupIDs.push_back(newGroup.ID);
     }
-
+    bool missingData = false;
     while (!relationFile.atEnd()) {
         QByteArray line = relationFile.readLine();
         QVector<QByteArray> lineVec = line.split(',').toVector();
+        if (!groupIDs.contains(lineVec[0].toInt())) {
+            missingData = true;
+            continue;
+        }
         if (lineVec[1].toInt() == 0) {
             FileManager::TicketIDs newTicket;
             newTicket.projectID = lineVec[2].toInt();
@@ -238,8 +244,12 @@ QVector<FileManager::Group> FileManager::loadGroups() {
             }
         }
     }
+
     groupFile.close();
     relationFile.close();
+
+    if (missingData) { saveGroups(groups); }
+
     return groups;
 }
 
@@ -253,10 +263,10 @@ void FileManager::saveGroups(QVector<FileManager::Group> groups) {
     if (!groupFile.isOpen() || !relationFile.isOpen()) { return; }
 
     for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
-        gStream << groups[groupIdx].ID << "," << groups[groupIdx].name << "\n";
+        gStream << groups[groupIdx].ID << "," << groups[groupIdx].name << ",\n";
         for (int ticketIdx = 0; ticketIdx < groups[groupIdx].tickets.size(); ticketIdx++) {
             rStream << groups[groupIdx].ID << ",0," << groups[groupIdx].tickets[ticketIdx].projectID
-                    << groups[groupIdx].tickets[ticketIdx].ticketID << "\n";
+                    << "," << groups[groupIdx].tickets[ticketIdx].ticketID << "\n";
         }
         for (int projectIdx = 0; projectIdx < groups[groupIdx].projects.size(); projectIdx++) {
             rStream << groups[groupIdx].ID << ",1," << groups[groupIdx].projects[projectIdx] << "\n";

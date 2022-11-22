@@ -183,6 +183,7 @@ debug/qrc_Images.cpp: ../ticket-software/Images.qrc \
 		../ticket-software/Images/placeholderProfileIcon.png \
 		../ticket-software/Images/hiddenPasswordIcon.png \
 		../ticket-software/Images/editIcon.png \
+		../ticket-software/Images/editEnabledIcon.png \
 		../ticket-software/Images/archiveIcon.png \
 		../ticket-software/Images/trashIcon.png \
 		../ticket-software/Images/searchIcon.png
@@ -810,6 +811,9 @@ debug/moc_groupmanagement.cpp: ../ticket-software/groupmanagement.h \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.4.1/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/qnativeinterface.h \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QMessageBox \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qdialog.h \
 		../ticket-software/filemanager.h \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QString \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QVector \
@@ -1863,6 +1867,9 @@ debug/moc_projectmanagement.cpp: ../ticket-software/projectmanagement.h \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.4.1/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/qnativeinterface.h \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QMessageBox \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qdialog.h \
 		../ticket-software/filemanager.h \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QString \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QVector \
@@ -3081,6 +3088,9 @@ debug/groupmanagement.o: ../ticket-software/groupmanagement.cpp ../ticket-softwa
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.4.1/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/qnativeinterface.h \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QMessageBox \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qdialog.h \
 		../ticket-software/filemanager.h \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QString \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QVector \
@@ -4603,6 +4613,9 @@ debug/projectmanagement.o: ../ticket-software/projectmanagement.cpp ../ticket-so
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.4.1/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/qnativeinterface.h \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QMessageBox \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qdialog.h \
 		../ticket-software/filemanager.h \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QString \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QVector \
@@ -4660,10 +4673,7 @@ debug/projectmanagement.o: ../ticket-software/projectmanagement.cpp ../ticket-so
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qscrollarea.h \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QSpacerItem \
-		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QVBoxLayout \
-		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QMessageBox \
-		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qmessagebox.h \
-		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qdialog.h
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\projectmanagement.o ..\ticket-software\projectmanagement.cpp
 
 debug/ticket.o: ../ticket-software/ticket.cpp ../ticket-software/ticket.h \

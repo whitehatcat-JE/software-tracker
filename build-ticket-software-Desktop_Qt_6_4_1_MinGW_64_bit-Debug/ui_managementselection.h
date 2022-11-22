@@ -13,7 +13,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSpacerItem>
@@ -30,23 +29,23 @@ public:
     QWidget *assignmentCategories_2;
     QVBoxLayout *verticalLayout_3;
     QVBoxLayout *pageFrame_2;
-    QLabel *title;
+    QPushButton *backButton;
     QSpacerItem *verticalSpacer_6;
     QPushButton *backgroundGradient;
     QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_4;
     QVBoxLayout *NavButton_4;
-    QPushButton *pushButton_4;
+    QPushButton *profileButton;
     QFrame *line_4;
     QVBoxLayout *NavButton_15;
-    QPushButton *pushButton_15;
+    QPushButton *assignButton;
     QFrame *line_16;
     QVBoxLayout *NavButton_16;
-    QPushButton *pushButton_16;
+    QPushButton *managementButton;
     QFrame *line_17;
     QSpacerItem *horizontalSpacer_5;
     QVBoxLayout *NavButton_17;
-    QPushButton *pushButton_17;
+    QPushButton *logoutButton;
     QFrame *line_18;
 
     void setupUi(QWidget *ManagementSelection)
@@ -81,14 +80,11 @@ public:
         verticalLayout_3->setObjectName("verticalLayout_3");
         pageFrame_2 = new QVBoxLayout();
         pageFrame_2->setObjectName("pageFrame_2");
-        title = new QLabel(assignmentCategories_2);
-        title->setObjectName("title");
-        title->setMinimumSize(QSize(0, 75));
-        title->setMaximumSize(QSize(16777215, 100));
-        title->setStyleSheet(QString::fromUtf8("font-size: 48px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; padding-left:5px;"));
-        title->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        backButton = new QPushButton(assignmentCategories_2);
+        backButton->setObjectName("backButton");
+        backButton->setStyleSheet(QString::fromUtf8("font-size: 48px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; padding-left:10px; text-align:left;"));
 
-        pageFrame_2->addWidget(title);
+        pageFrame_2->addWidget(backButton);
 
 
         verticalLayout_3->addLayout(pageFrame_2);
@@ -114,11 +110,11 @@ public:
         NavButton_4 = new QVBoxLayout();
         NavButton_4->setObjectName("NavButton_4");
         NavButton_4->setSizeConstraint(QLayout::SetMaximumSize);
-        pushButton_4 = new QPushButton(layoutWidget);
-        pushButton_4->setObjectName("pushButton_4");
-        pushButton_4->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
+        profileButton = new QPushButton(layoutWidget);
+        profileButton->setObjectName("profileButton");
+        profileButton->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
 
-        NavButton_4->addWidget(pushButton_4);
+        NavButton_4->addWidget(profileButton);
 
         line_4 = new QFrame(layoutWidget);
         line_4->setObjectName("line_4");
@@ -138,11 +134,11 @@ public:
         NavButton_15 = new QVBoxLayout();
         NavButton_15->setObjectName("NavButton_15");
         NavButton_15->setSizeConstraint(QLayout::SetMaximumSize);
-        pushButton_15 = new QPushButton(layoutWidget);
-        pushButton_15->setObjectName("pushButton_15");
-        pushButton_15->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
+        assignButton = new QPushButton(layoutWidget);
+        assignButton->setObjectName("assignButton");
+        assignButton->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
 
-        NavButton_15->addWidget(pushButton_15);
+        NavButton_15->addWidget(assignButton);
 
         line_16 = new QFrame(layoutWidget);
         line_16->setObjectName("line_16");
@@ -162,11 +158,11 @@ public:
         NavButton_16 = new QVBoxLayout();
         NavButton_16->setObjectName("NavButton_16");
         NavButton_16->setSizeConstraint(QLayout::SetMaximumSize);
-        pushButton_16 = new QPushButton(layoutWidget);
-        pushButton_16->setObjectName("pushButton_16");
-        pushButton_16->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: #32ACBE; font-weight:bold; border:none;"));
+        managementButton = new QPushButton(layoutWidget);
+        managementButton->setObjectName("managementButton");
+        managementButton->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: #32ACBE; font-weight:bold; border:none;"));
 
-        NavButton_16->addWidget(pushButton_16);
+        NavButton_16->addWidget(managementButton);
 
         line_17 = new QFrame(layoutWidget);
         line_17->setObjectName("line_17");
@@ -190,11 +186,11 @@ public:
         NavButton_17 = new QVBoxLayout();
         NavButton_17->setObjectName("NavButton_17");
         NavButton_17->setSizeConstraint(QLayout::SetMaximumSize);
-        pushButton_17 = new QPushButton(layoutWidget);
-        pushButton_17->setObjectName("pushButton_17");
-        pushButton_17->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
+        logoutButton = new QPushButton(layoutWidget);
+        logoutButton->setObjectName("logoutButton");
+        logoutButton->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
 
-        NavButton_17->addWidget(pushButton_17);
+        NavButton_17->addWidget(logoutButton);
 
         line_18 = new QFrame(layoutWidget);
         line_18->setObjectName("line_18");
@@ -224,12 +220,12 @@ public:
     void retranslateUi(QWidget *ManagementSelection)
     {
         ManagementSelection->setWindowTitle(QCoreApplication::translate("ManagementSelection", "Form", nullptr));
-        title->setText(QCoreApplication::translate("ManagementSelection", "< Groups", nullptr));
+        backButton->setText(QCoreApplication::translate("ManagementSelection", "< Groups", nullptr));
         backgroundGradient->setText(QString());
-        pushButton_4->setText(QCoreApplication::translate("ManagementSelection", "Profile", nullptr));
-        pushButton_15->setText(QCoreApplication::translate("ManagementSelection", "Assigned", nullptr));
-        pushButton_16->setText(QCoreApplication::translate("ManagementSelection", "Management", nullptr));
-        pushButton_17->setText(QCoreApplication::translate("ManagementSelection", "Logout", nullptr));
+        profileButton->setText(QCoreApplication::translate("ManagementSelection", "Profile", nullptr));
+        assignButton->setText(QCoreApplication::translate("ManagementSelection", "Assigned", nullptr));
+        managementButton->setText(QCoreApplication::translate("ManagementSelection", "Management", nullptr));
+        logoutButton->setText(QCoreApplication::translate("ManagementSelection", "Logout", nullptr));
     } // retranslateUi
 
 };

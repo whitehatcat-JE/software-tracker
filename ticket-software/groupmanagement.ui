@@ -53,7 +53,7 @@
      <x>0</x>
      <y>0</y>
      <width>1301</width>
-     <height>41</height>
+     <height>42</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -380,7 +380,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
           </spacer>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEditPassword">
+          <widget class="QLineEdit" name="newGroupName">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -422,7 +422,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_2">
+          <widget class="QPushButton" name="createGroupButton">
            <property name="minimumSize">
             <size>
              <width>200</width>

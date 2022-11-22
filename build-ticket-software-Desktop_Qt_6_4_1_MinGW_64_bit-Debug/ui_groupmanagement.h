@@ -50,9 +50,9 @@ public:
     QLabel *title;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer;
-    QLineEdit *lineEditPassword;
+    QLineEdit *newGroupName;
     QSpacerItem *horizontalSpacer_4;
-    QPushButton *pushButton_2;
+    QPushButton *createGroupButton;
     QSpacerItem *horizontalSpacer_2;
     QSpacerItem *verticalSpacer_5;
 
@@ -71,7 +71,7 @@ public:
         backgroundGradient->setFlat(false);
         layoutWidget = new QWidget(GroupManagement);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(0, 0, 1301, 41));
+        layoutWidget->setGeometry(QRect(0, 0, 1301, 42));
         horizontalLayout_3 = new QHBoxLayout(layoutWidget);
         horizontalLayout_3->setObjectName("horizontalLayout_3");
         horizontalLayout_3->setSizeConstraint(QLayout::SetNoConstraint);
@@ -218,25 +218,25 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer);
 
-        lineEditPassword = new QLineEdit(assignmentCategories);
-        lineEditPassword->setObjectName("lineEditPassword");
-        lineEditPassword->setMinimumSize(QSize(0, 35));
-        lineEditPassword->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: #040F65; font-weight:lighter; padding-right:5px; border:0px; padding-left:5px;\n"
+        newGroupName = new QLineEdit(assignmentCategories);
+        newGroupName->setObjectName("newGroupName");
+        newGroupName->setMinimumSize(QSize(0, 35));
+        newGroupName->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: #040F65; font-weight:lighter; padding-right:5px; border:0px; padding-left:5px;\n"
 ""));
-        lineEditPassword->setClearButtonEnabled(false);
+        newGroupName->setClearButtonEnabled(false);
 
-        horizontalLayout->addWidget(lineEditPassword);
+        horizontalLayout->addWidget(newGroupName);
 
         horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer_4);
 
-        pushButton_2 = new QPushButton(assignmentCategories);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setMinimumSize(QSize(200, 35));
-        pushButton_2->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:#32ACBE; border-radius:1px;"));
+        createGroupButton = new QPushButton(assignmentCategories);
+        createGroupButton->setObjectName("createGroupButton");
+        createGroupButton->setMinimumSize(QSize(200, 35));
+        createGroupButton->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:#32ACBE; border-radius:1px;"));
 
-        horizontalLayout->addWidget(pushButton_2);
+        horizontalLayout->addWidget(createGroupButton);
 
         horizontalSpacer_2 = new QSpacerItem(150, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
 
@@ -272,10 +272,10 @@ public:
         managementButton->setText(QCoreApplication::translate("GroupManagement", "Management", nullptr));
         logoutButton->setText(QCoreApplication::translate("GroupManagement", "Logout", nullptr));
         title->setText(QCoreApplication::translate("GroupManagement", "Groups", nullptr));
-        lineEditPassword->setInputMask(QString());
-        lineEditPassword->setText(QString());
-        lineEditPassword->setPlaceholderText(QCoreApplication::translate("GroupManagement", "New group name...", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("GroupManagement", "Create Group", nullptr));
+        newGroupName->setInputMask(QString());
+        newGroupName->setText(QString());
+        newGroupName->setPlaceholderText(QCoreApplication::translate("GroupManagement", "New group name...", nullptr));
+        createGroupButton->setText(QCoreApplication::translate("GroupManagement", "Create Group", nullptr));
     } // retranslateUi
 
 };

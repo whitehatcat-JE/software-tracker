@@ -445,7 +445,7 @@ hr { height: 1px; border-width: 0; }
               <number>10</number>
              </property>
              <item>
-              <widget class="QPushButton" name="pushButton_5">
+              <widget class="QPushButton" name="assignSelfButton">
                <property name="minimumSize">
                 <size>
                  <width>200</width>
@@ -467,7 +467,7 @@ hr { height: 1px; border-width: 0; }
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_4">
+              <widget class="QPushButton" name="assignGroupButton">
                <property name="minimumSize">
                 <size>
                  <width>200</width>
@@ -489,7 +489,7 @@ hr { height: 1px; border-width: 0; }
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_3">
+              <widget class="QPushButton" name="assignUserButton">
                <property name="minimumSize">
                 <size>
                  <width>200</width>
@@ -741,7 +741,7 @@ hr { height: 1px; border-width: 0; }
                 <string>Greg </string>
                </property>
                <property name="icon">
-                <iconset>
+                <iconset resource="Images.qrc">
                  <normaloff>:/Image/Images/placeholderProfileIcon.png</normaloff>:/Image/Images/placeholderProfileIcon.png</iconset>
                </property>
                <property name="iconSize">
@@ -797,7 +797,7 @@ hr { height: 1px; border-width: 0; }
                 <string>Greg </string>
                </property>
                <property name="icon">
-                <iconset>
+                <iconset resource="Images.qrc">
                  <normaloff>:/Image/Images/placeholderProfileIcon.png</normaloff>:/Image/Images/placeholderProfileIcon.png</iconset>
                </property>
                <property name="iconSize">
@@ -853,7 +853,7 @@ hr { height: 1px; border-width: 0; }
                 <string>Greg </string>
                </property>
                <property name="icon">
-                <iconset>
+                <iconset resource="Images.qrc">
                  <normaloff>:/Image/Images/placeholderProfileIcon.png</normaloff>:/Image/Images/placeholderProfileIcon.png</iconset>
                </property>
                <property name="iconSize">
@@ -909,7 +909,7 @@ hr { height: 1px; border-width: 0; }
                 <string>Greg </string>
                </property>
                <property name="icon">
-                <iconset>
+                <iconset resource="Images.qrc">
                  <normaloff>:/Image/Images/placeholderProfileIcon.png</normaloff>:/Image/Images/placeholderProfileIcon.png</iconset>
                </property>
                <property name="iconSize">
@@ -978,6 +978,8 @@ hr { height: 1px; border-width: 0; }
   <zorder>layoutWidget</zorder>
   <zorder>assignedItems</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="Images.qrc"/>
+ </resources>
  <connections/>
 </ui>

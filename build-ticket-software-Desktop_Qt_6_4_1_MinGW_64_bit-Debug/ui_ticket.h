@@ -56,9 +56,9 @@ public:
     QFrame *line_2;
     QTextBrowser *descriptionText;
     QHBoxLayout *horizontalLayout_2;
-    QPushButton *pushButton_5;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_3;
+    QPushButton *assignSelfButton;
+    QPushButton *assignGroupButton;
+    QPushButton *assignUserButton;
     QSpacerItem *horizontalSpacer_3;
     QPushButton *archiveButton;
     QFrame *line_3;
@@ -285,29 +285,29 @@ public:
         horizontalLayout_2->setSpacing(0);
         horizontalLayout_2->setObjectName("horizontalLayout_2");
         horizontalLayout_2->setContentsMargins(-1, 10, -1, 10);
-        pushButton_5 = new QPushButton(assignmentCategories);
-        pushButton_5->setObjectName("pushButton_5");
-        pushButton_5->setMinimumSize(QSize(200, 35));
-        pushButton_5->setMaximumSize(QSize(200, 16777215));
-        pushButton_5->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:#32ACBE; border-radius:1px; margin-right:10px;"));
+        assignSelfButton = new QPushButton(assignmentCategories);
+        assignSelfButton->setObjectName("assignSelfButton");
+        assignSelfButton->setMinimumSize(QSize(200, 35));
+        assignSelfButton->setMaximumSize(QSize(200, 16777215));
+        assignSelfButton->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:#32ACBE; border-radius:1px; margin-right:10px;"));
 
-        horizontalLayout_2->addWidget(pushButton_5);
+        horizontalLayout_2->addWidget(assignSelfButton);
 
-        pushButton_4 = new QPushButton(assignmentCategories);
-        pushButton_4->setObjectName("pushButton_4");
-        pushButton_4->setMinimumSize(QSize(200, 35));
-        pushButton_4->setMaximumSize(QSize(200, 16777215));
-        pushButton_4->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:#CA0736; border-radius:1px; margin-right:10px;"));
+        assignGroupButton = new QPushButton(assignmentCategories);
+        assignGroupButton->setObjectName("assignGroupButton");
+        assignGroupButton->setMinimumSize(QSize(200, 35));
+        assignGroupButton->setMaximumSize(QSize(200, 16777215));
+        assignGroupButton->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:#CA0736; border-radius:1px; margin-right:10px;"));
 
-        horizontalLayout_2->addWidget(pushButton_4);
+        horizontalLayout_2->addWidget(assignGroupButton);
 
-        pushButton_3 = new QPushButton(assignmentCategories);
-        pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setMinimumSize(QSize(200, 35));
-        pushButton_3->setMaximumSize(QSize(200, 16777215));
-        pushButton_3->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:#CA0736; border-radius:1px;"));
+        assignUserButton = new QPushButton(assignmentCategories);
+        assignUserButton->setObjectName("assignUserButton");
+        assignUserButton->setMinimumSize(QSize(200, 35));
+        assignUserButton->setMaximumSize(QSize(200, 16777215));
+        assignUserButton->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:#CA0736; border-radius:1px;"));
 
-        horizontalLayout_2->addWidget(pushButton_3);
+        horizontalLayout_2->addWidget(assignUserButton);
 
         horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -522,9 +522,9 @@ public:
 "hr { height: 1px; border-width: 0; }\n"
 "</style></head><body style=\" font-family:'Inter'; font-size:24px; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:24px;\">Description:<br />When in singularity point, if you jump while on a moving platform, game instantly crashes and the user\342\200\231s save is corrupted.<br /><br />Steps to reproduce:<br />Go to the moving platform next to the arcade in singularity point.<br />Jump.<br /><br />Thoughts:<br />Major problem, since the moving platforms will be needed for later parkour sections in singularity point.</span></p></body></html>", nullptr));
-        pushButton_5->setText(QCoreApplication::translate("Ticket", "Self-Assign", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("Ticket", "Assign Group", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("Ticket", "Assign User", nullptr));
+        assignSelfButton->setText(QCoreApplication::translate("Ticket", "Self-Assign", nullptr));
+        assignGroupButton->setText(QCoreApplication::translate("Ticket", "Assign Group", nullptr));
+        assignUserButton->setText(QCoreApplication::translate("Ticket", "Assign User", nullptr));
         archiveButton->setText(QCoreApplication::translate("Ticket", "Close Ticket", nullptr));
         postEntryText->setMarkdown(QString());
         postEntryText->setHtml(QCoreApplication::translate("Ticket", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"

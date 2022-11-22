@@ -2,6 +2,7 @@
 #define PROJECTMANAGEMENT_H
 
 #include <QWidget>
+#include <QMessageBox>
 
 #include "filemanager.h"
 
@@ -32,6 +33,9 @@ private:
     Ui::ProjectManagement *ui;
     void reloadProjects();
     void deleteProject(int projectID);
+    void openProject(int projectID);
+    void openProjectGroups(int projectID);
+    void openProjectUsers(int projectID);
     bool closing = true;
 };
 

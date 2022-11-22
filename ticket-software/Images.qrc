@@ -6,5 +6,6 @@
         <file>Images/searchIcon.png</file>
         <file>Images/trashIcon.png</file>
         <file>Images/placeholderProfileIcon.png</file>
+        <file>Images/editEnabledIcon.png</file>
     </qresource>
 </RCC>

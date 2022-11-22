@@ -1,10 +1,5 @@
 #include "projectmanagement.h"
 #include "ui_projectmanagement.h"
-#include "filemanager.h"
-
-#include <QPushButton>
-#include <QHBoxLayout>
-#include <QMessageBox>
 
 ProjectManagement::ProjectManagement(QWidget *parent) :
     QWidget(parent),
@@ -35,12 +30,14 @@ void ProjectManagement::reloadProjects() {
         projectButton->setStyleSheet("background-color:#CA0736; color:white; font-weight:bold; font-size:24px; border:0px; text-align:left; padding-left:10px;");
         projectButton->setMinimumHeight(50);
         projectButton->setObjectName("projectInfo");
+        connect(projectButton, &QPushButton::clicked, [this, projectIdentifer] { openProject(projectIdentifer); });
 
         groupsButton->setText("Groups");
         groupsButton->setStyleSheet("background-color:white; border:0px; color:#32ACBE; font-weight: bold; font-size:24px;");
         groupsButton->setMaximumWidth(100);
         groupsButton->setMinimumHeight(50);
         groupsButton->setObjectName("projectInfo");
+        connect(groupsButton, &QPushButton::clicked, [this, projectIdentifer] { openProjectGroups(projectIdentifer); });
 
         usersButton->setText("Users");
         usersButton->setStyleSheet("background-color:#32ACBE; border:0px; color:white; font-weight: bold; font-size:24px;");
@@ -75,6 +72,17 @@ ProjectManagement::~ProjectManagement()
     delete ui;
 }
 
+void ProjectManagement::openProjectGroups(int projectID) {
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 11;
+    state.pageData = 3;
+    state.secondaryPageData = projectID;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
 void ProjectManagement::on_createProjectButton_clicked()
 {
     if (ui->newProjectName->text().size() == 0) {
@@ -90,7 +98,7 @@ void ProjectManagement::on_createProjectButton_clicked()
     FileManager::Project newProject;
     newProject.description = "A new project";
     newProject.name = ui->newProjectName->text();
-    newProject.uniqueIdentifier = projects[projects.size()-1].uniqueIdentifier+1;
+    newProject.uniqueIdentifier = projects.size() == 0 ? 0 : projects[projects.size()-1].uniqueIdentifier+1;
     newProject.tickets = {};
     projects.push_back(newProject);
     myFiles.saveProjects(myFiles.compileProjects(projects));
@@ -100,12 +108,28 @@ void ProjectManagement::on_createProjectButton_clicked()
 void ProjectManagement::deleteProject(int projectID) {
     FileManager myFiles;
     QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
-    QVector<FileManager::Project> newProjects = {};
     for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
-        if (projects[projectIdx].uniqueIdentifier == projectID) { continue; }
-        newProjects.push_back(projects[projectIdx]);
+        if (projects[projectIdx].uniqueIdentifier == projectID) {
+            projects.removeAt(projectIdx);
+            QVector<FileManager::Group> groups = myFiles.loadGroups();
+            for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
+                for (int groupProjectIdx = 0; groupProjectIdx < groups[groupIdx].projects.size(); groupProjectIdx++) {
+                    if (groups[groupIdx].projects[groupProjectIdx] == projectID) {
+                        groups[groupIdx].projects.removeAt(groupProjectIdx);
+                        break;
+                    }
+                }
+                for (int groupTicketIdx = 0; groupTicketIdx < groups[groupIdx].tickets.size(); groupTicketIdx++) {
+                    if (groups[groupIdx].tickets[groupTicketIdx].projectID == projectID) {
+                        groups[groupIdx].tickets.removeAt(groupTicketIdx);
+                        break;
+                    }
+                }
+            }
+            myFiles.saveGroups(groups);
+        }
     }
-    myFiles.saveProjects(myFiles.compileProjects(newProjects));
+    myFiles.saveProjects(myFiles.compileProjects(projects));
     reloadProjects();
 }
 
@@ -147,6 +171,16 @@ void ProjectManagement::on_logoutButton_clicked()
     FileManager myFiles;
     FileManager::StateData state;
     state.newPage = 0;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+void ProjectManagement::openProject(int projectID) {
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 3;
+    state.pageData = projectID;
     myFiles.saveState(state);
     closing = false;
     this->close();

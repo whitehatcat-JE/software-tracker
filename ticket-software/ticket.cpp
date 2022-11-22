@@ -233,3 +233,16 @@ void Ticket::on_archiveButton_clicked()
     reloadLogs();
 }
 
+
+void Ticket::on_assignGroupButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 11;
+    state.pageData = 9;
+    state.secondaryPageData = IDTicket;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+

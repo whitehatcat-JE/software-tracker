@@ -38,6 +38,8 @@ private slots:
 
     void on_archiveButton_clicked();
 
+    void on_assignGroupButton_clicked();
+
 private:
     Ui::Ticket *ui;
     int IDProject;

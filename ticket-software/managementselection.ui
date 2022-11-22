@@ -92,27 +92,12 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
      <item>
       <layout class="QVBoxLayout" name="pageFrame_2">
        <item>
-        <widget class="QLabel" name="title">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>75</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>100</height>
-          </size>
-         </property>
+        <widget class="QPushButton" name="backButton">
          <property name="styleSheet">
-          <string notr="true">font-size: 48px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; padding-left:5px;</string>
+          <string notr="true">font-size: 48px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; padding-left:10px; text-align:left;</string>
          </property>
          <property name="text">
           <string>&lt; Groups</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
@@ -184,7 +169,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
        <enum>QLayout::SetMaximumSize</enum>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="QPushButton" name="profileButton">
         <property name="styleSheet">
          <string notr="true">font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;</string>
         </property>
@@ -229,7 +214,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
        <enum>QLayout::SetMaximumSize</enum>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton_15">
+       <widget class="QPushButton" name="assignButton">
         <property name="styleSheet">
          <string notr="true">font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;</string>
         </property>
@@ -274,7 +259,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
        <enum>QLayout::SetMaximumSize</enum>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton_16">
+       <widget class="QPushButton" name="managementButton">
         <property name="styleSheet">
          <string notr="true">font-size: 24px;font-family: Inter;color: #32ACBE; font-weight:bold; border:none;</string>
         </property>
@@ -335,7 +320,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
        <enum>QLayout::SetMaximumSize</enum>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton_17">
+       <widget class="QPushButton" name="logoutButton">
         <property name="styleSheet">
          <string notr="true">font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;</string>
         </property>
