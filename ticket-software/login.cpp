@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 #include "login.h"
 #include "ui_login.h"
 
@@ -13,3 +14,20 @@ Login::~Login()
     delete ui;
 }
 
+=======
+#include "login.h"
+#include "ui_login.h"
+
+Login::Login(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::Login)
+{
+    ui->setupUi(this);
+}
+
+Login::~Login()
+{
+    delete ui;
+}
+
+>>>>>>> Stashed changes

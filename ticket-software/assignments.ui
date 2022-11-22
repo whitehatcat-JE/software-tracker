@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <ui version="4.0">
  <author/>
  <comment/>
@@ -19,3 +20,26 @@
  <pixmapfunction/>
  <connections/>
 </ui>
+=======
+<ui version="4.0">
+ <author/>
+ <comment/>
+ <exportmacro/>
+ <class>Assignments</class>
+ <widget name="Assignments" class="QWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+ </widget>
+ <pixmapfunction/>
+ <connections/>
+</ui>
+>>>>>>> Stashed changes
