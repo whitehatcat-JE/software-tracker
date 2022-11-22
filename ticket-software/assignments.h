@@ -38,6 +38,7 @@ private:
     bool closing = true;
     void on_projectButton_triggered(int id);
     void openTicket(int projectID, int ticketID);
+    void openGroup(int groupID, QLabel* groupArrow, QVBoxLayout* groupLayout);
 };
 
 #endif // ASSIGNMENTS_H

@@ -65,6 +65,14 @@ void Assignments::on_groupsButton_toggled(bool checked)
 {
     if (checked == false) {
         ui->groupsButton->setText("Groups                                                                                                            ►");
+        QVector<QPushButton*> buttons = ui->assignedItems->findChildren<QPushButton *>(QString(), Qt::FindChildrenRecursively);
+        for (int widIdx = 0; widIdx < buttons.size(); widIdx++) {
+            if (buttons.at(widIdx)->objectName().contains("groupTicket")) { delete buttons.at(widIdx); }
+        }
+        QVector<QLabel*> labels = ui->assignedItems->findChildren<QLabel *>(QString(), Qt::FindChildrenRecursively);
+        for (int widIdx = 0; widIdx < labels.size(); widIdx++) {
+            if (labels.at(widIdx)->objectName().contains("groupTicket")) { delete labels.at(widIdx); }
+        }
         QVector<QWidget*> widgets = ui->assignedItems->findChildren<QWidget *>(QString(), Qt::FindChildrenRecursively);
         for (int widIdx = 0; widIdx < widgets.size(); widIdx++) {
             if (widgets.at(widIdx)->objectName() == "displayedGroup") { delete widgets.at(widIdx); }
@@ -81,16 +89,66 @@ void Assignments::on_groupsButton_toggled(bool checked)
             layout->setContentsMargins(0, 0, 0, 0);
             QPushButton *button = new QPushButton(this);
             button->setText(groups[groupIdx].name);
-            button->setStyleSheet("background-color: #010511; color: white; height: 75px; font-family: Inter; font-size: 24px; font-weight: bold; text-align: left; padding-left: 10px; border:none;");
-
+            button->setStyleSheet("background-color: #010511; color: white; height: 75px; font-family: Inter; font-size: 24px; font-weight: bold; text-align: left; padding-left: 20px; border:none;");
+            int groupID = groups[groupIdx].ID;
             QLabel *label = new QLabel("groupIndicator", button);
             label->setText("►");
             label->setStyleSheet("font-family: Inter; font-size: 24px; text-align: right; margin-left:1208px; font-weight: normal; margin-top:25px;");
+            connect(button, &QPushButton::clicked, [this, groupID, label, layout] { openGroup(groupID, label, layout); });
             layout->addWidget(button);
         }
     }
 }
 
+void Assignments::openGroup(int groupID, QLabel* groupArrow, QVBoxLayout* groupLayout) {
+    if (groupArrow->text() == "►") {
+        groupArrow->setText("▼");
+        FileManager myFiles;
+        QVector<FileManager::Group> groups = myFiles.loadGroups();
+        QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
+        for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
+            if (groups[groupIdx].ID != groupID) { continue; }
+            for (int groupTicketIdx = 0; groupTicketIdx < groups[groupIdx].tickets.size(); groupTicketIdx++) {
+                for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
+                    for (int ticketIdx = 0; ticketIdx < projects[projectIdx].tickets.size(); ticketIdx++) {
+                        if (projects[projectIdx].uniqueIdentifier == groups[groupIdx].tickets[groupTicketIdx].projectID &&
+                                projects[projectIdx].tickets[ticketIdx].creationTime == groups[groupIdx].tickets[groupTicketIdx].ticketID) {
+                            if (!projects[projectIdx].tickets[ticketIdx].isOpen) { continue; }
+                            QPushButton *button = new QPushButton(this);
+                            button->setObjectName("groupTicket" + QString::number(groupID));
+                            button->setText(projects[projectIdx].tickets[ticketIdx].title);
+                            button->setStyleSheet("background-color: #32ACBE; color: white; height: 50px; font-family: Inter; font-size: 24px; font-weight: bold; text-align: left; padding-left: 10px; border:none;");
+                            int projectID = projects[projectIdx].uniqueIdentifier;
+                            int ticketID = projects[projectIdx].tickets[ticketIdx].creationTime;
+
+                            connect(button, &QPushButton::clicked, [this, projectID, ticketID] { openTicket(projectID, ticketID); });
+                            QLabel *label = new QLabel("metadata", button);
+                            QString metadataString = "Created on: 9/12/22 - ";
+                            metadataString += projects[projectIdx].tickets[ticketIdx].system + " - ";
+                            metadataString += projects[projectIdx].name + " - ";
+                            metadataString += projects[projectIdx].tickets[ticketIdx].progress;
+
+                            label->setText(metadataString);
+                            label->setObjectName("groupTicket" + QString::number(groupID));
+                            label->setStyleSheet("font-family: Inter; font-size: 18px; text-align: right; margin-left:550px; font-weight: normal; margin-top:16px;");
+                            groupLayout->addWidget(button);
+                        }
+                    }
+                }
+            }
+        }
+    } else {
+        groupArrow->setText("►");
+        QVector<QPushButton*> buttons = ui->assignedItems->findChildren<QPushButton *>(QString(), Qt::FindChildrenRecursively);
+        for (int widIdx = 0; widIdx < buttons.size(); widIdx++) {
+            if (buttons.at(widIdx)->objectName() == "groupTicket" + QString::number(groupID)) { delete buttons.at(widIdx); }
+        }
+        QVector<QLabel*> labels = ui->assignedItems->findChildren<QLabel *>(QString(), Qt::FindChildrenRecursively);
+        for (int widIdx = 0; widIdx < labels.size(); widIdx++) {
+            if (labels.at(widIdx)->objectName() == "groupTicket" + QString::number(groupID)) { delete labels.at(widIdx); }
+        }
+    }
+}
 
 void Assignments::on_projectsButton_toggled(bool checked)
 {
