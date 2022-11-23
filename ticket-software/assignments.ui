@@ -71,7 +71,7 @@
      <x>-20</x>
      <y>20</y>
      <width>1331</width>
-     <height>781</height>
+     <height>791</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -109,7 +109,7 @@
        <enum>QLayout::SetMaximumSize</enum>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="profileButton">
         <property name="styleSheet">
          <string notr="true">font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;</string>
         </property>
@@ -154,7 +154,7 @@
        <enum>QLayout::SetMaximumSize</enum>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton_6">
+       <widget class="QPushButton" name="assignedButton">
         <property name="styleSheet">
          <string notr="true">font-size: 24px;font-family: Inter;color: #32ACBE; font-weight:bold; border:none;</string>
         </property>
@@ -199,7 +199,7 @@
        <enum>QLayout::SetMaximumSize</enum>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton_7">
+       <widget class="QPushButton" name="managementButton">
         <property name="styleSheet">
          <string notr="true">font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;</string>
         </property>
@@ -260,7 +260,7 @@
        <enum>QLayout::SetMaximumSize</enum>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton_8">
+       <widget class="QPushButton" name="logoutButton">
         <property name="styleSheet">
          <string notr="true">font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;</string>
         </property>

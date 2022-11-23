@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include "filemanager.h"
+
 namespace Ui {
 class NavBar;
 }
