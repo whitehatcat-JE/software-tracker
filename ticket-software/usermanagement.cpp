@@ -38,7 +38,7 @@ void UserManagement::reloadUsers() {
         userButton->setObjectName("userInfo");
         //connect(projectButton, &QPushButton::clicked, [this, projectIdentifer] { openProject(projectIdentifer); });
 
-        accessLevelButton->setText(QString::number(users[userIdx].accessLevel));
+        accessLevelButton->setText(QString::number(users[userIdx].accessLevel+1));
         accessLevelButton->setStyleSheet("background-color:#CA0736; border:0px; color:white; font-weight: bold; font-size:24px; border-radius:25px;");
         accessLevelButton->setMaximumWidth(50);
         accessLevelButton->setMinimumHeight(50);

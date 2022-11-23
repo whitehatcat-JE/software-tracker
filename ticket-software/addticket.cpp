@@ -16,11 +16,18 @@ AddTicket::AddTicket(int projectID, QWidget *parent) :
 
     FileManager myFiles;
     QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
+    QVector<FileManager::User> users = myFiles.loadUsers();
     int projectIdx = 0;
     for (;projectIdx < projects.size(); projectIdx++) {
         if (projects[projectIdx].uniqueIdentifier != projectID) { continue;}
         ui->backButton->setText("◄ " + projects[projectIdx].name);
         ui->extraData->setText("- " + projects[projectIdx].name + " - Unresolved");
+    }
+    for (int userIdx = 0; userIdx < users.size(); userIdx++) {
+        if (users[userIdx].uniqueIdentifier == myFiles.loadState().userID) {
+            ui->displayedUser->setText(users[userIdx].username);
+            ui->displayedUser->setIcon(QIcon(":/Images/Images/PFP/" + myFiles.getAvatar(users[userIdx].profilePicID) + ".png"));
+        }
     }
 }
 
@@ -56,7 +63,7 @@ void AddTicket::on_createTicket_clicked()
     newTicket.progress = "Unresolved";
     newTicket.system = ui->category->text();
     newTicket.title = ui->ticketTitle->text();
-    newTicket.uniqueIdentifier = 0;
+    newTicket.uniqueIdentifier = myFiles.loadState().userID;
 
     FileManager::Log initialLog;
     initialLog.creationTime = QDateTime::currentDateTime().toSecsSinceEpoch();

@@ -50,7 +50,7 @@ public:
     QLabel *extraData;
     QTextEdit *details;
     QPushButton *createTicket;
-    QPushButton *pushButton_4;
+    QPushButton *displayedUser;
     QPushButton *backButton;
 
     void setupUi(QWidget *AddTicket)
@@ -227,14 +227,14 @@ public:
         createTicket->setGeometry(QRect(460, 720, 321, 41));
         createTicket->setMinimumSize(QSize(200, 35));
         createTicket->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:#32ACBE; border-radius:1px;"));
-        pushButton_4 = new QPushButton(AddTicket);
-        pushButton_4->setObjectName("pushButton_4");
-        pushButton_4->setGeometry(QRect(80, 720, 101, 31));
-        pushButton_4->setStyleSheet(QString::fromUtf8("border:none; background-color:transparent;font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold;"));
+        displayedUser = new QPushButton(AddTicket);
+        displayedUser->setObjectName("displayedUser");
+        displayedUser->setGeometry(QRect(80, 720, 351, 31));
+        displayedUser->setStyleSheet(QString::fromUtf8("border:none; background-color:transparent;font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; padding-left:5px; text-align:left;"));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/Image/Images/placeholderProfileIcon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_4->setIcon(icon);
-        pushButton_4->setIconSize(QSize(30, 30));
+        displayedUser->setIcon(icon);
+        displayedUser->setIconSize(QSize(30, 30));
         backButton = new QPushButton(AddTicket);
         backButton->setObjectName("backButton");
         backButton->setGeometry(QRect(80, 70, 571, 41));
@@ -281,7 +281,7 @@ public:
 "</style></head><body style=\" font-family:'Inter'; font-size:24px; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:24px; font-weight:700;\">Description:</span><span style=\" font-size:24px;\"><br /><br /><br /><br /></span><span style=\" font-size:24px; font-weight:700;\">Steps to reproduce:</span><span style=\" font-size:24px;\"><br /><br /><br /><br /></span><span style=\" font-size:24px; font-weight:700;\">Thoughts:</span><span style=\" font-size:24px;\"><br /></span></p></body></html>", nullptr));
         createTicket->setText(QCoreApplication::translate("AddTicket", "Create Ticket", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("AddTicket", " Greg", nullptr));
+        displayedUser->setText(QCoreApplication::translate("AddTicket", " Greg", nullptr));
         backButton->setText(QCoreApplication::translate("AddTicket", "\342\227\204 Untitled MMO", nullptr));
     } // retranslateUi
 

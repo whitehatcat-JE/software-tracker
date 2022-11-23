@@ -65,6 +65,7 @@ void Ticket::reloadLogs() {
     }
     FileManager myFiles;
     QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
+    QVector<FileManager::User> users = myFiles.loadUsers();
     for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
         if (projects[projectIdx].uniqueIdentifier != IDProject) { continue; }
         for (int ticketIdx = 0; ticketIdx < projects[projectIdx].tickets.size(); ticketIdx++) {
@@ -78,12 +79,17 @@ void Ticket::reloadLogs() {
                         logDetails->setText(projects[projectIdx].tickets[ticketIdx].logs[logIdx].description + " on " + formattedTime);
                         QPushButton *logUser = new QPushButton(this);
                         QPushButton *logUserIcon = new QPushButton(this);
+                        logUser->setText("Deleted");
                         logUserIcon->setIcon(QIcon(":/Image/Images/placeholderProfileIcon.png"));
-                        logUserIcon->setIconSize(QSize(25, 25));
-                        logUser->setText("Greg");
+                        int userID = projects[projectIdx].tickets[ticketIdx].logs[logIdx].uniqueIdentifier;
+                        for (int userIdx = 0; userIdx < users.size(); userIdx++) {
+                            if (userID == users[userIdx].uniqueIdentifier) {
+                                logUser->setText(users[userIdx].username);
+                                logUserIcon->setIcon(QIcon(":/Images/Images/PFP/" + myFiles.getAvatar(users[userIdx].profilePicID) + ".png"));
+                            }
+                        }
                         logUser->setStyleSheet("font-size: 18px;font-family: Inter;color: #D4F8F6; font-weight:lighter; background-color:#32ACBE; border:0px;height:24px; padding:5px; text-align:right;");
                         logUserIcon->setStyleSheet("height:24px; padding:5px; border:0px; background-color:#32ACBE;");
-                        logUserIcon->setIcon(QIcon(":/Image/Images/placeholderProfileIcon.png"));
                         logUserIcon->setMaximumWidth(35);
                         logUserIcon->setIconSize(QSize(25, 25));
                         QHBoxLayout *logInfoLayout = new QHBoxLayout();
@@ -105,12 +111,17 @@ void Ticket::reloadLogs() {
                         logDetails->setText("Posted on " + formattedTime);
                         QPushButton *logUser = new QPushButton(this);
                         QPushButton *logUserIcon = new QPushButton(this);
+                        logUser->setText("Deleted");
                         logUserIcon->setIcon(QIcon(":/Image/Images/placeholderProfileIcon.png"));
-                        logUserIcon->setIconSize(QSize(25, 25));
-                        logUser->setText("Greg");
+                        int userID = projects[projectIdx].tickets[ticketIdx].logs[logIdx].uniqueIdentifier;
+                        for (int userIdx = 0; userIdx < users.size(); userIdx++) {
+                            if (userID == users[userIdx].uniqueIdentifier) {
+                                logUser->setText(users[userIdx].username);
+                                logUserIcon->setIcon(QIcon(":/Images/Images/PFP/" + myFiles.getAvatar(users[userIdx].profilePicID) + ".png"));
+                            }
+                        }
                         logUser->setStyleSheet("font-size: 18px;font-family: Inter;color: #D4F8F6; font-weight:lighter; background-color:#32ACBE; border:0px;height:24px; padding:5px; text-align:right;");
                         logUserIcon->setStyleSheet("height:24px; padding:5px; border:0px; background-color:#32ACBE;");
-                        logUserIcon->setIcon(QIcon(":/Image/Images/placeholderProfileIcon.png"));
                         logUserIcon->setMaximumWidth(35);
                         logUserIcon->setIconSize(QSize(25, 25));
                         QHBoxLayout *logInfoLayout = new QHBoxLayout();
@@ -148,7 +159,7 @@ void Ticket::on_postButton_clicked()
     FileManager::Log newLog;
     newLog.creationTime = QDateTime::currentDateTime().toSecsSinceEpoch();
     newLog.description = ui->postEntryText->toPlainText();
-    newLog.uniqueIdentifier = 0;
+    newLog.uniqueIdentifier = myFiles.loadState().userID;
     newLog.isConsole = false;
     for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
         if (projects[projectIdx].uniqueIdentifier != IDProject) { continue; }
@@ -216,7 +227,7 @@ void Ticket::on_archiveButton_clicked()
                 FileManager::Log newLog;
                 newLog.creationTime = QDateTime::currentDateTime().toSecsSinceEpoch();
                 newLog.description = isOpen ? "Ticket re-opened" : "Ticket closed";
-                newLog.uniqueIdentifier = 0;
+                newLog.uniqueIdentifier = myFiles.loadState().userID;
                 newLog.isConsole = true;
                 projects[projectIdx].tickets[ticketIdx].logs.append(newLog);
             }
