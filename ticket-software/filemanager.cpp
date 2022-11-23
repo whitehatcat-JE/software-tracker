@@ -1,5 +1,5 @@
 #include "filemanager.h"
-
+#include <QDebug>
 FileManager::FileManager(){}
 // Loads project data from disk
 QString FileManager::loadProjects() {
@@ -8,7 +8,7 @@ QString FileManager::loadProjects() {
     file.open(QIODevice::ReadOnly);
     // Reads file data
     QTextStream stream(&file);
-    QString projectData = stream.readLine();
+    QString projectData = stream.readAll();
     file.close();
     return projectData;
 };
@@ -16,7 +16,7 @@ QString FileManager::loadProjects() {
 void FileManager::saveProjects(QString projectData) {
     // Open file from disk
     QFile file("projectsDB.txt");
-    file.open(QIODevice::ReadWrite | QIODevice::Append);
+    file.open(QIODevice::WriteOnly | QIODevice::Truncate);
     // Writes project data to disk
     QTextStream stream(&file);
     stream << projectData;
@@ -138,6 +138,7 @@ QVector<FileManager::Project> FileManager::interpretProjects(QString projectData
             } else if (c == '`') { // Adds new log to ticket
                 if (columns.size() == 3) { // Places log data in ticket
                     columns.pop_front();
+                    currentLog.isConsole = (itemStr[0] == '1');
                     currentTicket.logs.push_back(currentLog);
 
                     Log newLog;
@@ -147,3 +148,133 @@ QVector<FileManager::Project> FileManager::interpretProjects(QString projectData
         } else itemStr.append(c); // Adds new char to current item
     } return projects;
 };
+
+void FileManager::saveState(StateData state) {
+    // Open file from disk
+    QFile file("cachedState.csv");
+    file.open(QIODevice::ReadWrite | QIODevice::Truncate);
+    // Writes project data to disk
+    QTextStream stream(&file);
+    stream << state.userID << ',' << state.password << ',' <<
+          state.newPage << ',' << state.pageData << ',' <<
+          state.secondaryPageData << "\n";
+    file.close();
+}
+
+FileManager::StateData FileManager::loadState() {
+    FileManager::StateData myState;
+    QFile file("cachedState.csv");
+    file.open(QIODevice::ReadOnly);
+    if (!file.isOpen()) {
+        myState.newPage = 2;
+        myState.userID = 0;
+        myState.password = "";
+        myState.pageData = 0;
+        myState.secondaryPageData = 0;
+        return myState;
+    }
+    QTextStream stream(&file);
+    QString stateInfo = stream.readLine();
+    QVector<QString> stateInfoVec;
+    stateInfoVec.append(stateInfo.split(","));
+    myState.userID = stateInfoVec[0].toInt();
+    myState.password = stateInfoVec[1];
+    myState.newPage = stateInfoVec[2].toInt();
+    myState.pageData = stateInfoVec[3].toInt();
+    myState.secondaryPageData = stateInfoVec[4].toInt();
+    file.close();
+    return myState;
+}
+
+void FileManager::clearState() {
+    QFile file ("cachedState.csv");
+    file.remove();
+}
+
+QVector<FileManager::Group> FileManager::loadGroups() {
+    QFile groupFile("groups.csv");
+    groupFile.open(QIODevice::ReadOnly);
+
+    QFile relationFile("groupRelations.csv");
+    relationFile.open(QIODevice::ReadOnly);
+    if (!groupFile.isOpen() || !relationFile.isOpen()) { return {}; }
+
+    QVector<FileManager::Group> groups = {};
+    QVector<int> groupIDs;
+    while (!groupFile.atEnd()) {
+        QByteArray line = groupFile.readLine();
+        FileManager::Group newGroup;
+        QVector<QByteArray> lineVec = line.split(',').toVector();
+        newGroup.ID = lineVec[0].toInt();
+        newGroup.name = lineVec[1];
+        groups.push_back(newGroup);
+        groupIDs.push_back(newGroup.ID);
+    }
+    bool missingData = false;
+    while (!relationFile.atEnd()) {
+        QByteArray line = relationFile.readLine();
+        QVector<QByteArray> lineVec = line.split(',').toVector();
+        if (!groupIDs.contains(lineVec[0].toInt())) {
+            missingData = true;
+            continue;
+        }
+        if (lineVec[1].toInt() == 0) {
+            FileManager::TicketIDs newTicket;
+            newTicket.projectID = lineVec[2].toInt();
+            newTicket.ticketID = lineVec[3].toInt();
+            for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
+                if (groups[groupIdx].ID == lineVec[0].toInt()) {
+                    groups[groupIdx].tickets.push_back(newTicket);
+                    break;
+                }
+            }
+        } else if (lineVec[1].toInt() == 1) {
+            for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
+                if (groups[groupIdx].ID == lineVec[0].toInt()) {
+                    groups[groupIdx].projects.push_back(lineVec[2].toInt());
+                    break;
+                }
+            }
+        } else if (lineVec[1].toInt() == 2) {
+            for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
+                if (groups[groupIdx].ID == lineVec[0].toInt()) {
+                    groups[groupIdx].users.push_back(lineVec[2].toInt());
+                    break;
+                }
+            }
+        }
+    }
+
+    groupFile.close();
+    relationFile.close();
+
+    if (missingData) { saveGroups(groups); }
+
+    return groups;
+}
+
+void FileManager::saveGroups(QVector<FileManager::Group> groups) {
+    QFile groupFile("groups.csv");
+    groupFile.open(QIODevice::ReadWrite | QIODevice::Truncate);
+    QTextStream gStream(&groupFile);
+    QFile relationFile("groupRelations.csv");
+    relationFile.open(QIODevice::ReadWrite | QIODevice::Truncate);
+    QTextStream rStream(&relationFile);
+    if (!groupFile.isOpen() || !relationFile.isOpen()) { return; }
+
+    for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
+        gStream << groups[groupIdx].ID << "," << groups[groupIdx].name << ",\n";
+        for (int ticketIdx = 0; ticketIdx < groups[groupIdx].tickets.size(); ticketIdx++) {
+            rStream << groups[groupIdx].ID << ",0," << groups[groupIdx].tickets[ticketIdx].projectID
+                    << "," << groups[groupIdx].tickets[ticketIdx].ticketID << "\n";
+        }
+        for (int projectIdx = 0; projectIdx < groups[groupIdx].projects.size(); projectIdx++) {
+            rStream << groups[groupIdx].ID << ",1," << groups[groupIdx].projects[projectIdx] << "\n";
+        }
+        for (int userIdx = 0; userIdx < groups[groupIdx].users.size(); userIdx++) {
+            rStream << groups[groupIdx].ID << ",2," << groups[groupIdx].users[userIdx] << "\n";
+        }
+    }
+    groupFile.close();
+    relationFile.close();
+}

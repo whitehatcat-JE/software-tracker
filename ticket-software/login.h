@@ -2,7 +2,9 @@
 #define LOGIN_H
 
 #include <QMainWindow>
+
 #include "profile.h"
+#include "filemanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Login; }
