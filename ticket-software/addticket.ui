@@ -507,7 +507,7 @@ hr { height: 1px; border-width: 0; }
     <string> Greg</string>
    </property>
    <property name="icon">
-    <iconset>
+    <iconset resource="Images.qrc">
      <normaloff>:/Image/Images/placeholderProfileIcon.png</normaloff>:/Image/Images/placeholderProfileIcon.png</iconset>
    </property>
    <property name="iconSize">
@@ -540,6 +540,8 @@ hr { height: 1px; border-width: 0; }
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="Images.qrc"/>
+ </resources>
  <connections/>
 </ui>

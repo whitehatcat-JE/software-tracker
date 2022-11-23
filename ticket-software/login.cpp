@@ -35,7 +35,6 @@ void Login::on_logInBtn_clicked()
     QVector<QVector<QString>> loginAccess = fManager.ReadFile("LoginInformation", 100);
     for(int i = 0; i < loginAccess.size(); i++){
         if(username->text() == loginAccess.at(i).at(0)){
-
             if( QString::fromStdString(userPass) == loginAccess.at(i).at(1)){
                 signedIn = true;
                 userIndex = i;
@@ -48,17 +47,12 @@ void Login::on_logInBtn_clicked()
                 int returnVal = box.exec();
 
                 //Determine messagebox button pressed
-                switch(returnVal){
-                case QMessageBox::Ok:
+                //switch(returnVal){
+                //case QMessageBox::Ok:
                 //QMessageBox::information(this, "Login", "Login Successful");
-                hide();
-                profile->show();
+                //hide();
+                //profile->show();
             }
-
-                }
-        }
-        else{
-            continue;
         }
     }
     if(!signedIn){

@@ -81,6 +81,7 @@ public:
 
         lineEditPassword = new QLineEdit(signInWidget);
         lineEditPassword->setObjectName("lineEditPassword");
+        lineEditPassword->setEchoMode(QLineEdit::Password);
 
         horizontalLayout_2->addWidget(lineEditPassword);
 

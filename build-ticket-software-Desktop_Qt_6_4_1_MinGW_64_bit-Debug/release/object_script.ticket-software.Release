@@ -1,3 +1,4 @@
+release/SHA256.o
 release/addticket.o
 release/archive.o
 release/assignments.o
@@ -7,7 +8,6 @@ release/main.o
 release/login.o
 release/management.o
 release/managementselection.o
-release/navbar.o
 release/profile.o
 release/project.o
 release/projectmanagement.o
@@ -21,7 +21,6 @@ release/moc_groupmanagement.o
 release/moc_login.o
 release/moc_management.o
 release/moc_managementselection.o
-release/moc_navbar.o
 release/moc_profile.o
 release/moc_project.o
 release/moc_projectmanagement.o

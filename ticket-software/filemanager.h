@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 #ifndef FILEMANAGER_H
 #define FILEMANAGER_H
 
@@ -90,30 +89,17 @@ public:
 
     bool CheckValidUser(QString username, QString fileName);
 
-public slots:
-
-private:
-    bool nameFound = false;
-
     void saveState(StateData state);
     void clearState();
     StateData loadState();
 
     QVector<Group> loadGroups();
     void saveGroups(QVector<Group>);
+
+public slots:
+
+private:
+    bool nameFound = false;
 };
 
 #endif // FILEMANAGER_H
-=======
-#ifndef FILEMANAGER_H
-#define FILEMANAGER_H
-
-
-class FileManager
-{
-public:
-    FileManager();
-};
-
-#endif // FILEMANAGER_H
->>>>>>> Stashed changes

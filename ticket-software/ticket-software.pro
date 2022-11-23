@@ -19,7 +19,6 @@ SOURCES += \
     login.cpp \
     management.cpp \
     managementselection.cpp \
-    navbar.cpp \
     profile.cpp \
     project.cpp \
     projectmanagement.cpp \
@@ -36,7 +35,6 @@ HEADERS += \
     login.h \
     management.h \
     managementselection.h \
-    navbar.h \
     profile.h \
     project.h \
     projectmanagement.h \
@@ -51,7 +49,6 @@ FORMS += \
     login.ui \
     management.ui \
     managementselection.ui \
-    navbar.ui \
     profile.ui \
     project.ui \
     projectmanagement.ui \
