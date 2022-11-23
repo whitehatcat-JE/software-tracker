@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 #include "filemanager.h"
 #include <QDebug>
 
@@ -355,3 +356,11 @@ void FileManager::saveGroups(QVector<FileManager::Group> groups) {
     groupFile.close();
     relationFile.close();
 }
+=======
+#include "filemanager.h"
+
+FileManager::FileManager()
+{
+
+}
+>>>>>>> Stashed changes

@@ -231,4 +231,3 @@ void Assignments::openTicket(int projectID, int ticketID) {
     closing = false;
     this->close();
 }
-

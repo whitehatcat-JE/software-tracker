@@ -8,8 +8,6 @@
 #include <iomanip>
 #include <QMessageBox>
 #include <QVector>
-//#include <qDebug>
-
 
 Login::Login(QWidget *parent)
     : QMainWindow(parent)
@@ -22,7 +20,6 @@ Login::~Login()
 {
     delete ui;
 }
-
 
 void Login::on_logInBtn_clicked()
 {
@@ -68,4 +65,3 @@ void Login::on_logInBtn_clicked()
         QMessageBox::warning(this, "Login", "Incorrect username or password. Please try again");
     }
 }
-
