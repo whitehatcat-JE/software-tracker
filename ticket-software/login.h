@@ -31,6 +31,7 @@ private:
     //MainScreen mScreen();
     bool signedIn = false;
     int userIndex;
+    bool closing = true;
 };
 
 

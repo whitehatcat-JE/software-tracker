@@ -23,5 +23,6 @@
         <file>Images/trashIcon.png</file>
         <file>Images/placeholderProfileIcon.png</file>
         <file>Images/editEnabledIcon.png</file>
+        <file>Images/lockIcon.png</file>
     </qresource>
 </RCC>

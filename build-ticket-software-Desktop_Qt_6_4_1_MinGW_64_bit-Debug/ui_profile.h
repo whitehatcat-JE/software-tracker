@@ -11,9 +11,13 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFrame>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -51,6 +55,22 @@ public:
     QPushButton *ProfileOp7;
     QPushButton *ProfileOp8;
     QPushButton *ProfileOp9;
+    QFrame *navBackground;
+    QWidget *layoutWidget;
+    QHBoxLayout *horizontalLayout;
+    QVBoxLayout *NavButton;
+    QPushButton *profileButton;
+    QFrame *line;
+    QVBoxLayout *NavButton_6;
+    QPushButton *assignButton;
+    QFrame *line_7;
+    QVBoxLayout *NavButton_7;
+    QPushButton *managementButton;
+    QFrame *line_8;
+    QSpacerItem *horizontalSpacer;
+    QVBoxLayout *NavButton_8;
+    QPushButton *logoutButton;
+    QFrame *line_9;
 
     void setupUi(QWidget *Profile)
     {
@@ -69,7 +89,7 @@ public:
         EditDetails->setCheckable(true);
         Background = new QPushButton(Profile);
         Background->setObjectName("Background");
-        Background->setGeometry(QRect(0, -10, 1321, 831));
+        Background->setGeometry(QRect(-10, -20, 1321, 831));
         Background->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x0:1, y2:1, x2:0, y2:1, stop:0 rgba(1, 15, 17, 255), stop:1 rgba(4, 15, 101, 255))"));
         PFP = new QLabel(Profile);
         PFP->setObjectName("PFP");
@@ -82,7 +102,7 @@ public:
         Line1->setObjectName("Line1");
         Line1->setGeometry(QRect(390, 250, 611, 5));
         Line1->setMaximumSize(QSize(16777215, 5));
-        Line1->setStyleSheet(QString::fromUtf8("background: blue;"));
+        Line1->setStyleSheet(QString::fromUtf8("background-color:#32ACBE; border:0px;"));
         Name = new QLabel(Profile);
         Name->setObjectName("Name");
         Name->setGeometry(QRect(410, 150, 261, 91));
@@ -111,7 +131,7 @@ public:
         Line2->setObjectName("Line2");
         Line2->setGeometry(QRect(390, 440, 611, 5));
         Line2->setMaximumSize(QSize(16777215, 5));
-        Line2->setStyleSheet(QString::fromUtf8("background: blue;"));
+        Line2->setStyleSheet(QString::fromUtf8("background-color:#32ACBE; border:0px;"));
         email = new QLabel(Profile);
         email->setObjectName("email");
         email->setGeometry(QRect(400, 460, 441, 41));
@@ -128,35 +148,41 @@ public:
         Line3->setObjectName("Line3");
         Line3->setGeometry(QRect(390, 580, 611, 5));
         Line3->setMaximumSize(QSize(16777215, 5));
-        Line3->setStyleSheet(QString::fromUtf8("background: red;"));
+        Line3->setStyleSheet(QString::fromUtf8("background-color:#CA0736; border:0px;"));
         changePassword = new QPushButton(Profile);
         changePassword->setObjectName("changePassword");
-        changePassword->setGeometry(QRect(620, 650, 181, 41));
-        changePassword->setStyleSheet(QString::fromUtf8("background: red;"));
+        changePassword->setGeometry(QRect(560, 600, 261, 41));
+        changePassword->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:#CA0736;"));
         Line4 = new QPushButton(Profile);
         Line4->setObjectName("Line4");
         Line4->setGeometry(QRect(1010, 250, 61, 5));
         Line4->setMinimumSize(QSize(50, 0));
         Line4->setMaximumSize(QSize(70, 5));
-        Line4->setStyleSheet(QString::fromUtf8("background: red;"));
+        Line4->setStyleSheet(QString::fromUtf8("background-color:#CA0736; border:0px;"));
         NameEdit = new QLineEdit(Profile);
         NameEdit->setObjectName("NameEdit");
-        NameEdit->setGeometry(QRect(710, 170, 281, 61));
+        NameEdit->setGeometry(QRect(390, 170, 601, 71));
+        NameEdit->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color:black; border:none;"));
         JobEdit = new QLineEdit(Profile);
         JobEdit->setObjectName("JobEdit");
-        JobEdit->setGeometry(QRect(782, 270, 211, 41));
+        JobEdit->setGeometry(QRect(390, 270, 601, 41));
+        JobEdit->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color:black; border:none;"));
         TimeEdit = new QLineEdit(Profile);
         TimeEdit->setObjectName("TimeEdit");
-        TimeEdit->setGeometry(QRect(780, 330, 211, 41));
+        TimeEdit->setGeometry(QRect(390, 330, 601, 41));
+        TimeEdit->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color:black; border:none;"));
         LocationEdit = new QLineEdit(Profile);
         LocationEdit->setObjectName("LocationEdit");
-        LocationEdit->setGeometry(QRect(780, 390, 211, 41));
+        LocationEdit->setGeometry(QRect(390, 390, 601, 41));
+        LocationEdit->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color:black; border:none;"));
         EmailEdit = new QLineEdit(Profile);
         EmailEdit->setObjectName("EmailEdit");
-        EmailEdit->setGeometry(QRect(780, 460, 211, 41));
+        EmailEdit->setGeometry(QRect(390, 460, 601, 41));
+        EmailEdit->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color:black; border:none;"));
         NumberEdit = new QLineEdit(Profile);
         NumberEdit->setObjectName("NumberEdit");
-        NumberEdit->setGeometry(QRect(780, 520, 211, 41));
+        NumberEdit->setGeometry(QRect(390, 520, 601, 41));
+        NumberEdit->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color:black; border:none;"));
         EditProfilePic = new QPushButton(Profile);
         EditProfilePic->setObjectName("EditProfilePic");
         EditProfilePic->setGeometry(QRect(300, 140, 40, 39));
@@ -219,6 +245,122 @@ public:
         ProfileOp9->setMinimumSize(QSize(79, 79));
         ProfileOp9->setMaximumSize(QSize(100, 100));
         ProfileOp9->setStyleSheet(QString::fromUtf8("background-color:transparent;"));
+        navBackground = new QFrame(Profile);
+        navBackground->setObjectName("navBackground");
+        navBackground->setEnabled(true);
+        navBackground->setGeometry(QRect(0, 0, 1301, 40));
+        navBackground->setMinimumSize(QSize(0, 40));
+        navBackground->setStyleSheet(QString::fromUtf8("background-color:#010511;"));
+        navBackground->setFrameShadow(QFrame::Plain);
+        navBackground->setLineWidth(500);
+        navBackground->setFrameShape(QFrame::HLine);
+        layoutWidget = new QWidget(Profile);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(0, 0, 1301, 42));
+        horizontalLayout = new QHBoxLayout(layoutWidget);
+        horizontalLayout->setObjectName("horizontalLayout");
+        horizontalLayout->setSizeConstraint(QLayout::SetNoConstraint);
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        NavButton = new QVBoxLayout();
+        NavButton->setObjectName("NavButton");
+        NavButton->setSizeConstraint(QLayout::SetMaximumSize);
+        profileButton = new QPushButton(layoutWidget);
+        profileButton->setObjectName("profileButton");
+        profileButton->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: #32ACBE; font-weight:bold; border:none;"));
+
+        NavButton->addWidget(profileButton);
+
+        line = new QFrame(layoutWidget);
+        line->setObjectName("line");
+        line->setEnabled(true);
+        line->setMinimumSize(QSize(200, 5));
+        line->setStyleSheet(QString::fromUtf8("color:#05448A;"));
+        line->setFrameShadow(QFrame::Plain);
+        line->setLineWidth(15);
+        line->setMidLineWidth(6);
+        line->setFrameShape(QFrame::HLine);
+
+        NavButton->addWidget(line);
+
+
+        horizontalLayout->addLayout(NavButton);
+
+        NavButton_6 = new QVBoxLayout();
+        NavButton_6->setObjectName("NavButton_6");
+        NavButton_6->setSizeConstraint(QLayout::SetMaximumSize);
+        assignButton = new QPushButton(layoutWidget);
+        assignButton->setObjectName("assignButton");
+        assignButton->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
+
+        NavButton_6->addWidget(assignButton);
+
+        line_7 = new QFrame(layoutWidget);
+        line_7->setObjectName("line_7");
+        line_7->setEnabled(true);
+        line_7->setMinimumSize(QSize(200, 5));
+        line_7->setStyleSheet(QString::fromUtf8("color:#32ACBE;"));
+        line_7->setFrameShadow(QFrame::Plain);
+        line_7->setLineWidth(15);
+        line_7->setMidLineWidth(6);
+        line_7->setFrameShape(QFrame::HLine);
+
+        NavButton_6->addWidget(line_7);
+
+
+        horizontalLayout->addLayout(NavButton_6);
+
+        NavButton_7 = new QVBoxLayout();
+        NavButton_7->setObjectName("NavButton_7");
+        NavButton_7->setSizeConstraint(QLayout::SetMaximumSize);
+        managementButton = new QPushButton(layoutWidget);
+        managementButton->setObjectName("managementButton");
+        managementButton->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
+
+        NavButton_7->addWidget(managementButton);
+
+        line_8 = new QFrame(layoutWidget);
+        line_8->setObjectName("line_8");
+        line_8->setEnabled(true);
+        line_8->setMinimumSize(QSize(200, 5));
+        line_8->setStyleSheet(QString::fromUtf8("color:#32ACBE;"));
+        line_8->setFrameShadow(QFrame::Plain);
+        line_8->setLineWidth(15);
+        line_8->setMidLineWidth(6);
+        line_8->setFrameShape(QFrame::HLine);
+
+        NavButton_7->addWidget(line_8);
+
+
+        horizontalLayout->addLayout(NavButton_7);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::MinimumExpanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        NavButton_8 = new QVBoxLayout();
+        NavButton_8->setObjectName("NavButton_8");
+        NavButton_8->setSizeConstraint(QLayout::SetMaximumSize);
+        logoutButton = new QPushButton(layoutWidget);
+        logoutButton->setObjectName("logoutButton");
+        logoutButton->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
+
+        NavButton_8->addWidget(logoutButton);
+
+        line_9 = new QFrame(layoutWidget);
+        line_9->setObjectName("line_9");
+        line_9->setEnabled(true);
+        line_9->setMinimumSize(QSize(200, 5));
+        line_9->setStyleSheet(QString::fromUtf8("color:#CA0736;"));
+        line_9->setFrameShadow(QFrame::Plain);
+        line_9->setLineWidth(15);
+        line_9->setMidLineWidth(6);
+        line_9->setFrameShape(QFrame::HLine);
+
+        NavButton_8->addWidget(line_9);
+
+
+        horizontalLayout->addLayout(NavButton_8);
+
         Background->raise();
         EditDetails->raise();
         PFP->raise();
@@ -249,6 +391,8 @@ public:
         ProfileOp7->raise();
         ProfileOp8->raise();
         ProfileOp9->raise();
+        navBackground->raise();
+        layoutWidget->raise();
 
         retranslateUi(Profile);
 
@@ -282,6 +426,10 @@ public:
         ProfileOp7->setText(QString());
         ProfileOp8->setText(QString());
         ProfileOp9->setText(QString());
+        profileButton->setText(QCoreApplication::translate("Profile", "Profile", nullptr));
+        assignButton->setText(QCoreApplication::translate("Profile", "Assigned", nullptr));
+        managementButton->setText(QCoreApplication::translate("Profile", "Management", nullptr));
+        logoutButton->setText(QCoreApplication::translate("Profile", "Logout", nullptr));
     } // retranslateUi
 
 };

@@ -18,6 +18,26 @@ int main(int argc, char *argv[])
 {
     FileManager myFiles;
     QApplication a(argc, argv);
+
+    QVector<FileManager::User> users = myFiles.loadUsers();
+    bool foundAdmin = false;
+    for (int userIdx = 0; userIdx < users.size(); userIdx++) {
+        if (users[userIdx].accessLevel == 2) {
+            foundAdmin = true;
+            break;
+        }
+    }
+
+    if (!foundAdmin) {
+        FileManager::User newUser;
+        newUser.username = "admin";
+        newUser.uniqueIdentifier = users.size() == 0 ? 0 : users[users.size()-1].uniqueIdentifier+1;
+        newUser.password = myFiles.hash(newUser.uniqueIdentifier, "password");
+        newUser.accessLevel = 2;
+        users.push_back(newUser);
+        myFiles.saveUsers(users);
+    }
+
     do {
         FileManager::StateData state = myFiles.loadState();
         // 0:login 1:profile 2:assignments 3:project 4:ticket 5:addTicket 6:archive 7:management
@@ -25,7 +45,7 @@ int main(int argc, char *argv[])
         // 12:profileViewing
 
         // NOTE: SWITCH STATEMENT DOESN'T WORK HERE
-        if (state.newPage == 0) {
+        if (state.newPage == 0 || !myFiles.validateUser(state.userID, state.password)) {
             Login page;
             page.show();
             a.exec();

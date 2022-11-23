@@ -1,16 +1,6 @@
 #include "ui_profile.h"
 #include "profile.h"
 
-#include <QMessageBox>
-#include <QPixmap>
-#include <QDialog>
-#include <QButtonGroup>
-#include <QSize>
-#include <QLineEdit>
-#include <QLabel>
-#include <QBoxLayout>
-#include <QAbstractButton>
-
 Profile::Profile(QWidget *parent) :
 
     QWidget(parent),
@@ -34,10 +24,7 @@ Profile::Profile(QWidget *parent) :
         ui->ProfileOp8->setVisible(false);
         ui->ProfileOp9->setVisible(false);
 
-
-
         ui->PFP->setStyleSheet("border-image:url(:/Images/Images/PFP/empty.png);");
-
 
         ui->EditDetails->setIcon(QIcon(":/Images/Images/editIcon.png"));
         ui->EditDetails->setIconSize(QSize(40,40));
@@ -71,13 +58,39 @@ Profile::Profile(QWidget *parent) :
 
         ui->ProfileOp9->setIcon(QIcon(":/Images/Images/PFP/YellowRabbit.png"));
         ui->ProfileOp9->setIconSize(QSize(100,100));
+
+        updateInfo();
     }
 
+
+void Profile::updateInfo() {
+    FileManager myFiles;
+    QVector<FileManager::User> users = myFiles.loadUsers();
+    FileManager::StateData state = myFiles.loadState();
+    for (int userIdx = 0; userIdx < users.size(); userIdx++) {
+        if (state.userID == users[userIdx].uniqueIdentifier) {
+            ui->Name->setText(users[userIdx].username);
+            ui->NameEdit->setText(users[userIdx].username);
+            ui->JobTitle->setText(users[userIdx].job);
+            ui->JobEdit->setText(users[userIdx].job);
+            ui->workHours->setText(users[userIdx].activeTimes);
+            ui->TimeEdit->setText(users[userIdx].activeTimes);
+            ui->location->setText(users[userIdx].location);
+            ui->LocationEdit->setText(users[userIdx].location);
+            ui->number->setText(users[userIdx].phone);
+            ui->NumberEdit->setText(users[userIdx].phone);
+            ui->email->setText(users[userIdx].email);
+            ui->EmailEdit->setText(users[userIdx].email);
+
+            updateProfilePic(users[userIdx].profilePicID);
+            return;
+        }
+    }
+}
 
 void Profile::on_EditDetails_clicked(bool checked)
 {
     if (checked == true) {
-
         ui->EditDetails->setIcon(QIcon(":/Images/Images/Checkmark.png"));
         ui->EditDetails->setIconSize(QSize(40,40));
 
@@ -94,8 +107,7 @@ void Profile::on_EditDetails_clicked(bool checked)
         ui->LocationEdit->setVisible(true);
         ui->EmailEdit->setVisible(true);
         ui->NumberEdit->setVisible(true);
-    }
-    else {
+    } else {
 
         ui->EditDetails->setIcon(QIcon(":/Images/Images/editIcon.png"));
         ui->EditDetails->setIconSize(QSize(40,40));
@@ -106,6 +118,22 @@ void Profile::on_EditDetails_clicked(bool checked)
         ui->LocationEdit->setVisible(false);
         ui->EmailEdit->setVisible(false);
         ui->NumberEdit->setVisible(false);
+
+        FileManager myFiles;
+        QVector<FileManager::User> users = myFiles.loadUsers();
+        FileManager::StateData state = myFiles.loadState();
+        for (int userIdx = 0; userIdx < users.size(); userIdx++) {
+            if (state.userID == users[userIdx].uniqueIdentifier) {
+                users[userIdx].username = ui->NameEdit->text();
+                users[userIdx].job = ui->JobEdit->text();
+                users[userIdx].activeTimes = ui->TimeEdit->text();
+                users[userIdx].location = ui->LocationEdit->text();
+                users[userIdx].phone = ui->NumberEdit->text();
+                users[userIdx].email = ui->EmailEdit->text();
+            }
+        }
+        myFiles.saveUsers(users);
+        updateInfo();
     }
 }
 
@@ -126,9 +154,7 @@ void Profile::on_EditProfilePic_clicked(bool checked)
         ui->ProfileOp8->setVisible(true);
         ui->ProfileOp9->setVisible(true);
 
-    }
-    else {
-
+    } else {
         ui->EditProfilePic->setIcon(QIcon(":/Images/Images/editIcon.png"));
         ui->EditProfilePic->setIconSize(QSize(40,40));
 
@@ -144,109 +170,165 @@ void Profile::on_EditProfilePic_clicked(bool checked)
     }
 }
 
-void Profile::on_ProfileOp1_clicked() {
-//    QPixmap profilePic(":/Images/Images/PFP/bear.png");
-//    QLabel label("PFP");
-//    label.setPixmap(profilePic);
-//    label.show();
-    ui->PFP->setStyleSheet("border-image:url(:/Images/Images/PFP/bear.png);");
-}
-void Profile::on_ProfileOp2_clicked() {
-    ui->PFP->setStyleSheet("border-image:url(:/Images/Images/PFP/cat.png);");
-}
-void Profile::on_ProfileOp3_clicked() {
-    ui->PFP->setStyleSheet("border-image:url(:/Images/Images/PFP/chicken.png);");
-}
-void Profile::on_ProfileOp4_clicked() {
-    ui->PFP->setStyleSheet("border-image:url(:/Images/Images/PFP/GrayDog.png);");
-}
-void Profile::on_ProfileOp5_clicked() {
-    ui->PFP->setStyleSheet("border-image:url(:/Images/Images/PFP/dog.png);");
-}
-void Profile::on_ProfileOp6_clicked() {
-    ui->PFP->setStyleSheet("border-image:url(:/Images/Images/PFP/koala.png);");
-}
-void Profile::on_ProfileOp7_clicked() {
-    ui->PFP->setStyleSheet("border-image:url(:/Images/Images/PFP/panda.png);");
-}
-void Profile::on_ProfileOp8_clicked() {
-    ui->PFP->setStyleSheet("border-image:url(:/Images/Images/PFP/rabbit.png);");
-}
-void Profile::on_ProfileOp9_clicked() {
-    ui->PFP->setStyleSheet("border-image:url(:/Images/Images/PFP/YellowRabbit.png);");
+void Profile::updateProfilePic(int profilePicID) {
+    FileManager myFiles;
+    ui->PFP->setStyleSheet("border-image:url(:/Images/Images/PFP/" + myFiles.getAvatar(profilePicID) + ".png);");
+    QVector<FileManager::User> users = myFiles.loadUsers();
+    FileManager::StateData state = myFiles.loadState();
+    for (int userIdx = 0; userIdx < users.size(); userIdx++) {
+        if (state.userID == users[userIdx].uniqueIdentifier) {
+            users[userIdx].profilePicID = profilePicID;
+        }
+    }
+    myFiles.saveUsers(users);
 }
 
+void Profile::on_ProfileOp1_clicked() { updateProfilePic(0); }
+void Profile::on_ProfileOp2_clicked() { updateProfilePic(1); }
+void Profile::on_ProfileOp3_clicked() { updateProfilePic(2); }
+void Profile::on_ProfileOp4_clicked() { updateProfilePic(3); }
+void Profile::on_ProfileOp5_clicked() { updateProfilePic(4); }
+void Profile::on_ProfileOp6_clicked() { updateProfilePic(5); }
+void Profile::on_ProfileOp7_clicked() { updateProfilePic(6); }
+void Profile::on_ProfileOp8_clicked() { updateProfilePic(7); }
+void Profile::on_ProfileOp9_clicked() { updateProfilePic(8); }
+
+void Profile::hidePassword(QPushButton* echoSwitch, QLineEdit* password) {
+    if (password->echoMode() == QLineEdit::Password) {
+        password->setEchoMode(QLineEdit::Normal);
+    }
+    else {
+        password->setEchoMode(QLineEdit::Password);
+    }
+}
+
+void Profile::confirmButtonPressed(QDialog* confirm) {
+    confirm->close();
+}
 void Profile::on_changePassword_clicked()
 {
     QDialog* popup = new QDialog();
-    QRect passwordPopupSize(0,0,500,300);
+        QRect passwordPopupSize(0,0,500,300);
 
+        popup->setStyleSheet("background-color: qlineargradient(spread:pad, x0:1, y2:1, x2:0, y2:1, stop:0 rgba(1, 15, 17, 255), stop:1 rgba(4, 15, 101, 255)); height: 300px; width 500px");
 
-    popup->setStyleSheet("background-color: qlineargradient(spread:pad, x0:1, y2:1, x2:0, y2:1, stop:0 rgba(1, 15, 17, 255), stop:1 rgba(4, 15, 101, 255)); height: 300px; width 500px");
+        QVBoxLayout* vLayout = new QVBoxLayout();
+        QHBoxLayout* hLayout1 = new QHBoxLayout();
+        QHBoxLayout* hLayout2 = new QHBoxLayout();
+        QHBoxLayout* hLayout3 = new QHBoxLayout();
+        QHBoxLayout* hLayout4 = new QHBoxLayout();
+        QSpacerItem* spacer = new QSpacerItem(30,0,QSizePolicy::Expanding);
 
+        QLabel* Title = new QLabel(popup);
+        Title->setText("Change Password");
+        Title->setStyleSheet("background: transparent; font-size: 20px;");
 
-    QVBoxLayout* vLayout = new QVBoxLayout();
-    QHBoxLayout* hLayout1 = new QHBoxLayout();
-    QHBoxLayout* hLayout2 = new QHBoxLayout();
-    QHBoxLayout* hLayout3 = new QHBoxLayout();
-    //QHBoxLayout* hLayout4 = new QHBoxLayout();
-    QSpacerItem* spacer = new QSpacerItem(30,0,QSizePolicy::Expanding);
+        QLineEdit* oldPassword = new QLineEdit(popup);
+        oldPassword->setText("World");
+        oldPassword->setReadOnly(true);
+        oldPassword->setStyleSheet("height: 50px; width 100px; color: #FFFFFF;");
+        QPushButton* echoSwitchBtn = new QPushButton();
+        echoSwitchBtn->setIcon(QIcon(":/Images/Images/hiddenPasswordIcon.png"));
+        echoSwitchBtn->setIconSize(QSize(50,50));
+        echoSwitchBtn->setCheckable(true);
+        echoSwitchBtn->setChecked(true);
+        echoSwitchBtn->setStyleSheet("height: 50px; width 50px; background: transparent; color: #FFFFFF;");
+        connect(echoSwitchBtn, &QPushButton::clicked, [this, echoSwitchBtn, oldPassword] { hidePassword(echoSwitchBtn, oldPassword); });
 
-    QLabel* Title = new QLabel(popup);
-    Title->setText("Hello");
-    QPushButton* echoSwitchBtn = new QPushButton();
-    echoSwitchBtn->setIcon(QIcon(":/Images/Images/hiddenPasswordIcon.png"));
-    echoSwitchBtn->setIconSize(QSize(50,50));
-    echoSwitchBtn->setStyleSheet("height: 50px; width 50px");
-    QPushButton* echoSwitchBtn2 = new QPushButton();
-    echoSwitchBtn->setIcon(QIcon(":/Images/Images/hiddenPasswordIcon.png"));
-    echoSwitchBtn->setIconSize(QSize(50,50));
-    QLineEdit* passwordField = new QLineEdit(popup);
-    passwordField->setStyleSheet("height: 50px; width 100px");
-    QLineEdit* oldPassword = new QLineEdit(popup);
-    oldPassword->setText("World");
-    oldPassword->setStyleSheet("height: 50px; width 100px");
+        QLineEdit* passwordField = new QLineEdit(popup);
+        passwordField->setStyleSheet("height: 50px; width 100px; color: #FFFFFF;");
+        QPushButton* echoSwitchBtn2 = new QPushButton();
+        echoSwitchBtn2->setIcon(QIcon(":/Images/Images/hiddenPasswordIcon.png"));
+        echoSwitchBtn2->setIconSize(QSize(50,50));
+        echoSwitchBtn2->setStyleSheet("height: 50px; width 50px; background: transparent; color: #ffffff");
+        connect(echoSwitchBtn, &QPushButton::clicked, [this, echoSwitchBtn2, passwordField] { hidePassword(echoSwitchBtn2, passwordField); });
 
+        QPushButton* confirmBtn = new QPushButton();
+        confirmBtn->setStyleSheet("height: 50px; width 120px; background: red; color: white;");
+        confirmBtn->setText("Confirm");
+        connect(confirmBtn, &QPushButton::clicked, [this, popup] { confirmButtonPressed(popup); });
 
-    popup->setLayout(vLayout);
+        popup->setLayout(vLayout);
 
-    popup->setGeometry(passwordPopupSize);
+        popup->setGeometry(passwordPopupSize);
 
-    vLayout->addSpacerItem(spacer);
+        vLayout->addSpacerItem(spacer);
 
-    hLayout1->addSpacerItem(spacer);
-    hLayout1->addWidget(Title);
-    hLayout1->addSpacerItem(spacer);
-    vLayout->addLayout(hLayout1);
+        hLayout1->addSpacerItem(spacer);
+        hLayout1->addWidget(Title);
+        hLayout1->addSpacerItem(spacer);
+        vLayout->addLayout(hLayout1);
 
-    hLayout2->addSpacerItem(spacer);
-    hLayout2->addWidget(oldPassword);
-    hLayout2->addWidget(echoSwitchBtn);
-    hLayout2->addSpacerItem(spacer);
-    vLayout->addLayout(hLayout2);
+        hLayout2->addSpacerItem(spacer);
+        hLayout2->addWidget(oldPassword);
+        hLayout2->addWidget(echoSwitchBtn);
+        hLayout2->addSpacerItem(spacer);
+        vLayout->addLayout(hLayout2);
 
-    hLayout3->addSpacerItem(spacer);
-    hLayout3->addWidget(passwordField);
-    hLayout3->addWidget(echoSwitchBtn2);
-    hLayout3->addSpacerItem(spacer);
-    vLayout->addLayout(hLayout3);
+        hLayout3->addSpacerItem(spacer);
+        hLayout3->addWidget(passwordField);
+        hLayout3->addWidget(echoSwitchBtn2);
+        hLayout3->addSpacerItem(spacer);
+        vLayout->addLayout(hLayout3);
 
-    vLayout->addSpacerItem(spacer);
+        hLayout4->addSpacerItem(spacer);
+        hLayout4->addWidget(confirmBtn);
+        hLayout4->addSpacerItem(spacer);
+        vLayout->addLayout(hLayout4);
 
+        vLayout->addSpacerItem(spacer);
 
-
-    popup->exec();
-
-
-    //Needs Label with current password
-    //Line Edit for new password
-    //2 Buttons to hide passwords (Need help getting them on popup)
-    //Cancel & Confirm Button (Same propety for now)
-
+        popup->exec();
 }
 
 
 Profile::~Profile()
 {
+    if (closing) {
+        FileManager myFiles;
+        FileManager::StateData currentState;
+        currentState.newPage = -1;
+        myFiles.saveState(currentState);
+    }
     delete ui;
 }
+
+void Profile::on_assignButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 2;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+
+void Profile::on_profileButton_clicked()
+{
+    return;
+}
+
+
+void Profile::on_managementButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 7;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+
+void Profile::on_logoutButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 0;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+

@@ -34,11 +34,11 @@ public:
     QLabel *title_3;
     QHBoxLayout *horizontalLayout_3;
     QSpacerItem *horizontalSpacer_9;
-    QLineEdit *lineEditPassword_3;
+    QLineEdit *usernameField;
     QSpacerItem *horizontalSpacer_10;
-    QLineEdit *lineEditPassword_4;
+    QLineEdit *passwordField;
     QSpacerItem *horizontalSpacer_13;
-    QPushButton *pushButton_6;
+    QPushButton *createUserButton;
     QSpacerItem *horizontalSpacer_11;
     QSpacerItem *verticalSpacer_7;
     QPushButton *backgroundGradient;
@@ -107,38 +107,38 @@ public:
 
         horizontalLayout_3->addItem(horizontalSpacer_9);
 
-        lineEditPassword_3 = new QLineEdit(assignmentCategories_3);
-        lineEditPassword_3->setObjectName("lineEditPassword_3");
-        lineEditPassword_3->setMinimumSize(QSize(0, 35));
-        lineEditPassword_3->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: #040F65; font-weight:lighter; padding-right:5px; border:0px; padding-left:5px;\n"
+        usernameField = new QLineEdit(assignmentCategories_3);
+        usernameField->setObjectName("usernameField");
+        usernameField->setMinimumSize(QSize(0, 35));
+        usernameField->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: #040F65; font-weight:lighter; padding-right:5px; border:0px; padding-left:5px;\n"
 ""));
-        lineEditPassword_3->setClearButtonEnabled(false);
+        usernameField->setClearButtonEnabled(false);
 
-        horizontalLayout_3->addWidget(lineEditPassword_3);
+        horizontalLayout_3->addWidget(usernameField);
 
         horizontalSpacer_10 = new QSpacerItem(40, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
 
         horizontalLayout_3->addItem(horizontalSpacer_10);
 
-        lineEditPassword_4 = new QLineEdit(assignmentCategories_3);
-        lineEditPassword_4->setObjectName("lineEditPassword_4");
-        lineEditPassword_4->setMinimumSize(QSize(0, 35));
-        lineEditPassword_4->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: #040F65; font-weight:lighter; padding-right:5px; border:0px; padding-left:5px;\n"
+        passwordField = new QLineEdit(assignmentCategories_3);
+        passwordField->setObjectName("passwordField");
+        passwordField->setMinimumSize(QSize(0, 35));
+        passwordField->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: #040F65; font-weight:lighter; padding-right:5px; border:0px; padding-left:5px;\n"
 ""));
-        lineEditPassword_4->setClearButtonEnabled(false);
+        passwordField->setClearButtonEnabled(false);
 
-        horizontalLayout_3->addWidget(lineEditPassword_4);
+        horizontalLayout_3->addWidget(passwordField);
 
         horizontalSpacer_13 = new QSpacerItem(40, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
 
         horizontalLayout_3->addItem(horizontalSpacer_13);
 
-        pushButton_6 = new QPushButton(assignmentCategories_3);
-        pushButton_6->setObjectName("pushButton_6");
-        pushButton_6->setMinimumSize(QSize(200, 35));
-        pushButton_6->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:#32ACBE; border-radius:1px;"));
+        createUserButton = new QPushButton(assignmentCategories_3);
+        createUserButton->setObjectName("createUserButton");
+        createUserButton->setMinimumSize(QSize(200, 35));
+        createUserButton->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:#32ACBE; border-radius:1px;"));
 
-        horizontalLayout_3->addWidget(pushButton_6);
+        horizontalLayout_3->addWidget(createUserButton);
 
         horizontalSpacer_11 = new QSpacerItem(150, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
 
@@ -282,13 +282,13 @@ public:
     {
         UserManagement->setWindowTitle(QCoreApplication::translate("UserManagement", "Form", nullptr));
         title_3->setText(QCoreApplication::translate("UserManagement", "Users", nullptr));
-        lineEditPassword_3->setInputMask(QString());
-        lineEditPassword_3->setText(QString());
-        lineEditPassword_3->setPlaceholderText(QCoreApplication::translate("UserManagement", "Username...", nullptr));
-        lineEditPassword_4->setInputMask(QString());
-        lineEditPassword_4->setText(QString());
-        lineEditPassword_4->setPlaceholderText(QCoreApplication::translate("UserManagement", "Password...", nullptr));
-        pushButton_6->setText(QCoreApplication::translate("UserManagement", "Create User", nullptr));
+        usernameField->setInputMask(QString());
+        usernameField->setText(QString());
+        usernameField->setPlaceholderText(QCoreApplication::translate("UserManagement", "Username...", nullptr));
+        passwordField->setInputMask(QString());
+        passwordField->setText(QString());
+        passwordField->setPlaceholderText(QCoreApplication::translate("UserManagement", "Password...", nullptr));
+        createUserButton->setText(QCoreApplication::translate("UserManagement", "Create User", nullptr));
         backgroundGradient->setText(QString());
         profileButton->setText(QCoreApplication::translate("UserManagement", "Profile", nullptr));
         assignButton->setText(QCoreApplication::translate("UserManagement", "Assigned", nullptr));

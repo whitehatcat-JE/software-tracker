@@ -3,9 +3,11 @@
 
 #include <QString>
 #include <QVector>
-
 #include <QFile>
 #include <QTextStream>
+#include <String>
+
+#include "SHA256.h"
 
 class FileManager
 {
@@ -40,26 +42,25 @@ public:
         QVector<Ticket> tickets; // List of tickets associated with project
     };
 
-   /* struct User {
+    struct User {
         QString username;
         QString password;
-        QString job;
-        QString activeTimes;
-        QString location;
-        QString email;
-        QString phone;
-        int accessLevel;
-        int profilePicID;
+        QString job = "Unspecified Job";
+        QString activeTimes = "Unspecified Active Times";
+        QString location = "Private Location";
+        QString email = "Unknown Email Address";
+        QString phone = "Unknown Phone Number";
+        int accessLevel = 0;
+        int profilePicID = 0;
         int uniqueIdentifier;
-
-    };*/
+    };
 
     struct StateData {
-        int userID;
-        int newPage;
-        int pageData;
-        int secondaryPageData;
-        QString password;
+        int userID = 0;
+        int newPage = 0;
+        int pageData = 0;
+        int secondaryPageData = 0;
+        QString password = "";
     };
 
     struct TicketIDs {
@@ -84,11 +85,6 @@ public:
     // Stores all project data contained within QString as Structs / Vectors, for easier access
     QVector<Project> interpretProjects(QString projectData);
 
-    void WriteFile(QString fileName, QVector<QString> fileContent);
-    QVector<QVector<QString>> ReadFile(QString fileName, int columns);
-
-    bool CheckValidUser(QString username, QString fileName);
-
     void saveState(StateData state);
     void clearState();
     StateData loadState();
@@ -96,7 +92,12 @@ public:
     QVector<Group> loadGroups();
     void saveGroups(QVector<Group>);
 
-public slots:
+    QVector<User> loadUsers();
+    void saveUsers(QVector<User>);
+    bool validateUser(int userID, QString userPassword);
+    QString hash(int salt, QString str);
+
+    QString getAvatar(int profilePicID);
 
 private:
     bool nameFound = false;

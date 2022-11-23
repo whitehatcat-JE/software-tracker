@@ -37,7 +37,7 @@ AddTicket::~AddTicket()
 
 void AddTicket::on_createTicket_clicked()
 {
-    if (ui->details->toPlainText().count() == 0 || ui->category->text().count() == 0 || ui->ticketTitle->text().count() == 0) {
+    if (ui->details->toPlainText().size() == 0 || ui->category->text().size() == 0 || ui->ticketTitle->text().size() == 0) {
         QMessageBox::warning(
             this,
             tr("Missing Fields"),

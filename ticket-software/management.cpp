@@ -27,7 +27,6 @@ void Management::on_assignedButton_clicked() {
     this->close();
 }
 
-
 void Management::on_profileButton_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
@@ -37,7 +36,6 @@ void Management::on_profileButton_clicked() {
     this->close();
 }
 
-
 void Management::on_logoutButton_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
@@ -46,7 +44,6 @@ void Management::on_logoutButton_clicked() {
     closing = false;
     this->close();
 }
-
 
 void Management::on_usersButton_clicked()
 {
@@ -58,7 +55,6 @@ void Management::on_usersButton_clicked()
     this->close();
 }
 
-
 void Management::on_groupsButton_clicked()
 {
     FileManager myFiles;
@@ -69,7 +65,6 @@ void Management::on_groupsButton_clicked()
     this->close();
 }
 
-
 void Management::on_projectsButton_clicked()
 {
     FileManager myFiles;
@@ -79,4 +74,3 @@ void Management::on_projectsButton_clicked()
     closing = false;
     this->close();
 }
-

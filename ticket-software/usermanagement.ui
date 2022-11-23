@@ -141,7 +141,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
           </spacer>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEditPassword_3">
+          <widget class="QLineEdit" name="usernameField">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -183,7 +183,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
           </spacer>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEditPassword_4">
+          <widget class="QLineEdit" name="passwordField">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -225,7 +225,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_6">
+          <widget class="QPushButton" name="createUserButton">
            <property name="minimumSize">
             <size>
              <width>200</width>

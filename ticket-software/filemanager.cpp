@@ -150,89 +150,105 @@ QVector<FileManager::Project> FileManager::interpretProjects(QString projectData
     } return projects;
 };
 
-void FileManager::WriteFile(QString fileName, QVector<QString> fileContent){
-    fileName.append(".csv");
-    QFile file(fileName);
-    //We use ReadWrite here, otherwise as write includes the truncate flag, which will clear all date from the file
-    file.open(QIODevice::ReadWrite | QIODevice::Append);
-
-    if(!file.isOpen()){
-        qDebug() << "File Not open";
-        return;
-    }
+void FileManager::saveUsers(QVector<FileManager::User> users) {
+    QFile file("users.csv");
+    file.open(QIODevice::ReadWrite | QIODevice::Truncate);
     QTextStream stream(&file);
-    for(int i = 0; i < fileContent.size(); i++){
-        stream << fileContent.at(i);
-        if(i != fileContent.size()-1){
-            stream << ",";
-        }
-        else{
-            stream << "\n";
-        }
+    if (!file.isOpen()) { return; }
+
+    for (int userIdx = 0; userIdx < users.size(); userIdx++) {
+        stream << users[userIdx].username << "`" <<
+            users[userIdx].password << "`" <<
+            users[userIdx].job << "`" <<
+            users[userIdx].activeTimes << "`" <<
+            users[userIdx].location << "`" <<
+            users[userIdx].email << "`" <<
+            users[userIdx].phone << "`" <<
+            users[userIdx].accessLevel << "`" <<
+            users[userIdx].profilePicID << "`" <<
+            users[userIdx].uniqueIdentifier << "`\n";
     }
     file.close();
-    if(!file.isOpen()){
-    }
 }
 
-bool FileManager::CheckValidUser(QString username, QString fileName){
-    nameFound = false;
-    QVector<QVector<QString>> content = ReadFile(fileName, 3);
+QVector<FileManager::User> FileManager::loadUsers() {
+    QFile file("users.csv");
+    file.open(QIODevice::ReadOnly);
+    if (!file.isOpen()) { return {}; }
 
-    for(int i = 0; i < content.size(); i++){
-        if(content.at(i).at(0) == username){
-            nameFound = true;
+    QVector<FileManager::User> users = {};
+    while (!file.atEnd()) {
+        QByteArray line = file.readLine();
+        QVector<QByteArray> lineVec = line.split('`').toVector();
+        FileManager::User newUser;
+        newUser.username = lineVec[0];
+        newUser.password = lineVec[1];
+        newUser.job = lineVec[2];
+        newUser.activeTimes = lineVec[3];
+        newUser.location = lineVec[4];
+        newUser.email = lineVec[5];
+        newUser.phone = lineVec[6];
+        newUser.accessLevel = lineVec[7].toInt();
+        newUser.profilePicID = lineVec[8].toInt();
+        newUser.uniqueIdentifier = lineVec[9].toInt();
+        users.push_back(newUser);
+    }
+
+    file.close();
+    return users;
+}
+
+bool FileManager::validateUser(int userId, QString userPassword) {
+    QVector<FileManager::User> users = loadUsers();
+    for (int userIdx = 0; userIdx < users.size(); userIdx++) {
+        if (users[userIdx].uniqueIdentifier == userId) {
+            if (users[userIdx].password == hash(userId, userPassword)) { return true; }
             return false;
         }
-        else{
-            continue;
-        }
-    }
-    if(!nameFound){
-        return true;
-    }
-    return false;
+    } return false;
 }
 
-//Read File from location with reference to columns in the file
-QVector<QVector<QString>> FileManager::ReadFile(QString fileName, int numColumns){
-    fileName.append(".csv");
+QString FileManager::hash(int salt, QString str) {
+    std::string saltedPassword = std::to_string(salt) + str.toStdString();
+    SHA256 sha;
+    sha.update(saltedPassword);
+    return QString::fromStdString(SHA256::toString(sha.digest()));
+}
 
-    QVector<QVector<QString>> columns;
-    QVector<QString> rows;
-
-    QFile file(fileName);
-    file.open(QIODevice::ReadOnly);
-    if(!file.isOpen()){
-        qDebug() << "No File Open";
-        return columns;
+QString FileManager::getAvatar(int profilePicID) {
+    switch (profilePicID) {
+    case 0:
+        return "bear";
+    case 1:
+        return "cat";
+    case 2:
+        return "chicken";
+    case 3:
+        return "GreyDog";
+    case 4:
+        return "dog";
+    case 5:
+        return "koala";
+    case 6:
+        return "panda";
+    case 7:
+        return "rabbit";
+    case 8:
+        return "YellowRabbit";
     }
-
-    //for(QVector<QString> : fileContent)
-
-    QTextStream stream(&file);
-
-    while(!stream.atEnd()){
-        QString str = stream.readLine();
-        rows.append(str.split(","));
-        for(int i = 0; i < numColumns; i++){
-            if(i == numColumns-1){
-                columns.append(rows);
-                rows.clear();
-            }
-        }
-    }
-
-    file.close();
-    return columns;
 }
 
 void FileManager::saveState(StateData state) {
+    FileManager::StateData oldState = FileManager::loadState();
     // Open file from disk
     QFile file("cachedState.csv");
     file.open(QIODevice::ReadWrite | QIODevice::Truncate);
     // Writes project data to disk
     QTextStream stream(&file);
+    if (state.password == "") {
+        state.userID = oldState.userID;
+        state.password = oldState.password;
+    }
     stream << state.userID << ',' << state.password << ',' <<
           state.newPage << ',' << state.pageData << ',' <<
           state.secondaryPageData << "\n";
@@ -243,18 +259,12 @@ FileManager::StateData FileManager::loadState() {
     FileManager::StateData myState;
     QFile file("cachedState.csv");
     file.open(QIODevice::ReadOnly);
-    if (!file.isOpen()) {
-        myState.newPage = 2;
-        myState.userID = 0;
-        myState.password = "";
-        myState.pageData = 0;
-        myState.secondaryPageData = 0;
-        return myState;
-    }
+    if (!file.isOpen()) { return myState; }
     QTextStream stream(&file);
     QString stateInfo = stream.readLine();
     QVector<QString> stateInfoVec;
     stateInfoVec.append(stateInfo.split(","));
+    if (stateInfoVec.size() < 5) { return myState; }
     myState.userID = stateInfoVec[0].toInt();
     myState.password = stateInfoVec[1];
     myState.newPage = stateInfoVec[2].toInt();
