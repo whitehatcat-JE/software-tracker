@@ -2,6 +2,9 @@
 #define LOGIN_H
 
 #include <QMainWindow>
+#include <string>
+#include <array>
+#include <QObject>
 
 #include "profile.h"
 #include "filemanager.h"
@@ -20,9 +23,16 @@ public:
 
 private slots:
     void on_logInBtn_clicked();
+   // void on_BTNSign_clicked();
 
 private:
     Ui::Login *ui;
     Profile *profile = new Profile();
+    FileManager fManager;
+    //MainScreen mScreen();
+    bool signedIn = false;
+    int userIndex;
 };
+
+
 #endif // LOGIN_H

@@ -1,5 +1,6 @@
 #include "filemanager.h"
 #include <QDebug>
+
 FileManager::FileManager(){}
 // Loads project data from disk
 QString FileManager::loadProjects() {
@@ -148,6 +149,82 @@ QVector<FileManager::Project> FileManager::interpretProjects(QString projectData
         } else itemStr.append(c); // Adds new char to current item
     } return projects;
 };
+
+void FileManager::WriteFile(QString fileName, QVector<QString> fileContent){
+    fileName.append(".csv");
+    QFile file(fileName);
+    //We use ReadWrite here, otherwise as write includes the truncate flag, which will clear all date from the file
+    file.open(QIODevice::ReadWrite | QIODevice::Append);
+
+    if(!file.isOpen()){
+        qDebug() << "File Not open";
+        return;
+    }
+    QTextStream stream(&file);
+    for(int i = 0; i < fileContent.size(); i++){
+        stream << fileContent.at(i);
+        if(i != fileContent.size()-1){
+            stream << ",";
+        }
+        else{
+            stream << "\n";
+        }
+    }
+    file.close();
+    if(!file.isOpen()){
+    }
+}
+
+bool FileManager::CheckValidUser(QString username, QString fileName){
+    nameFound = false;
+    QVector<QVector<QString>> content = ReadFile(fileName, 3);
+
+    for(int i = 0; i < content.size(); i++){
+        if(content.at(i).at(0) == username){
+            nameFound = true;
+            return false;
+        }
+        else{
+            continue;
+        }
+    }
+    if(!nameFound){
+        return true;
+    }
+    return false;
+}
+
+//Read File from location with reference to columns in the file
+QVector<QVector<QString>> FileManager::ReadFile(QString fileName, int numColumns){
+    fileName.append(".csv");
+
+    QVector<QVector<QString>> columns;
+    QVector<QString> rows;
+
+    QFile file(fileName);
+    file.open(QIODevice::ReadOnly);
+    if(!file.isOpen()){
+        qDebug() << "No File Open";
+        return columns;
+    }
+
+    //for(QVector<QString> : fileContent)
+
+    QTextStream stream(&file);
+
+    while(!stream.atEnd()){
+        QString str = stream.readLine();
+        rows.append(str.split(","));
+        for(int i = 0; i < numColumns; i++){
+            if(i == numColumns-1){
+                columns.append(rows);
+                rows.clear();
+            }
+        }
+    }
+
+    file.close();
+    return columns;
 
 void FileManager::saveState(StateData state) {
     // Open file from disk

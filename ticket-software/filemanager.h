@@ -40,6 +40,20 @@ public:
         QVector<Ticket> tickets; // List of tickets associated with project
     };
 
+   /* struct User {
+        QString username;
+        QString password;
+        QString job;
+        QString activeTimes;
+        QString location;
+        QString email;
+        QString phone;
+        int accessLevel;
+        int profilePicID;
+        int uniqueIdentifier;
+
+    };*/
+
     struct StateData {
         int userID;
         int newPage;
@@ -69,6 +83,16 @@ public:
     QString compileProjects(QVector<Project> projects);
     // Stores all project data contained within QString as Structs / Vectors, for easier access
     QVector<Project> interpretProjects(QString projectData);
+
+    void WriteFile(QString fileName, QVector<QString> fileContent);
+    QVector<QVector<QString>> ReadFile(QString fileName, int columns);
+
+    bool CheckValidUser(QString username, QString fileName);
+
+public slots:
+
+private:
+    bool nameFound = false;
 
     void saveState(StateData state);
     void clearState();

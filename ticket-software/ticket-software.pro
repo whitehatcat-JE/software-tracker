@@ -9,6 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    SHA256.cpp \
     addticket.cpp \
     archive.cpp \
     assignments.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
     usermanagement.cpp
 
 HEADERS += \
+    SHA256.h \
     addticket.h \
     archive.h \
     assignments.h \
