@@ -13,6 +13,8 @@
 #include <QLabel>
 #include <QPixmap>
 
+#include "filemanager.h"
+
 namespace Ui {
 class Profile;
 }

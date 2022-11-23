@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 <RCC>
     <qresource prefix="/Images">
         <file>Images/archiveIcon.png</file>
@@ -16,24 +15,13 @@
         <file>Images/PFP/rabbit.png</file>
         <file>Images/PFP/YellowRabbit.png</file>
     </qresource>
-</RCC>
-=======
-<RCC>
-    <qresource prefix="/Images">
-        <file>Images/archiveIcon.png</file>
-        <file>Images/Checkmark.png</file>
+    <qresource prefix="/Image">
         <file>Images/editIcon.png</file>
+        <file>Images/archiveIcon.png</file>
         <file>Images/hiddenPasswordIcon.png</file>
-        <file>Images/PFP/bear.png</file>
-        <file>Images/PFP/cat.png</file>
-        <file>Images/PFP/chicken.png</file>
-        <file>Images/PFP/dog.png</file>
-        <file>Images/PFP/empty.png</file>
-        <file>Images/PFP/GrayDog.png</file>
-        <file>Images/PFP/koala.png</file>
-        <file>Images/PFP/panda.png</file>
-        <file>Images/PFP/rabbit.png</file>
-        <file>Images/PFP/YellowRabbit.png</file>
+        <file>Images/searchIcon.png</file>
+        <file>Images/trashIcon.png</file>
+        <file>Images/placeholderProfileIcon.png</file>
+        <file>Images/editEnabledIcon.png</file>
     </qresource>
 </RCC>
->>>>>>> Stashed changes
