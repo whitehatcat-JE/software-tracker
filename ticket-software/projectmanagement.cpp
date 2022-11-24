@@ -44,6 +44,7 @@ void ProjectManagement::reloadProjects() {
         usersButton->setMaximumWidth(100);
         usersButton->setMinimumHeight(50);
         usersButton->setObjectName("projectInfo");
+        connect(usersButton, &QPushButton::clicked, [this, projectIdentifer] { openProjectUsers(projectIdentifer); });
 
         deleteButton->setIcon(QIcon(":/Image/Images/trashIcon.png"));
         deleteButton->setStyleSheet("background-color:transparent; border:0px;");
@@ -77,6 +78,17 @@ void ProjectManagement::openProjectGroups(int projectID) {
     FileManager::StateData state;
     state.newPage = 11;
     state.pageData = 3;
+    state.secondaryPageData = projectID;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+void ProjectManagement::openProjectUsers(int projectID) {
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 11;
+    state.pageData = 4;
     state.secondaryPageData = projectID;
     myFiles.saveState(state);
     closing = false;

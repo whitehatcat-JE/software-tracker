@@ -140,7 +140,7 @@ void UserManagement::assignUserTickets(int userID) {
     FileManager myFiles;
     FileManager::StateData state;
     state.newPage = 11;
-    state.pageData = 6;
+    state.pageData = 7;
     state.secondaryPageData = userID;
     myFiles.saveState(state);
     closing = false;
@@ -162,7 +162,7 @@ void UserManagement::on_assignButton_clicked()
 {
     FileManager myFiles;
     FileManager::StateData state;
-    state.newPage = 7;
+    state.newPage = 2;
     myFiles.saveState(state);
     closing = false;
     this->close();

@@ -240,7 +240,7 @@ QString FileManager::getAvatar(int profilePicID) {
         return "panda";
     case 7:
         return "rabbit";
-    case 8:
+    default:
         return "YellowRabbit";
     }
 }
@@ -284,6 +284,60 @@ FileManager::StateData FileManager::loadState() {
 void FileManager::clearState() {
     QFile file ("cachedState.csv");
     file.remove();
+}
+
+
+QVector<FileManager::UserRelations> FileManager::loadUserRelations() {
+    QFile file("userRelations.csv");
+    file.open(QIODevice::ReadOnly);
+
+    if (!file.isOpen()) { return {}; }
+
+    QVector<FileManager::UserRelations> userRelations = {};
+    QVector<FileManager::User> users = loadUsers();
+    for (int userIdx = 0; userIdx < users.size(); userIdx++) {
+        FileManager::UserRelations newUserRelations;
+        newUserRelations.uniqueIdentifier = users[userIdx].uniqueIdentifier;
+        userRelations.push_back(newUserRelations);
+    }
+
+    while (!file.atEnd()) {
+        QByteArray line = file.readLine();
+        QVector<QByteArray> lineVec = line.split('`').toVector();
+        for (int userRelationIdx = 0; userRelationIdx < userRelations.size(); userRelationIdx++) {
+            if (userRelations[userRelationIdx].uniqueIdentifier == lineVec[0].toInt()) {
+                if (lineVec[1].toInt() == 0) {
+                    userRelations[userRelationIdx].projects.push_back(lineVec[2].toInt());
+                } else {
+                    FileManager::TicketIDs newTicket;
+                    newTicket.projectID = lineVec[2].toInt();
+                    newTicket.ticketID = lineVec[3].toInt();
+                    userRelations[userRelationIdx].tickets.push_back(newTicket);
+                }
+            }
+        }
+    }
+    file.close();
+    return userRelations;
+}
+
+void FileManager::saveUserRelations(QVector<FileManager::UserRelations> userRelations) {
+    QFile file("userRelations.csv");
+    file.open(QIODevice::ReadWrite | QIODevice::Truncate);
+    if (!file.isOpen()) { return; }
+    QTextStream stream(&file);
+    for (int userIdx = 0; userIdx < userRelations.size(); userIdx++) {
+        for (int projectRelationIdx = 0; projectRelationIdx < userRelations[userIdx].projects.size(); projectRelationIdx++) {
+            stream << userRelations[userIdx].uniqueIdentifier << "`0`" <<
+                userRelations[userIdx].projects[projectRelationIdx] << "`\n";
+        }
+        for (int ticketRelationIdx = 0; ticketRelationIdx < userRelations[userIdx].tickets.size(); ticketRelationIdx++) {
+            stream << userRelations[userIdx].uniqueIdentifier << "`1`" <<
+                userRelations[userIdx].tickets[ticketRelationIdx].projectID << "`" <<
+                userRelations[userIdx].tickets[ticketRelationIdx].ticketID << "`\n";
+        }
+    }
+    file.close();
 }
 
 QVector<FileManager::Group> FileManager::loadGroups() {
@@ -351,11 +405,11 @@ QVector<FileManager::Group> FileManager::loadGroups() {
 void FileManager::saveGroups(QVector<FileManager::Group> groups) {
     QFile groupFile("groups.csv");
     groupFile.open(QIODevice::ReadWrite | QIODevice::Truncate);
-    QTextStream gStream(&groupFile);
     QFile relationFile("groupRelations.csv");
     relationFile.open(QIODevice::ReadWrite | QIODevice::Truncate);
-    QTextStream rStream(&relationFile);
     if (!groupFile.isOpen() || !relationFile.isOpen()) { return; }
+    QTextStream rStream(&relationFile);
+    QTextStream gStream(&groupFile);
 
     for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
         gStream << groups[groupIdx].ID << "," << groups[groupIdx].name << ",\n";

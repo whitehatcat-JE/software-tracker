@@ -309,3 +309,22 @@ void Ticket::on_priorityButton_clicked()
     myFiles.saveProjects(myFiles.compileProjects(projects));
 }
 
+
+void Ticket::on_assignUserButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 11;
+    state.pageData = 8;
+    state.secondaryPageData = IDTicket;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+
+void Ticket::on_assignSelfButton_clicked()
+{
+    FileManager myFiles;
+}
+

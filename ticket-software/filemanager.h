@@ -54,7 +54,6 @@ public:
         int profilePicID = 0;
         int uniqueIdentifier;
     };
-
     struct StateData {
         int userID = 0;
         int newPage = 0;
@@ -66,6 +65,12 @@ public:
     struct TicketIDs {
         int projectID;
         int ticketID;
+    };
+
+    struct UserRelations {
+        int uniqueIdentifier;
+        QVector<TicketIDs> tickets;
+        QVector<int> projects;
     };
 
     struct Group {
@@ -91,6 +96,9 @@ public:
 
     QVector<Group> loadGroups();
     void saveGroups(QVector<Group>);
+
+    QVector<UserRelations> loadUserRelations();
+    void saveUserRelations(QVector<UserRelations> userRelations);
 
     QVector<User> loadUsers();
     void saveUsers(QVector<User>);
