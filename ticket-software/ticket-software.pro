@@ -20,6 +20,7 @@ SOURCES += \
     management.cpp \
     managementselection.cpp \
     profile.cpp \
+    profileviewer.cpp \
     project.cpp \
     projectmanagement.cpp \
     ticket.cpp \
@@ -36,6 +37,7 @@ HEADERS += \
     management.h \
     managementselection.h \
     profile.h \
+    profileviewer.h \
     project.h \
     projectmanagement.h \
     ticket.h \
@@ -50,6 +52,7 @@ FORMS += \
     management.ui \
     managementselection.ui \
     profile.ui \
+    profileviewer.ui \
     project.ui \
     projectmanagement.ui \
     ticket.ui \

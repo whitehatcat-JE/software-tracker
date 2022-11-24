@@ -13,6 +13,7 @@
 #include "groupmanagement.h"
 #include "projectmanagement.h"
 #include "managementselection.h"
+#include "profileviewer.h"
 
 int main(int argc, char *argv[])
 {
@@ -91,6 +92,10 @@ int main(int argc, char *argv[])
             a.exec();
         } else if (state.newPage == 11) {
             ManagementSelection page(state.pageData, state.secondaryPageData);
+            page.show();
+            a.exec();
+        } else {
+            ProfileViewer page;
             page.show();
             a.exec();
         }

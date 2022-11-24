@@ -52,6 +52,8 @@ private:
     int IDTicket;
 
     bool closing = true;
+
+    void openUser(int userID);
 };
 
 #endif // TICKET_H

@@ -9,6 +9,7 @@ debug/login.o
 debug/management.o
 debug/managementselection.o
 debug/profile.o
+debug/profileviewer.o
 debug/project.o
 debug/projectmanagement.o
 debug/ticket.o
@@ -22,6 +23,7 @@ debug/moc_login.o
 debug/moc_management.o
 debug/moc_managementselection.o
 debug/moc_profile.o
+debug/moc_profileviewer.o
 debug/moc_project.o
 debug/moc_projectmanagement.o
 debug/moc_ticket.o

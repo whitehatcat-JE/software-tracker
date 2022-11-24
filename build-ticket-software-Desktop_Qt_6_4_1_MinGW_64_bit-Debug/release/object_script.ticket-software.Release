@@ -9,6 +9,7 @@ release/login.o
 release/management.o
 release/managementselection.o
 release/profile.o
+release/profileviewer.o
 release/project.o
 release/projectmanagement.o
 release/ticket.o
@@ -22,6 +23,7 @@ release/moc_login.o
 release/moc_management.o
 release/moc_managementselection.o
 release/moc_profile.o
+release/moc_profileviewer.o
 release/moc_project.o
 release/moc_projectmanagement.o
 release/moc_ticket.o

@@ -79,6 +79,8 @@ Ticket::Ticket(int projectID, int ticketID, QWidget *parent) :
                 userButton->setStyleSheet("font-size: 24px;font-family: Inter;color:white; font-weight:bold; border:none;");
                 userButton->setLayoutDirection(Qt::RightToLeft);
                 userButton->setObjectName("assignedUser");
+                int userID = userRelations[userRelationIdx].uniqueIdentifier;
+                connect(userButton, &QPushButton::clicked, [this, userID] { openUser(userID); });
                 for (int userIdx = 0; userIdx < users.size(); userIdx++) {
                     if (users[userIdx].uniqueIdentifier == userRelations[userRelationIdx].uniqueIdentifier) {
                         userButton->setIcon(QIcon(":/Images/Images/PFP/" + myFiles.getAvatar(users[userIdx].profilePicID) + ".png"));
@@ -406,6 +408,8 @@ void Ticket::on_assignSelfButton_clicked()
                 userButton->setStyleSheet("font-size: 24px;font-family: Inter;color:white; font-weight:bold; border:none;");
                 userButton->setLayoutDirection(Qt::RightToLeft);
                 userButton->setObjectName("assignedUser");
+                int userID = userRelations[userRelationIdx].uniqueIdentifier;
+                connect(userButton, &QPushButton::clicked, [this, userID] { openUser(userID); });
                 for (int userIdx = 0; userIdx < users.size(); userIdx++) {
                     if (users[userIdx].uniqueIdentifier == userRelations[userRelationIdx].uniqueIdentifier) {
                         userButton->setIcon(QIcon(":/Images/Images/PFP/" + myFiles.getAvatar(users[userIdx].profilePicID) + ".png"));
@@ -420,5 +424,15 @@ void Ticket::on_assignSelfButton_clicked()
             }
         }
     }
+}
+
+void Ticket::openUser(int userID) {
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 12;
+    state.pageData = userID;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
 }
 
