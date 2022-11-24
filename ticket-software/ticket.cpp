@@ -36,10 +36,35 @@ Ticket::Ticket(int projectID, int ticketID, QWidget *parent) :
                     ui->archiveButton->setText("Re-open Ticket");
                     ui->archiveButton->setStyleSheet("font-size: 24px;font-family: Inter;color:#CA0736; font-weight:bold; border:none; background-color:rgb(255, 255, 255); border-radius:1px;");
                 }
+
+                switch (projects[projectIdx].tickets[ticketIdx].priority) {
+                case 0:
+                    ui->priorityButton->setIcon(QIcon(":/Images/Images/unknownIcon.png"));
+                    break;
+                case 1:
+                    ui->priorityButton->setIcon(QIcon(":/Images/Images/notificationIcon.png"));
+                    break;
+                case 2:
+                    ui->priorityButton->setIcon(QIcon(":/Images/Images/emergencyIcon.png"));
+                    break;
+                }
                 break;
             }
         }
     }
+
+    int userAccessLevel = myFiles.getAccessLevel(myFiles.loadState().userID);
+    if (userAccessLevel < 2) {
+        ui->managementButton->hide();
+        ui->line_8->hide();
+        ui->assignUserButton->hide();
+        ui->assignGroupButton->hide();
+        if (userAccessLevel < 1) {
+            ui->archiveButton->hide();
+            ui->priorityButton->setDisabled(true);
+        }
+    }
+
     reloadLogs();
 }
 
@@ -255,5 +280,32 @@ void Ticket::on_assignGroupButton_clicked()
     myFiles.saveState(state);
     closing = false;
     this->close();
+}
+
+
+void Ticket::on_priorityButton_clicked()
+{
+    FileManager myFiles;
+    QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
+    for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
+        if (projects[projectIdx].uniqueIdentifier != IDProject) { continue; }
+        for (int ticketIdx = 0; ticketIdx < projects[projectIdx].tickets.size(); ticketIdx++) {
+            if (projects[projectIdx].tickets[ticketIdx].creationTime == IDTicket) {
+                projects[projectIdx].tickets[ticketIdx].priority += projects[projectIdx].tickets[ticketIdx].priority == 2 ? -2 : 1;
+                switch (projects[projectIdx].tickets[ticketIdx].priority) {
+                case 0:
+                    ui->priorityButton->setIcon(QIcon(":/Images/Images/unknownIcon.png"));
+                    break;
+                case 1:
+                    ui->priorityButton->setIcon(QIcon(":/Images/Images/notificationIcon.png"));
+                    break;
+                case 2:
+                    ui->priorityButton->setIcon(QIcon(":/Images/Images/emergencyIcon.png"));
+                    break;
+                }
+            }
+        }
+    }
+    myFiles.saveProjects(myFiles.compileProjects(projects));
 }
 

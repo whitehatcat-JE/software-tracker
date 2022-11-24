@@ -15,6 +15,9 @@
         <file>Images/PFP/rabbit.png</file>
         <file>Images/PFP/YellowRabbit.png</file>
         <file>Images/showPasswordIcon.png</file>
+        <file>Images/emergencyIcon.png</file>
+        <file>Images/notificationIcon.png</file>
+        <file>Images/unknownIcon.png</file>
     </qresource>
     <qresource prefix="/Image">
         <file>Images/editIcon.png</file>

@@ -34,10 +34,10 @@ public:
     QFrame *line_3;
     QVBoxLayout *NavButton_12;
     QPushButton *assignButton;
-    QFrame *line_13;
+    QFrame *line_14;
     QVBoxLayout *NavButton_13;
     QPushButton *managementButton;
-    QFrame *line_14;
+    QFrame *line_8;
     QSpacerItem *horizontalSpacer_3;
     QVBoxLayout *NavButton_14;
     QPushButton *logoutButton;
@@ -60,7 +60,7 @@ public:
         navBackground = new QFrame(Archive);
         navBackground->setObjectName("navBackground");
         navBackground->setEnabled(true);
-        navBackground->setGeometry(QRect(0, -10, 1301, 40));
+        navBackground->setGeometry(QRect(0, -10, 1301, 51));
         navBackground->setMinimumSize(QSize(0, 40));
         navBackground->setStyleSheet(QString::fromUtf8("background-color:#010511;"));
         navBackground->setFrameShadow(QFrame::Plain);
@@ -112,17 +112,17 @@ public:
 
         NavButton_12->addWidget(assignButton);
 
-        line_13 = new QFrame(layoutWidget);
-        line_13->setObjectName("line_13");
-        line_13->setEnabled(true);
-        line_13->setMinimumSize(QSize(200, 5));
-        line_13->setStyleSheet(QString::fromUtf8("color:#05448A;"));
-        line_13->setFrameShadow(QFrame::Plain);
-        line_13->setLineWidth(15);
-        line_13->setMidLineWidth(6);
-        line_13->setFrameShape(QFrame::HLine);
+        line_14 = new QFrame(layoutWidget);
+        line_14->setObjectName("line_14");
+        line_14->setEnabled(true);
+        line_14->setMinimumSize(QSize(200, 5));
+        line_14->setStyleSheet(QString::fromUtf8("color:#05448A;"));
+        line_14->setFrameShadow(QFrame::Plain);
+        line_14->setLineWidth(15);
+        line_14->setMidLineWidth(6);
+        line_14->setFrameShape(QFrame::HLine);
 
-        NavButton_12->addWidget(line_13);
+        NavButton_12->addWidget(line_14);
 
 
         horizontalLayout_3->addLayout(NavButton_12);
@@ -136,17 +136,17 @@ public:
 
         NavButton_13->addWidget(managementButton);
 
-        line_14 = new QFrame(layoutWidget);
-        line_14->setObjectName("line_14");
-        line_14->setEnabled(true);
-        line_14->setMinimumSize(QSize(200, 5));
-        line_14->setStyleSheet(QString::fromUtf8("color:#32ACBE;"));
-        line_14->setFrameShadow(QFrame::Plain);
-        line_14->setLineWidth(15);
-        line_14->setMidLineWidth(6);
-        line_14->setFrameShape(QFrame::HLine);
+        line_8 = new QFrame(layoutWidget);
+        line_8->setObjectName("line_8");
+        line_8->setEnabled(true);
+        line_8->setMinimumSize(QSize(200, 5));
+        line_8->setStyleSheet(QString::fromUtf8("color:#32ACBE;"));
+        line_8->setFrameShadow(QFrame::Plain);
+        line_8->setLineWidth(15);
+        line_8->setMidLineWidth(6);
+        line_8->setFrameShape(QFrame::HLine);
 
-        NavButton_13->addWidget(line_14);
+        NavButton_13->addWidget(line_8);
 
 
         horizontalLayout_3->addLayout(NavButton_13);

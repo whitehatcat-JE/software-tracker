@@ -178,9 +178,12 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_Images.cpp
 debug/qrc_Images.cpp: ../ticket-software/Images.qrc \
 		C:/Qt/6.4.1/mingw_64/bin/rcc.exe \
+		../ticket-software/Images/emergencyIcon.png \
+		../ticket-software/Images/notificationIcon.png \
 		../ticket-software/Images/hiddenPasswordIcon.png \
 		../ticket-software/Images/editIcon.png \
 		../ticket-software/Images/archiveIcon.png \
+		../ticket-software/Images/unknownIcon.png \
 		../ticket-software/Images/Checkmark.png \
 		../ticket-software/Images/showPasswordIcon.png \
 		../ticket-software/Images/PFP/dog.png \
@@ -1456,7 +1459,6 @@ debug/moc_profile.cpp: ../ticket-software/profile.h \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qmainwindow.h \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qtabwidget.h \
-		C:/Qt/6.4.1/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QFileInfo \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/qfileinfo.h \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/qfile.h \
@@ -1486,6 +1488,8 @@ debug/moc_profile.cpp: ../ticket-software/profile.h \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qlabel.h \
 		C:/Qt/6.4.1/mingw_64/include/QtGui/qpicture.h \
 		C:/Qt/6.4.1/mingw_64/include/QtGui/QPixmap \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QMessageBox \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qmessagebox.h \
 		../ticket-software/filemanager.h \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QString \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QVector \
@@ -3269,7 +3273,6 @@ debug/main.o: ../ticket-software/main.cpp C:/Qt/6.4.1/mingw_64/include/QtWidgets
 		C:/Qt/6.4.1/mingw_64/include/QtGui/qtextoption.h \
 		../ticket-software/profile.h \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QWidget \
-		C:/Qt/6.4.1/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QFileInfo \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/qfileinfo.h \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/qdatetime.h \
@@ -3288,6 +3291,8 @@ debug/main.o: ../ticket-software/main.cpp C:/Qt/6.4.1/mingw_64/include/QtWidgets
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qlabel.h \
 		C:/Qt/6.4.1/mingw_64/include/QtGui/qpicture.h \
 		C:/Qt/6.4.1/mingw_64/include/QtGui/QPixmap \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QMessageBox \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qmessagebox.h \
 		../ticket-software/assignments.h \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QVBoxLayout \
 		../ticket-software/project.h \
@@ -3296,8 +3301,6 @@ debug/main.o: ../ticket-software/main.cpp C:/Qt/6.4.1/mingw_64/include/QtWidgets
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QByteArray \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QHBoxLayout \
 		C:/Qt/6.4.1/mingw_64/include/QtGui/QIcon \
-		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QMessageBox \
-		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qmessagebox.h \
 		../ticket-software/addticket.h \
 		../ticket-software/archive.h \
 		../ticket-software/management.h \
@@ -4071,7 +4074,6 @@ debug/profile.o: ../ticket-software/profile.cpp ui_profile.h \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qmainwindow.h \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qtabwidget.h \
-		C:/Qt/6.4.1/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QFileInfo \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/qfileinfo.h \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/qfile.h \
@@ -4082,6 +4084,8 @@ debug/profile.o: ../ticket-software/profile.cpp ui_profile.h \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QBoxLayout \
 		C:/Qt/6.4.1/mingw_64/include/QtGui/QPixmap \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QMessageBox \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qmessagebox.h \
 		../ticket-software/filemanager.h \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QString \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/QVector \

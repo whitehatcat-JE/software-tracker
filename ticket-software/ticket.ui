@@ -347,20 +347,59 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
             <number>0</number>
            </property>
            <item>
-            <widget class="QLabel" name="titleText">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
+            <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <property name="spacing">
+              <number>6</number>
              </property>
-             <property name="styleSheet">
-              <string notr="true">font-size: 36px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; padding-top:20px; padding-bottom:5px;</string>
+             <property name="bottomMargin">
+              <number>10</number>
              </property>
-             <property name="text">
-              <string>Jumping crashes game</string>
-             </property>
-            </widget>
+             <item>
+              <widget class="QLabel" name="titleText">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font-size: 36px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; padding-top:20px; padding-bottom:5px;</string>
+               </property>
+               <property name="text">
+                <string>Jumping crashes game</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="priorityButton">
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color:transparent;</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="Images.qrc">
+                 <normaloff>:/Images/Images/unknownIcon.png</normaloff>:/Images/Images/unknownIcon.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>50</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="flat">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
             <widget class="QLabel" name="detailsText">

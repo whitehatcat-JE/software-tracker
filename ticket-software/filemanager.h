@@ -95,6 +95,7 @@ public:
     QVector<User> loadUsers();
     void saveUsers(QVector<User>);
     bool validateUser(int userID, QString userPassword);
+    int getAccessLevel(int userID);
     QString hash(int salt, QString str);
 
     QString getAvatar(int profilePicID);

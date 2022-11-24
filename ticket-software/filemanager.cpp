@@ -208,6 +208,13 @@ bool FileManager::validateUser(int userId, QString userPassword) {
     } return false;
 }
 
+int FileManager::getAccessLevel(int userID) {
+    QVector<FileManager::User> users = loadUsers();
+    for (int userIdx = 0; userIdx < users.size(); userIdx++) {
+        if (users[userIdx].uniqueIdentifier == userID) { return users[userIdx].accessLevel; }
+    } return 0;
+}
+
 QString FileManager::hash(int salt, QString str) {
     std::string saltedPassword = std::to_string(salt) + str.toStdString();
     SHA256 sha;

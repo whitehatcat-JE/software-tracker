@@ -36,6 +36,14 @@ Project::Project(int projectID, QWidget *parent) :
         }
         break;
     }
+    int userAccessLevel = myFiles.getAccessLevel(myFiles.loadState().userID);
+    if (userAccessLevel < 2) {
+        ui->managementButton->hide();
+        ui->line_8->hide();
+        ui->detailsButton->hide();
+        ui->detailsButton_2->hide();
+        ui->line_3->hide();
+    }
 
     ui->title->setText(projects[projectIdx].name);
     ui->details->setText(projects[projectIdx].description);

@@ -32,17 +32,17 @@ public:
     QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *NavButton_2;
-    QPushButton *pushButton_2;
+    QPushButton *profileButton;
     QFrame *line_2;
     QVBoxLayout *NavButton_9;
-    QPushButton *pushButton_9;
+    QPushButton *assignButton;
     QFrame *line_10;
     QVBoxLayout *NavButton_10;
-    QPushButton *pushButton_10;
-    QFrame *line_11;
+    QPushButton *managementButton;
+    QFrame *line_8;
     QSpacerItem *horizontalSpacer_2;
     QVBoxLayout *NavButton_11;
-    QPushButton *pushButton_11;
+    QPushButton *logoutButton;
     QFrame *line_12;
     QLineEdit *ticketTitle;
     QLabel *date;
@@ -85,11 +85,11 @@ public:
         NavButton_2 = new QVBoxLayout();
         NavButton_2->setObjectName("NavButton_2");
         NavButton_2->setSizeConstraint(QLayout::SetMaximumSize);
-        pushButton_2 = new QPushButton(layoutWidget);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
+        profileButton = new QPushButton(layoutWidget);
+        profileButton->setObjectName("profileButton");
+        profileButton->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
 
-        NavButton_2->addWidget(pushButton_2);
+        NavButton_2->addWidget(profileButton);
 
         line_2 = new QFrame(layoutWidget);
         line_2->setObjectName("line_2");
@@ -109,11 +109,11 @@ public:
         NavButton_9 = new QVBoxLayout();
         NavButton_9->setObjectName("NavButton_9");
         NavButton_9->setSizeConstraint(QLayout::SetMaximumSize);
-        pushButton_9 = new QPushButton(layoutWidget);
-        pushButton_9->setObjectName("pushButton_9");
-        pushButton_9->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: #32ACBE; font-weight:bold; border:none;"));
+        assignButton = new QPushButton(layoutWidget);
+        assignButton->setObjectName("assignButton");
+        assignButton->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: #32ACBE; font-weight:bold; border:none;"));
 
-        NavButton_9->addWidget(pushButton_9);
+        NavButton_9->addWidget(assignButton);
 
         line_10 = new QFrame(layoutWidget);
         line_10->setObjectName("line_10");
@@ -133,23 +133,23 @@ public:
         NavButton_10 = new QVBoxLayout();
         NavButton_10->setObjectName("NavButton_10");
         NavButton_10->setSizeConstraint(QLayout::SetMaximumSize);
-        pushButton_10 = new QPushButton(layoutWidget);
-        pushButton_10->setObjectName("pushButton_10");
-        pushButton_10->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
+        managementButton = new QPushButton(layoutWidget);
+        managementButton->setObjectName("managementButton");
+        managementButton->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
 
-        NavButton_10->addWidget(pushButton_10);
+        NavButton_10->addWidget(managementButton);
 
-        line_11 = new QFrame(layoutWidget);
-        line_11->setObjectName("line_11");
-        line_11->setEnabled(true);
-        line_11->setMinimumSize(QSize(200, 5));
-        line_11->setStyleSheet(QString::fromUtf8("color:#32ACBE;"));
-        line_11->setFrameShadow(QFrame::Plain);
-        line_11->setLineWidth(15);
-        line_11->setMidLineWidth(6);
-        line_11->setFrameShape(QFrame::HLine);
+        line_8 = new QFrame(layoutWidget);
+        line_8->setObjectName("line_8");
+        line_8->setEnabled(true);
+        line_8->setMinimumSize(QSize(200, 5));
+        line_8->setStyleSheet(QString::fromUtf8("color:#32ACBE;"));
+        line_8->setFrameShadow(QFrame::Plain);
+        line_8->setLineWidth(15);
+        line_8->setMidLineWidth(6);
+        line_8->setFrameShape(QFrame::HLine);
 
-        NavButton_10->addWidget(line_11);
+        NavButton_10->addWidget(line_8);
 
 
         horizontalLayout_2->addLayout(NavButton_10);
@@ -161,11 +161,11 @@ public:
         NavButton_11 = new QVBoxLayout();
         NavButton_11->setObjectName("NavButton_11");
         NavButton_11->setSizeConstraint(QLayout::SetMaximumSize);
-        pushButton_11 = new QPushButton(layoutWidget);
-        pushButton_11->setObjectName("pushButton_11");
-        pushButton_11->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
+        logoutButton = new QPushButton(layoutWidget);
+        logoutButton->setObjectName("logoutButton");
+        logoutButton->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
 
-        NavButton_11->addWidget(pushButton_11);
+        NavButton_11->addWidget(logoutButton);
 
         line_12 = new QFrame(layoutWidget);
         line_12->setObjectName("line_12");
@@ -250,10 +250,10 @@ public:
     {
         AddTicket->setWindowTitle(QCoreApplication::translate("AddTicket", "Form", nullptr));
         backgroundGradient->setText(QString());
-        pushButton_2->setText(QCoreApplication::translate("AddTicket", "Profile", nullptr));
-        pushButton_9->setText(QCoreApplication::translate("AddTicket", "Assigned", nullptr));
-        pushButton_10->setText(QCoreApplication::translate("AddTicket", "Management", nullptr));
-        pushButton_11->setText(QCoreApplication::translate("AddTicket", "Logout", nullptr));
+        profileButton->setText(QCoreApplication::translate("AddTicket", "Profile", nullptr));
+        assignButton->setText(QCoreApplication::translate("AddTicket", "Assigned", nullptr));
+        managementButton->setText(QCoreApplication::translate("AddTicket", "Management", nullptr));
+        logoutButton->setText(QCoreApplication::translate("AddTicket", "Logout", nullptr));
         ticketTitle->setInputMask(QString());
         ticketTitle->setText(QString());
         ticketTitle->setPlaceholderText(QCoreApplication::translate("AddTicket", "New ticket title...", nullptr));

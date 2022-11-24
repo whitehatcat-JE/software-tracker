@@ -29,6 +29,11 @@ AddTicket::AddTicket(int projectID, QWidget *parent) :
             ui->displayedUser->setIcon(QIcon(":/Images/Images/PFP/" + myFiles.getAvatar(users[userIdx].profilePicID) + ".png"));
         }
     }
+    int userAccessLevel = myFiles.getAccessLevel(myFiles.loadState().userID);
+    if (userAccessLevel < 2) {
+        ui->managementButton->hide();
+        ui->line_8->hide();
+    }
 }
 
 AddTicket::~AddTicket()
@@ -99,3 +104,46 @@ void AddTicket::on_backButton_clicked()
     this->close();
 }
 
+
+void AddTicket::on_assignButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 2;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+
+void AddTicket::on_profileButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 1;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+
+void AddTicket::on_managementButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 7;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+
+void AddTicket::on_logoutButton_clicked()
+{
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 0;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}

@@ -16,6 +16,11 @@ Archive::Archive(int projectID, QWidget *parent) :
         if (projects[projectIdx].uniqueIdentifier != IDProject) { continue; }
         ui->title->setText(projects[projectIdx].name);
     }
+    int userAccessLevel = myFiles.getAccessLevel(myFiles.loadState().userID);
+    if (userAccessLevel < 2) {
+        ui->managementButton->hide();
+        ui->line_8->hide();
+    }
     reloadTickets();
 }
 
@@ -38,6 +43,7 @@ void Archive::reloadTickets() {
 
     FileManager myFiles;
     QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
+    int userAccessLevel = myFiles.getAccessLevel(myFiles.loadState().userID);
     for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
         if (projects[projectIdx].uniqueIdentifier != IDProject) { continue; }
         for (int ticketIdx = 0; ticketIdx < projects[projectIdx].tickets.size(); ticketIdx++) {
@@ -67,6 +73,10 @@ void Archive::reloadTickets() {
             ticketLayout->addWidget(ticketButton);
             ticketLayout->addWidget(openButton);
             ticketLayout->addWidget(deleteButton);
+            if (userAccessLevel == 0) {
+                openButton->hide();
+                deleteButton->hide();
+            }
         }
     }
 }

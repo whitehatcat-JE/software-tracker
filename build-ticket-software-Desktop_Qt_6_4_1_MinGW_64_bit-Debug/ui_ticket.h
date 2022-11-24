@@ -51,7 +51,9 @@ public:
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_3;
     QVBoxLayout *verticalLayout_5;
+    QHBoxLayout *horizontalLayout_6;
     QLabel *titleText;
+    QPushButton *priorityButton;
     QLabel *detailsText;
     QFrame *line_2;
     QTextBrowser *descriptionText;
@@ -242,12 +244,31 @@ public:
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setSpacing(0);
         verticalLayout_5->setObjectName("verticalLayout_5");
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setSpacing(6);
+        horizontalLayout_6->setObjectName("horizontalLayout_6");
+        horizontalLayout_6->setContentsMargins(-1, -1, -1, 10);
         titleText = new QLabel(assignmentCategories);
         titleText->setObjectName("titleText");
         titleText->setMinimumSize(QSize(0, 0));
         titleText->setStyleSheet(QString::fromUtf8("font-size: 36px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; padding-top:20px; padding-bottom:5px;"));
 
-        verticalLayout_5->addWidget(titleText);
+        horizontalLayout_6->addWidget(titleText);
+
+        priorityButton = new QPushButton(assignmentCategories);
+        priorityButton->setObjectName("priorityButton");
+        priorityButton->setMaximumSize(QSize(50, 16777215));
+        priorityButton->setStyleSheet(QString::fromUtf8("background-color:transparent;"));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/Images/Images/unknownIcon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        priorityButton->setIcon(icon);
+        priorityButton->setIconSize(QSize(50, 50));
+        priorityButton->setFlat(true);
+
+        horizontalLayout_6->addWidget(priorityButton);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_6);
 
         detailsText = new QLabel(assignmentCategories);
         detailsText->setObjectName("detailsText");
@@ -398,9 +419,9 @@ public:
         pushButton_10->setObjectName("pushButton_10");
         pushButton_10->setLayoutDirection(Qt::RightToLeft);
         pushButton_10->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
-        QIcon icon;
-        icon.addFile(QString::fromUtf8(":/Image/Images/placeholderProfileIcon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_10->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/Image/Images/placeholderProfileIcon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_10->setIcon(icon1);
         pushButton_10->setIconSize(QSize(25, 25));
 
         horizontalLayout_5->addWidget(pushButton_10);
@@ -422,7 +443,7 @@ public:
         pushButton_13->setObjectName("pushButton_13");
         pushButton_13->setLayoutDirection(Qt::RightToLeft);
         pushButton_13->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
-        pushButton_13->setIcon(icon);
+        pushButton_13->setIcon(icon1);
         pushButton_13->setIconSize(QSize(25, 25));
 
         horizontalLayout_8->addWidget(pushButton_13);
@@ -444,7 +465,7 @@ public:
         pushButton_14->setObjectName("pushButton_14");
         pushButton_14->setLayoutDirection(Qt::RightToLeft);
         pushButton_14->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
-        pushButton_14->setIcon(icon);
+        pushButton_14->setIcon(icon1);
         pushButton_14->setIconSize(QSize(25, 25));
 
         horizontalLayout_9->addWidget(pushButton_14);
@@ -466,7 +487,7 @@ public:
         pushButton_15->setObjectName("pushButton_15");
         pushButton_15->setLayoutDirection(Qt::RightToLeft);
         pushButton_15->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
-        pushButton_15->setIcon(icon);
+        pushButton_15->setIcon(icon1);
         pushButton_15->setIconSize(QSize(25, 25));
 
         horizontalLayout_10->addWidget(pushButton_15);
@@ -515,6 +536,7 @@ public:
         managementButton->setText(QCoreApplication::translate("Ticket", "Management", nullptr));
         logoutButton->setText(QCoreApplication::translate("Ticket", "Logout", nullptr));
         titleText->setText(QCoreApplication::translate("Ticket", "Jumping crashes game", nullptr));
+        priorityButton->setText(QString());
         detailsText->setText(QCoreApplication::translate("Ticket", "Created on: 8/12/22 - Physics System - Untitled MMO - Actively Working On", nullptr));
         descriptionText->setHtml(QCoreApplication::translate("Ticket", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"

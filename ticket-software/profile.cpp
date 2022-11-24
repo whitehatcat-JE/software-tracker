@@ -60,6 +60,13 @@ Profile::Profile(QWidget *parent) :
         ui->ProfileOp9->setIconSize(QSize(100,100));
 
         updateInfo();
+
+        FileManager myFiles;
+        int userAccessLevel = myFiles.getAccessLevel(myFiles.loadState().userID);
+        if (userAccessLevel < 2) {
+            ui->managementButton->hide();
+            ui->line_8->hide();
+        }
     }
 
 
@@ -230,6 +237,7 @@ void Profile::confirmButtonPressed(QDialog* popup, QLineEdit* passwordField) {
 void Profile::cancelButtonPressed(QDialog* popup) {
     popup->close();
 }
+
 void Profile::on_changePassword_clicked()
 {
     QDialog* popup = new QDialog();

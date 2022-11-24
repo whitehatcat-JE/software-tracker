@@ -26,6 +26,14 @@ private slots:
 
     void on_backButton_clicked();
 
+    void on_logoutButton_clicked();
+
+    void on_managementButton_clicked();
+
+    void on_assignButton_clicked();
+
+    void on_profileButton_clicked();
+
 private:
     Ui::AddTicket *ui;
     int assignedIdentifier;

@@ -8,6 +8,12 @@ Assignments::Assignments(QWidget *parent) :
     ui(new Ui::Assignments)
 {
     ui->setupUi(this);
+    FileManager myFiles;
+    int userAccessLevel = myFiles.getAccessLevel(myFiles.loadState().userID);
+    if (userAccessLevel < 2) {
+        ui->managementButton->hide();
+        ui->line_8->hide();
+    }
 }
 
 Assignments::~Assignments()

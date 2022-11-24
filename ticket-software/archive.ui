@@ -34,7 +34,7 @@
      <x>0</x>
      <y>-10</y>
      <width>1301</width>
-     <height>40</height>
+     <height>51</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -158,7 +158,7 @@
        </widget>
       </item>
       <item>
-       <widget class="Line" name="line_13">
+       <widget class="Line" name="line_14">
         <property name="enabled">
          <bool>true</bool>
         </property>
@@ -203,7 +203,7 @@
        </widget>
       </item>
       <item>
-       <widget class="Line" name="line_14">
+       <widget class="Line" name="line_8">
         <property name="enabled">
          <bool>true</bool>
         </property>

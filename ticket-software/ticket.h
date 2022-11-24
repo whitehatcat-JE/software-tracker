@@ -40,6 +40,8 @@ private slots:
 
     void on_assignGroupButton_clicked();
 
+    void on_priorityButton_clicked();
+
 private:
     Ui::Ticket *ui;
     int IDProject;
