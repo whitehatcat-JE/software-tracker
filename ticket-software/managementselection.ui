@@ -131,7 +131,7 @@ QScrollArea &gt; QWidget &gt; QScrollBar { background: palette(base); }</string>
      <x>-30</x>
      <y>10</y>
      <width>1341</width>
-     <height>791</height>
+     <height>841</height>
     </rect>
    </property>
    <property name="styleSheet">

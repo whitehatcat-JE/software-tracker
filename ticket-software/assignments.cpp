@@ -42,23 +42,38 @@ void Assignments::on_ticketsButton_toggled(bool checked)
         ui->ticketsButton->setText("Tickets                                                                                                            ▼");
         FileManager myFiles;
         QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
+        QVector<FileManager::UserRelations> userRelations = myFiles.loadUserRelations();
+        FileManager::StateData state = myFiles.loadState();
         for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
             for (int ticketIdx = 0; ticketIdx < projects[projectIdx].tickets.size(); ticketIdx++) {
-                if (!projects[projectIdx].tickets[ticketIdx].isOpen) { continue; }
-                QPushButton *button = new QPushButton(this);
+                int projectID = projects[projectIdx].uniqueIdentifier;
+                int ticketID = projects[projectIdx].tickets[ticketIdx].creationTime;
+                bool assigned = false;
+                for (int userRelationIdx = 0; userRelationIdx < userRelations.size() && !assigned; userRelationIdx++) {
+                    if (userRelations[userRelationIdx].uniqueIdentifier == state.userID) {
+                        for (int ticketRelationIdx = 0; ticketRelationIdx < userRelations[userRelationIdx].tickets.size() && !assigned; ticketRelationIdx++) {
+                            if (userRelations[userRelationIdx].tickets[ticketRelationIdx].ticketID == ticketID &&
+                                userRelations[userRelationIdx].tickets[ticketRelationIdx].projectID == projectID) {
+                                assigned = true;
+                            }
+                        }
+                    }
+                }
+                if (!projects[projectIdx].tickets[ticketIdx].isOpen || !assigned) { continue; }
+                QPushButton* button = new QPushButton(this);
                 button->setObjectName("displayedTicket" + QString::number(ticketIdx));
                 button->setText(projects[projectIdx].tickets[ticketIdx].title);
                 button->setStyleSheet("background-color: #32ACBE; color: white; height: 50px; font-family: Inter; font-size: 24px; font-weight: bold; text-align: left; padding-left: 10px; border:none;");
-                int projectID = projects[projectIdx].uniqueIdentifier;
-                int ticketID = projects[projectIdx].tickets[ticketIdx].creationTime;
 
                 connect(button, &QPushButton::clicked, [this, projectID, ticketID] { openTicket(projectID, ticketID); });
                 QLabel *label = new QLabel("metadata", button);
-                QString metadataString = "Created on: 9/12/22 - ";
+                QDateTime date = QDateTime::fromSecsSinceEpoch(projects[projectIdx].tickets[ticketIdx].creationTime);
+                QString formattedTime = date.toString("dd/MM/yyyy");
+                QString metadataString = "Created on: ";
+                metadataString += formattedTime + " - ";
                 metadataString += projects[projectIdx].tickets[ticketIdx].system + " - ";
                 metadataString += projects[projectIdx].name + " - ";
                 metadataString += projects[projectIdx].tickets[ticketIdx].progress;
-
                 label->setText(metadataString);
                 label->setStyleSheet("font-family: Inter; font-size: 18px; text-align: right; margin-left:550px; font-weight: normal; margin-top:16px;");
                 ui->ticketsLayout->addWidget(button);
@@ -87,7 +102,9 @@ void Assignments::on_groupsButton_toggled(bool checked)
         ui->groupsButton->setText("Groups                                                                                                            ▼");
         FileManager myFiles;
         QVector<FileManager::Group> groups = myFiles.loadGroups();
+        FileManager::StateData state = myFiles.loadState();
         for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
+            if (!groups[groupIdx].users.contains(state.userID)) { continue; }
             QWidget *groupParent = new QWidget();
             groupParent->setObjectName("displayedGroup");
             ui->groupsLayout->addWidget(groupParent);
@@ -172,8 +189,22 @@ void Assignments::on_projectsButton_toggled(bool checked)
 
         FileManager myFiles;
         QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
-
+        QVector<FileManager::Group> groups = myFiles.loadGroups();
+        QVector<FileManager::UserRelations> userRelations = myFiles.loadUserRelations();
+        FileManager::StateData state = myFiles.loadState();
         for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
+            bool assigned = false;
+            for (int groupIdx = 0; groupIdx < groups.size() && !assigned; groupIdx++) {
+                if (groups[groupIdx].projects.contains(projects[projectIdx].uniqueIdentifier)
+                    && groups[groupIdx].users.contains(state.userID)) { assigned = true; }
+            }
+            for (int userRelationIdx = 0; userRelationIdx < userRelations.size() && !assigned; userRelationIdx++) {
+                if (userRelations[userRelationIdx].uniqueIdentifier == state.userID) {
+                    if (userRelations[userRelationIdx].projects.contains(projects[projectIdx].uniqueIdentifier)) { assigned = true; }
+                    break;
+                }
+            }
+            if (!assigned) { continue; }
             QPushButton *button = new QPushButton(this);
             button->setObjectName("displayedProject" + QString::number(projectIdx));
             button->setText(projects[projectIdx].name);

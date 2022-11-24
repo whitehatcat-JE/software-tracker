@@ -48,3 +48,16 @@ void Login::on_logInBtn_clicked()
     }
     QMessageBox::warning(this, "Login", "Incorrect username or password. Please try again");
 }
+
+void Login::on_hidePasswordButton_clicked()
+{
+    if (ui->lineEditPassword->echoMode() == QLineEdit::Password) {
+        ui->lineEditPassword->setEchoMode(QLineEdit::Normal);
+        ui->hidePasswordButton->setIcon(QIcon(":/Images/Images/showPasswordIcon.png"));
+    }
+    else {
+        ui->lineEditPassword->setEchoMode(QLineEdit::Password);
+        ui->hidePasswordButton->setIcon(QIcon(":/Images/Images/hiddenPasswordIcon.png"));
+    }
+}
+

@@ -24,6 +24,7 @@ ProfileViewer::ProfileViewer(QWidget *parent) :
             ui->number->setText(users[userIdx].phone);
             ui->email->setText(users[userIdx].email);
             ui->PFP->setStyleSheet("border-image:url(:/Images/Images/PFP/" + myFiles.getAvatar(users[userIdx].profilePicID) + ".png);");
+            ui->accessLevel->setText(QString::number(users[userIdx].accessLevel+1));
             return;
         }
     }

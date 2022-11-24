@@ -31,10 +31,10 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>-20</x>
-     <y>10</y>
+     <x>-10</x>
+     <y>-10</y>
      <width>1331</width>
-     <height>791</height>
+     <height>831</height>
     </rect>
    </property>
    <property name="styleSheet">

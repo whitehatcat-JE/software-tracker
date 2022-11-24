@@ -71,6 +71,8 @@ public:
     QVBoxLayout *NavButton_8;
     QPushButton *logoutButton;
     QFrame *line_9;
+    QPushButton *accessLevel;
+    QLabel *JobTitle_2;
 
     void setupUi(QWidget *Profile)
     {
@@ -105,28 +107,26 @@ public:
         Line1->setStyleSheet(QString::fromUtf8("background-color:#32ACBE; border:0px;"));
         Name = new QLabel(Profile);
         Name->setObjectName("Name");
-        Name->setGeometry(QRect(410, 150, 581, 91));
+        Name->setGeometry(QRect(390, 150, 601, 91));
         QFont font;
-        font.setPointSize(48);
+        font.setFamilies({QString::fromUtf8("Inter")});
         Name->setFont(font);
-        Name->setStyleSheet(QString::fromUtf8("color:#ffffff"));
+        Name->setStyleSheet(QString::fromUtf8("font-size: 48px; font-family: Inter; color: white;"));
         JobTitle = new QLabel(Profile);
         JobTitle->setObjectName("JobTitle");
-        JobTitle->setGeometry(QRect(400, 270, 591, 41));
-        QFont font1;
-        font1.setPointSize(24);
-        JobTitle->setFont(font1);
-        JobTitle->setStyleSheet(QString::fromUtf8("color:#ffffff"));
+        JobTitle->setGeometry(QRect(390, 270, 601, 41));
+        JobTitle->setFont(font);
+        JobTitle->setStyleSheet(QString::fromUtf8("font-size: 24px; font-family: Inter; color: white;"));
         workHours = new QLabel(Profile);
         workHours->setObjectName("workHours");
-        workHours->setGeometry(QRect(400, 330, 591, 41));
-        workHours->setFont(font1);
-        workHours->setStyleSheet(QString::fromUtf8("color:#ffffff"));
+        workHours->setGeometry(QRect(390, 330, 601, 41));
+        workHours->setFont(font);
+        workHours->setStyleSheet(QString::fromUtf8("font-size: 24px; font-family: Inter; color: white;"));
         location = new QLabel(Profile);
         location->setObjectName("location");
-        location->setGeometry(QRect(400, 390, 591, 41));
-        location->setFont(font1);
-        location->setStyleSheet(QString::fromUtf8("color:#ffffff"));
+        location->setGeometry(QRect(390, 390, 601, 41));
+        location->setFont(font);
+        location->setStyleSheet(QString::fromUtf8("font-size: 24px; font-family: Inter; color: white;"));
         Line2 = new QPushButton(Profile);
         Line2->setObjectName("Line2");
         Line2->setGeometry(QRect(390, 440, 611, 5));
@@ -134,16 +134,14 @@ public:
         Line2->setStyleSheet(QString::fromUtf8("background-color:#32ACBE; border:0px;"));
         email = new QLabel(Profile);
         email->setObjectName("email");
-        email->setGeometry(QRect(400, 460, 591, 41));
-        QFont font2;
-        font2.setPointSize(20);
-        email->setFont(font2);
-        email->setStyleSheet(QString::fromUtf8("color:#ffffff"));
+        email->setGeometry(QRect(390, 460, 601, 41));
+        email->setFont(font);
+        email->setStyleSheet(QString::fromUtf8("font-size: 24px; font-family: Inter; color: white;"));
         number = new QLabel(Profile);
         number->setObjectName("number");
-        number->setGeometry(QRect(400, 520, 591, 41));
-        number->setFont(font2);
-        number->setStyleSheet(QString::fromUtf8("color:#ffffff"));
+        number->setGeometry(QRect(390, 520, 601, 41));
+        number->setFont(font);
+        number->setStyleSheet(QString::fromUtf8("font-size: 24px; font-family: Inter; color: white;"));
         Line3 = new QPushButton(Profile);
         Line3->setObjectName("Line3");
         Line3->setGeometry(QRect(390, 580, 611, 5));
@@ -361,6 +359,20 @@ public:
 
         horizontalLayout->addLayout(NavButton_8);
 
+        accessLevel = new QPushButton(Profile);
+        accessLevel->setObjectName("accessLevel");
+        accessLevel->setGeometry(QRect(1150, 140, 100, 100));
+        accessLevel->setMinimumSize(QSize(100, 100));
+        accessLevel->setMaximumSize(QSize(40, 40));
+        accessLevel->setAutoFillBackground(false);
+        accessLevel->setStyleSheet(QString::fromUtf8("font-size: 60px;font-family: Inter;color: white; font-weight:bold; background-color:#32ACBE; border-radius:50px;"));
+        accessLevel->setCheckable(true);
+        JobTitle_2 = new QLabel(Profile);
+        JobTitle_2->setObjectName("JobTitle_2");
+        JobTitle_2->setGeometry(QRect(1120, 250, 151, 31));
+        JobTitle_2->setFont(font);
+        JobTitle_2->setStyleSheet(QString::fromUtf8("color:white; font-size:24px;font-family: Inter;"));
+        JobTitle_2->setAlignment(Qt::AlignCenter);
         Background->raise();
         EditDetails->raise();
         PFP->raise();
@@ -393,6 +405,8 @@ public:
         ProfileOp9->raise();
         navBackground->raise();
         layoutWidget->raise();
+        accessLevel->raise();
+        JobTitle_2->raise();
 
         retranslateUi(Profile);
 
@@ -430,6 +444,8 @@ public:
         assignButton->setText(QCoreApplication::translate("Profile", "Assigned", nullptr));
         managementButton->setText(QCoreApplication::translate("Profile", "Management", nullptr));
         logoutButton->setText(QCoreApplication::translate("Profile", "Logout", nullptr));
+        accessLevel->setText(QCoreApplication::translate("Profile", "3", nullptr));
+        JobTitle_2->setText(QCoreApplication::translate("Profile", "Access Level", nullptr));
     } // retranslateUi
 
 };

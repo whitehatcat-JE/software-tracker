@@ -67,6 +67,7 @@ Profile::Profile(QWidget *parent) :
             ui->managementButton->hide();
             ui->line_8->hide();
         }
+        ui->accessLevel->setText(QString::number(userAccessLevel+1));
     }
 
 

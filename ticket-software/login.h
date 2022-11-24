@@ -25,6 +25,8 @@ private slots:
     void on_logInBtn_clicked();
    // void on_BTNSign_clicked();
 
+    void on_hidePasswordButton_clicked();
+
 private:
     Ui::Login *ui;
     FileManager fManager;

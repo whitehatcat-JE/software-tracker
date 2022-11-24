@@ -146,7 +146,7 @@
         <widget class="QLineEdit" name="lineEditPassword">
          <property name="minimumSize">
           <size>
-           <width>550</width>
+           <width>500</width>
            <height>0</height>
           </size>
          </property>
@@ -158,6 +158,29 @@
          </property>
          <property name="placeholderText">
           <string>Password...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="hidePasswordButton">
+         <property name="styleSheet">
+          <string notr="true">background-color:transparent; border:none;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="Images.qrc">
+           <normaloff>:/Images/Images/hiddenPasswordIcon.png</normaloff>:/Images/Images/hiddenPasswordIcon.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>40</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -199,6 +222,12 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -257,6 +286,8 @@
    <zorder>label_2</zorder>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="Images.qrc"/>
+ </resources>
  <connections/>
 </ui>

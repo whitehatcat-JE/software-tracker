@@ -10,6 +10,7 @@
 #define UI_LOGIN_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
@@ -35,6 +36,7 @@ public:
     QLineEdit *lineEditUsername;
     QHBoxLayout *horizontalLayout_2;
     QLineEdit *lineEditPassword;
+    QPushButton *hidePasswordButton;
     QHBoxLayout *horizontalLayout_3;
     QPushButton *logInBtn;
     QPushButton *Background;
@@ -106,11 +108,22 @@ public:
         horizontalLayout_2->setObjectName("horizontalLayout_2");
         lineEditPassword = new QLineEdit(signInWidget);
         lineEditPassword->setObjectName("lineEditPassword");
-        lineEditPassword->setMinimumSize(QSize(550, 0));
+        lineEditPassword->setMinimumSize(QSize(500, 0));
         lineEditPassword->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color:#010511; border:none; padding:5px; border-radius:2px;"));
         lineEditPassword->setEchoMode(QLineEdit::Password);
 
         horizontalLayout_2->addWidget(lineEditPassword);
+
+        hidePasswordButton = new QPushButton(signInWidget);
+        hidePasswordButton->setObjectName("hidePasswordButton");
+        hidePasswordButton->setStyleSheet(QString::fromUtf8("background-color:transparent; border:none;"));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/Images/Images/hiddenPasswordIcon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        hidePasswordButton->setIcon(icon);
+        hidePasswordButton->setIconSize(QSize(40, 40));
+        hidePasswordButton->setFlat(false);
+
+        horizontalLayout_2->addWidget(hidePasswordButton);
 
 
         verticalLayout->addLayout(horizontalLayout_2);
@@ -131,6 +144,7 @@ public:
         Background->setObjectName("Background");
         Background->setGeometry(QRect(-50, -60, 1391, 881));
         Background->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x0:1, y2:1, x2:0, y2:1, stop:0 rgba(1, 15, 17, 255), stop:1 rgba(4, 15, 101, 255))"));
+        Background->setIconSize(QSize(16, 16));
         label = new QLabel(centralwidget);
         label->setObjectName("label");
         label->setGeometry(QRect(220, 170, 851, 101));
@@ -159,6 +173,7 @@ public:
         Login->setWindowTitle(QCoreApplication::translate("Login", "Login", nullptr));
         lineEditUsername->setPlaceholderText(QCoreApplication::translate("Login", "Username...", nullptr));
         lineEditPassword->setPlaceholderText(QCoreApplication::translate("Login", "Password...", nullptr));
+        hidePasswordButton->setText(QString());
         logInBtn->setText(QCoreApplication::translate("Login", "Log In", nullptr));
         Background->setText(QString());
         label->setText(QCoreApplication::translate("Login", "Software", nullptr));

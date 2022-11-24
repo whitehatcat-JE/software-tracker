@@ -56,7 +56,7 @@ public:
         backgroundGradient = new QPushButton(Management);
         backgroundGradient->setObjectName("backgroundGradient");
         backgroundGradient->setEnabled(false);
-        backgroundGradient->setGeometry(QRect(-20, 10, 1331, 791));
+        backgroundGradient->setGeometry(QRect(-10, -10, 1331, 831));
         backgroundGradient->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x0:1, y2:1, x2:0, y2:1, stop:0 rgba(1, 15, 17, 255), stop:1 rgba(4, 15, 101, 255))"));
         backgroundGradient->setFlat(false);
         navBackground = new QFrame(Management);

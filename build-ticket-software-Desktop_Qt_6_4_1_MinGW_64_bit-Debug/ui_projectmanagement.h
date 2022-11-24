@@ -66,7 +66,7 @@ public:
         backgroundGradient = new QPushButton(ProjectManagement);
         backgroundGradient->setObjectName("backgroundGradient");
         backgroundGradient->setEnabled(false);
-        backgroundGradient->setGeometry(QRect(-30, 0, 1341, 801));
+        backgroundGradient->setGeometry(QRect(-30, 0, 1341, 831));
         backgroundGradient->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x0:1, y2:1, x2:0, y2:1, stop:0 rgba(1, 15, 17, 255), stop:1 rgba(4, 15, 101, 255))"));
         backgroundGradient->setFlat(false);
         layoutWidget = new QWidget(ProjectManagement);
