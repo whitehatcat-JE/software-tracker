@@ -3,8 +3,6 @@
 
 #include <QWidget>
 #include <QMainWindow>
-//#include <QtSql>
-#include <QDebug>
 #include <QFileInfo>
 #include <QDialog>
 #include <QLineEdit>
@@ -12,6 +10,7 @@
 #include <QBoxLayout>
 #include <QLabel>
 #include <QPixmap>
+#include <QMessageBox>
 
 #include "filemanager.h"
 
@@ -54,7 +53,8 @@ private slots:
     void on_logoutButton_clicked();
 
     void hidePassword(QPushButton* echoSwitch, QLineEdit* password);
-    void confirmButtonPressed(QDialog* confirm);
+    void confirmButtonPressed(QDialog* popup, QLineEdit* newPassword);
+    void cancelButtonPressed(QDialog* popup);
 
     void updateInfo();
 

@@ -182,6 +182,7 @@ release/qrc_Images.cpp: ../ticket-software/Images.qrc \
 		../ticket-software/Images/editIcon.png \
 		../ticket-software/Images/archiveIcon.png \
 		../ticket-software/Images/Checkmark.png \
+		../ticket-software/Images/showPasswordIcon.png \
 		../ticket-software/Images/PFP/dog.png \
 		../ticket-software/Images/PFP/koala.png \
 		../ticket-software/Images/PFP/panda.png \
@@ -3486,6 +3487,7 @@ release/login.o: ../ticket-software/login.cpp ../ticket-software/login.h \
 		C:/Qt/6.4.1/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.4.1/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.4.1/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QFrame \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QHBoxLayout \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qboxlayout.h \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qlayout.h \
@@ -3494,14 +3496,9 @@ release/login.o: ../ticket-software/login.cpp ../ticket-software/login.h \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QLabel \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qlabel.h \
 		C:/Qt/6.4.1/mingw_64/include/QtGui/qpicture.h \
-		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QMenuBar \
-		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qmenubar.h \
-		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qmenu.h \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QPushButton \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QStatusBar \
-		C:/Qt/6.4.1/mingw_64/include/QtWidgets/qstatusbar.h \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.4.1/mingw_64/include/QtWidgets/QMessageBox \

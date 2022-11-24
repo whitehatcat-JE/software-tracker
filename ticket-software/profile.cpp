@@ -196,89 +196,109 @@ void Profile::on_ProfileOp9_clicked() { updateProfilePic(8); }
 void Profile::hidePassword(QPushButton* echoSwitch, QLineEdit* password) {
     if (password->echoMode() == QLineEdit::Password) {
         password->setEchoMode(QLineEdit::Normal);
+        echoSwitch->setIcon(QIcon(":/Images/Images/showPasswordIcon.png"));
     }
     else {
         password->setEchoMode(QLineEdit::Password);
+        echoSwitch->setIcon(QIcon(":/Images/Images/hiddenPasswordIcon.png"));
     }
 }
 
-void Profile::confirmButtonPressed(QDialog* confirm) {
-    confirm->close();
+void Profile::confirmButtonPressed(QDialog* popup, QLineEdit* passwordField) {
+    if (passwordField->text().size() == 0) {
+        QMessageBox::warning(
+            this,
+            tr("No password entered"),
+            tr("New password cannot be blank") );
+        return;
+    }
+    FileManager myFiles;
+    FileManager::StateData state = myFiles.loadState();
+    int userID = state.userID;
+    QVector<FileManager::User> users = myFiles.loadUsers();
+    for (int userIdx = 0; userIdx < users.size(); userIdx++) {
+        if (users[userIdx].uniqueIdentifier == userID) {
+            users[userIdx].password = myFiles.hash(userID, passwordField->text());
+            state.password = passwordField->text();
+            myFiles.saveState(state);
+            myFiles.saveUsers(users);
+        }
+    }
+    popup->close();
+}
+
+void Profile::cancelButtonPressed(QDialog* popup) {
+    popup->close();
 }
 void Profile::on_changePassword_clicked()
 {
     QDialog* popup = new QDialog();
-        QRect passwordPopupSize(0,0,500,300);
+    QRect passwordPopupSize(0,0,500,300);
 
-        popup->setStyleSheet("background-color: qlineargradient(spread:pad, x0:1, y2:1, x2:0, y2:1, stop:0 rgba(1, 15, 17, 255), stop:1 rgba(4, 15, 101, 255)); height: 300px; width 500px");
+    popup->setStyleSheet("background-color:#010511; height: 300px; width 500px");
 
-        QVBoxLayout* vLayout = new QVBoxLayout();
-        QHBoxLayout* hLayout1 = new QHBoxLayout();
-        QHBoxLayout* hLayout2 = new QHBoxLayout();
-        QHBoxLayout* hLayout3 = new QHBoxLayout();
-        QHBoxLayout* hLayout4 = new QHBoxLayout();
-        QSpacerItem* spacer = new QSpacerItem(30,0,QSizePolicy::Expanding);
+    QVBoxLayout* vLayout = new QVBoxLayout();
+    QHBoxLayout* hLayout1 = new QHBoxLayout();
+    QHBoxLayout* hLayout2 = new QHBoxLayout();
+    QHBoxLayout* hLayout3 = new QHBoxLayout();
+    QHBoxLayout* hLayout4 = new QHBoxLayout();
+    QSpacerItem* spacer = new QSpacerItem(30,0,QSizePolicy::Expanding);
 
-        QLabel* Title = new QLabel(popup);
-        Title->setText("Change Password");
-        Title->setStyleSheet("background: transparent; font-size: 20px;");
+    QLabel* Title = new QLabel(popup);
+    Title->setText("  Change\nPassword");
+    Title->setStyleSheet("font-size: 48px;font-family: Inter;color:white; font-weight:bold; border:none; background-color:transparent;");
 
-        QLineEdit* oldPassword = new QLineEdit(popup);
-        oldPassword->setText("World");
-        oldPassword->setReadOnly(true);
-        oldPassword->setStyleSheet("height: 50px; width 100px; color: #FFFFFF;");
-        QPushButton* echoSwitchBtn = new QPushButton();
-        echoSwitchBtn->setIcon(QIcon(":/Images/Images/hiddenPasswordIcon.png"));
-        echoSwitchBtn->setIconSize(QSize(50,50));
-        echoSwitchBtn->setCheckable(true);
-        echoSwitchBtn->setChecked(true);
-        echoSwitchBtn->setStyleSheet("height: 50px; width 50px; background: transparent; color: #FFFFFF;");
-        connect(echoSwitchBtn, &QPushButton::clicked, [this, echoSwitchBtn, oldPassword] { hidePassword(echoSwitchBtn, oldPassword); });
+    QLineEdit* passwordField = new QLineEdit(popup);
+    passwordField->setStyleSheet("padding:5px; color: #010511; background-color:white; border-radius:2px;");
+    passwordField->setMinimumWidth(400);
+    passwordField->setMaximumHeight(35);
+    passwordField->setEchoMode(QLineEdit::Password);
+    QPushButton* echoSwitchBtn2 = new QPushButton();
+    echoSwitchBtn2->setIcon(QIcon(":/Images/Images/hiddenPasswordIcon.png"));
+    echoSwitchBtn2->setIconSize(QSize(50,50));
+    echoSwitchBtn2->setStyleSheet("height: 30px; width 50px; background: transparent; color: #ffffff");
+    connect(echoSwitchBtn2, &QPushButton::clicked, [this, echoSwitchBtn2, passwordField] { hidePassword(echoSwitchBtn2, passwordField); });
 
-        QLineEdit* passwordField = new QLineEdit(popup);
-        passwordField->setStyleSheet("height: 50px; width 100px; color: #FFFFFF;");
-        QPushButton* echoSwitchBtn2 = new QPushButton();
-        echoSwitchBtn2->setIcon(QIcon(":/Images/Images/hiddenPasswordIcon.png"));
-        echoSwitchBtn2->setIconSize(QSize(50,50));
-        echoSwitchBtn2->setStyleSheet("height: 50px; width 50px; background: transparent; color: #ffffff");
-        connect(echoSwitchBtn, &QPushButton::clicked, [this, echoSwitchBtn2, passwordField] { hidePassword(echoSwitchBtn2, passwordField); });
+    QPushButton* confirmBtn = new QPushButton();
+    confirmBtn->setStyleSheet("font-size: 24px;font-family: Inter;color:white; font-weight:bold; border:none; background-color:#CA0736; height:35px; padding:5px; width:150px;");
+    confirmBtn->setText("Confirm");
+    connect(confirmBtn, &QPushButton::clicked, [this, popup, passwordField] { confirmButtonPressed(popup, passwordField); });
 
-        QPushButton* confirmBtn = new QPushButton();
-        confirmBtn->setStyleSheet("height: 50px; width 120px; background: red; color: white;");
-        confirmBtn->setText("Confirm");
-        connect(confirmBtn, &QPushButton::clicked, [this, popup] { confirmButtonPressed(popup); });
+    QPushButton* cancelBtn = new QPushButton();
+    cancelBtn->setStyleSheet("font-size: 24px;font-family: Inter;color:white; font-weight:bold; border:none; background-color:#32ACBE; height:35px; padding:5px; margin-left:5px; width:200px;");
+    cancelBtn->setText("Cancel");
+    connect(cancelBtn, &QPushButton::clicked, [this, popup] { cancelButtonPressed(popup); });
 
-        popup->setLayout(vLayout);
+    popup->setLayout(vLayout);
 
-        popup->setGeometry(passwordPopupSize);
+    popup->setGeometry(passwordPopupSize);
 
-        vLayout->addSpacerItem(spacer);
+    vLayout->addSpacerItem(spacer);
 
-        hLayout1->addSpacerItem(spacer);
-        hLayout1->addWidget(Title);
-        hLayout1->addSpacerItem(spacer);
-        vLayout->addLayout(hLayout1);
+    hLayout1->addSpacerItem(spacer);
+    hLayout1->addWidget(Title);
+    hLayout1->addSpacerItem(spacer);
+    vLayout->addLayout(hLayout1);
 
-        hLayout2->addSpacerItem(spacer);
-        hLayout2->addWidget(oldPassword);
-        hLayout2->addWidget(echoSwitchBtn);
-        hLayout2->addSpacerItem(spacer);
-        vLayout->addLayout(hLayout2);
+    hLayout2->addSpacerItem(spacer);
+    hLayout2->addSpacerItem(spacer);
+    vLayout->addLayout(hLayout2);
 
-        hLayout3->addSpacerItem(spacer);
-        hLayout3->addWidget(passwordField);
-        hLayout3->addWidget(echoSwitchBtn2);
-        hLayout3->addSpacerItem(spacer);
-        vLayout->addLayout(hLayout3);
+    hLayout3->addSpacerItem(spacer);
+    hLayout3->addWidget(passwordField);
+    hLayout3->addWidget(echoSwitchBtn2);
+    hLayout3->addSpacerItem(spacer);
+    vLayout->addLayout(hLayout3);
 
-        hLayout4->addSpacerItem(spacer);
-        hLayout4->addWidget(confirmBtn);
-        hLayout4->addSpacerItem(spacer);
-        vLayout->addLayout(hLayout4);
+    hLayout4->addSpacerItem(spacer);
+    hLayout4->addWidget(confirmBtn);
+    hLayout4->addWidget(cancelBtn);
+    hLayout4->addSpacerItem(spacer);
+    vLayout->addLayout(hLayout4);
 
-        vLayout->addSpacerItem(spacer);
+    vLayout->addSpacerItem(spacer);
 
-        popup->exec();
+    popup->exec();
 }
 
 
