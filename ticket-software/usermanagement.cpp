@@ -53,19 +53,21 @@ void UserManagement::reloadUsers() {
         projectsButton->setMaximumWidth(100);
         projectsButton->setMinimumHeight(50);
         projectsButton->setObjectName("userInfo");
+        connect(projectsButton, &QPushButton::clicked, [this, userID] { assignUserProjects(userID); });
 
         groupsButton->setText("Groups");
         groupsButton->setStyleSheet("background-color:white; border:0px; color:#32ACBE; font-weight: bold; font-size:24px;");
         groupsButton->setMaximumWidth(100);
         groupsButton->setMinimumHeight(50);
         groupsButton->setObjectName("userInfo");
-        //(groupsButton, &QPushButton::clicked, [this, projectIdentifer] { openProjectGroups(projectIdentifer); });
+        connect(groupsButton, &QPushButton::clicked, [this, userID] { assignUserGroups(userID); });
 
         ticketsButton->setText("Tickets");
         ticketsButton->setStyleSheet("background-color:white; border:0px; color:#32ACBE; font-weight: bold; font-size:24px;");
         ticketsButton->setMaximumWidth(100);
         ticketsButton->setMinimumHeight(50);
         ticketsButton->setObjectName("userInfo");
+        connect(ticketsButton, &QPushButton::clicked, [this, userID] { assignUserTickets(userID); });
 
         deleteButton->setIcon(QIcon(":/Image/Images/lockIcon.png"));
         deleteButton->setStyleSheet("background-color:transparent; border:0px;");
@@ -123,11 +125,44 @@ void UserManagement::deleteUser(int userID) {
     }
 }
 
+void UserManagement::assignUserGroups(int userID) {
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 11;
+    state.pageData = 6;
+    state.secondaryPageData = userID;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+void UserManagement::assignUserTickets(int userID) {
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 11;
+    state.pageData = 6;
+    state.secondaryPageData = userID;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+void UserManagement::assignUserProjects(int userID) {
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 11;
+    state.pageData = 5;
+    state.secondaryPageData = userID;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
 void UserManagement::on_assignButton_clicked()
 {
     FileManager myFiles;
     FileManager::StateData state;
-    state.newPage = 2;
+    state.newPage = 7;
     myFiles.saveState(state);
     closing = false;
     this->close();

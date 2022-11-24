@@ -69,6 +69,8 @@ void GroupManagement::reloadGroups(){
         usersButton->setMinimumWidth(100);
         usersButton->setMinimumHeight(50);
         usersButton->setObjectName("groupInfo");
+        connect(usersButton, &QPushButton::clicked, [this, groupIdentifier] { openGroupUsers(groupIdentifier); });
+
 
         editButton->setIcon(QIcon(":/Image/Images/editIcon.png"));
         editButton->setStyleSheet("background-color:transparent; border:0px;");
@@ -216,6 +218,17 @@ void GroupManagement::openGroupTickets(int groupID) {
     FileManager::StateData state;
     state.newPage = 11;
     state.pageData = 1;
+    state.secondaryPageData = groupID;
+    myFiles.saveState(state);
+    closing = false;
+    this->close();
+}
+
+void GroupManagement::openGroupUsers(int groupID) {
+    FileManager myFiles;
+    FileManager::StateData state;
+    state.newPage = 11;
+    state.pageData = 2;
     state.secondaryPageData = groupID;
     myFiles.saveState(state);
     closing = false;

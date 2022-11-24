@@ -18,6 +18,7 @@ ManagementSelection::ManagementSelection(int selectionType, int id, QWidget *par
 
     QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
     QVector<FileManager::Group> groups = myFiles.loadGroups();
+    QVector<FileManager::User> users = myFiles.loadUsers();
 
     if (selectionType <= 2) {
         ui->backButton->setText("< Groups");
@@ -108,6 +109,48 @@ ManagementSelection::ManagementSelection(int selectionType, int id, QWidget *par
                     ui->pageFrame_2->addLayout(ticketLayout);
                 }
             }
+        } else if (selectionType == 2) {
+            for (int userIdx = 0; userIdx < users.size(); userIdx++) {
+                int userID = users[userIdx].uniqueIdentifier;
+                bool currentlyAssigned = false;
+
+                QHBoxLayout* userLayout = new QHBoxLayout;
+
+                QLabel* userLabel = new QLabel;
+                QPushButton* addButton = new QPushButton;
+
+                userLabel->setText(users[userIdx].username);
+                userLabel->setStyleSheet("background-color:#CA0736; color:white; font-weight:bold; font-size:24px; border:0px; text-align:left; padding-left:10px;");
+                userLabel->setMinimumHeight(50);
+
+                for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
+                    if (groups[groupIdx].ID != objID) { continue; }
+                    for (int groupUserIdx = 0; groupUserIdx < groups[groupIdx].users.size(); groupUserIdx++) {
+                        if (groups[groupIdx].users[groupUserIdx] == userID) {
+                            currentlyAssigned = true;
+                            break;
+                        }
+                    }
+                    break;
+                }
+                if (currentlyAssigned) {
+                    addButton->setText("Remove");
+                    addButton->setStyleSheet("background-color:white; border:0px; color:#CA0736; font-weight: bold; font-size:24px;");
+                } else {
+                    addButton->setText("Add");
+                    addButton->setStyleSheet("background-color:#32ACBE; border:0px; color:white; font-weight: bold; font-size:24px;");
+                }
+                addButton->setMinimumWidth(200);
+                addButton->setMaximumWidth(200);
+                addButton->setMinimumHeight(50);
+
+                connect(addButton, &QPushButton::clicked, [this, userID, addButton] { changeListing(userID, addButton); });
+
+                userLayout->addWidget(userLabel);
+                userLayout->addWidget(addButton);
+
+                ui->pageFrame_2->addLayout(userLayout);
+            }
         }
 
     }
@@ -149,8 +192,44 @@ ManagementSelection::ManagementSelection(int selectionType, int id, QWidget *par
             }
         }
     }
-    else if (selectionType <= 7) { ui->backButton->setText("< Users"); }
-    else {
+    else if (selectionType <= 7) {
+        ui->backButton->setText("< Users");
+        if (selectionType == 6) {
+            for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
+                int groupIdentifier = groups[groupIdx].ID;
+                QHBoxLayout* groupLayout = new QHBoxLayout;
+
+                QLabel* groupLabel = new QLabel;
+                QPushButton* addButton = new QPushButton;
+
+                groupLabel->setText(groups[groupIdx].name);
+                groupLabel->setStyleSheet("background-color:#CA0736; color:white; font-weight:bold; font-size:24px; border:0px; text-align:left; padding-left:10px;");
+                groupLabel->setMinimumHeight(50);
+
+                bool currentlyAssigned = false;
+                for (int userIdx = 0; userIdx < groups[groupIdx].users.size(); userIdx++) {
+                    if (groups[groupIdx].users[userIdx] == objID) { currentlyAssigned = true; }
+                }
+                if (currentlyAssigned) {
+                    addButton->setText("Remove");
+                    addButton->setStyleSheet("background-color:white; border:0px; color:#CA0736; font-weight: bold; font-size:24px;");
+                } else {
+                    addButton->setText("Add");
+                    addButton->setStyleSheet("background-color:#32ACBE; border:0px; color:white; font-weight: bold; font-size:24px;");
+                }
+                addButton->setMinimumWidth(200);
+                addButton->setMaximumWidth(200);
+                addButton->setMinimumHeight(50);
+
+                connect(addButton, &QPushButton::clicked, [this, groupIdentifier, addButton] { changeListing(groupIdentifier, addButton); });
+
+                groupLayout->addWidget(groupLabel);
+                groupLayout->addWidget(addButton);
+
+                ui->pageFrame_2->addLayout(groupLayout);
+            }
+        }
+    } else {
         ui->backButton->setText("< Ticket");
         if (selectionType == 9) {
             for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
@@ -224,11 +303,22 @@ void ManagementSelection::changeListing(int id, QPushButton* button, int seconda
                 groups[groupIdx].tickets.push_back(newTicket);
                 break;
             }
+        } else if (type == 2) {
+            for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
+                if (groups[groupIdx].ID != objID) { continue; }
+                groups[groupIdx].users.push_back(id);
+                break;
+            }
         } else if (type == 3) {
             for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
                 if (groups[groupIdx].ID != id) { continue; }
                 groups[groupIdx].projects.push_back(objID);
                 break;
+            }
+        } else if (type == 6) {
+            for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
+                if (groups[groupIdx].ID != id) { continue; }
+                groups[groupIdx].users.push_back(objID);
             }
         } else if (type == 9) {
             for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
@@ -273,6 +363,17 @@ void ManagementSelection::changeListing(int id, QPushButton* button, int seconda
                 }
                 break;
             }
+        } else if (type == 2) {
+            for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
+                if (groups[groupIdx].ID != objID) { continue; }
+                for (int groupUserIdx = 0; groupUserIdx < groups[groupIdx].users.size(); groupUserIdx++) {
+                    if (groups[groupIdx].users[groupUserIdx] == id) {
+                        groups[groupIdx].users.removeAt(groupUserIdx);
+                        break;
+                    }
+                }
+                break;
+            }
         } else if (type == 3) {
             for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
                 if (groups[groupIdx].ID != id) { continue; }
@@ -283,6 +384,16 @@ void ManagementSelection::changeListing(int id, QPushButton* button, int seconda
                     }
                 }
                 break;
+            }
+        } else if (type == 6) {
+            for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
+                if (groups[groupIdx].ID != id) { continue; }
+                for (int groupUserIdx = 0; groupUserIdx < groups[groupIdx].users.size(); groupUserIdx++) {
+                    if (groups[groupIdx].users[groupUserIdx] == objID) {
+                        groups[groupIdx].users.removeAt(groupUserIdx);
+                        break;
+                    }
+                }
             }
         } else if (type == 9) {
             int projectID = 0;
