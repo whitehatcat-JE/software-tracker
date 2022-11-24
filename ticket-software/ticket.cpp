@@ -53,7 +53,8 @@ Ticket::Ticket(int projectID, int ticketID, QWidget *parent) :
         }
     }
 
-    int userAccessLevel = myFiles.getAccessLevel(myFiles.loadState().userID);
+    FileManager::StateData state = myFiles.loadState();
+    int userAccessLevel = myFiles.getAccessLevel(state.userID);
     if (userAccessLevel < 2) {
         ui->managementButton->hide();
         ui->line_8->hide();
@@ -62,6 +63,22 @@ Ticket::Ticket(int projectID, int ticketID, QWidget *parent) :
         if (userAccessLevel < 1) {
             ui->archiveButton->hide();
             ui->priorityButton->setDisabled(true);
+        }
+    }
+
+    QVector<FileManager::UserRelations> userRelations = myFiles.loadUserRelations();
+
+    for (int userRelationIdx = 0; userRelationIdx < userRelations.size(); userRelationIdx++) {
+        if (userRelations[userRelationIdx].uniqueIdentifier == state.userID) {
+            for (int ticketIdx = 0; ticketIdx < userRelations[userRelationIdx].tickets.size(); ticketIdx++) {
+                if (userRelations[userRelationIdx].tickets[ticketIdx].projectID == IDProject &&
+                    userRelations[userRelationIdx].tickets[ticketIdx].ticketID == IDTicket) {
+                    ui->assignSelfButton->setText("Unassign");
+                    ui->assignSelfButton->setStyleSheet("font-size: 24px;font-family: Inter;color:#CA0736; font-weight:bold; border:none; background-color:white; border-radius:1px; margin-right:10px;");
+                    break;
+                }
+            }
+            break;
         }
     }
 
@@ -326,5 +343,37 @@ void Ticket::on_assignUserButton_clicked()
 void Ticket::on_assignSelfButton_clicked()
 {
     FileManager myFiles;
+    QVector<FileManager::UserRelations> userRelations = myFiles.loadUserRelations();
+    FileManager::StateData state = myFiles.loadState();
+
+    if (ui->assignSelfButton->text() == "Self-Assign") {
+        ui->assignSelfButton->setText("Unassign");
+        ui->assignSelfButton->setStyleSheet("font-size: 24px;font-family: Inter;color:#CA0736; font-weight:bold; border:none; background-color:white; border-radius:1px; margin-right:10px;");
+        for (int userRelationIdx = 0; userRelationIdx < userRelations.size(); userRelationIdx++) {
+            if (userRelations[userRelationIdx].uniqueIdentifier == state.userID) {
+                FileManager::TicketIDs newTicket;
+                newTicket.ticketID = IDTicket;
+                newTicket.projectID = IDProject;
+                userRelations[userRelationIdx].tickets.push_back(newTicket);
+                break;
+            }
+        }
+    } else {
+        ui->assignSelfButton->setText("Self-Assign");
+        ui->assignSelfButton->setStyleSheet("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none; background-color:#32ACBE; border-radius:1px; margin-right:10px;");
+        for (int userRelationIdx = 0; userRelationIdx < userRelations.size(); userRelationIdx++) {
+            if (userRelations[userRelationIdx].uniqueIdentifier == state.userID) {
+                for (int ticketIdx = 0; ticketIdx < userRelations[userRelationIdx].tickets.size(); ticketIdx++) {
+                    if (userRelations[userRelationIdx].tickets[ticketIdx].ticketID == IDTicket &&
+                        userRelations[userRelationIdx].tickets[ticketIdx].projectID == IDProject) {
+                        userRelations[userRelationIdx].tickets.removeAt(ticketIdx);
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+    }
+    myFiles.saveUserRelations(userRelations);
 }
 
