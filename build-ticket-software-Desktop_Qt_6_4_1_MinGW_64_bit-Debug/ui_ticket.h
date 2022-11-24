@@ -71,23 +71,8 @@ public:
     QSpacerItem *horizontalSpacer_4;
     QVBoxLayout *posts;
     QSpacerItem *verticalSpacer;
-    QVBoxLayout *verticalLayout_4;
-    QHBoxLayout *horizontalLayout_5;
-    QSpacerItem *horizontalSpacer_5;
-    QPushButton *pushButton_10;
-    QSpacerItem *horizontalSpacer_6;
-    QHBoxLayout *horizontalLayout_8;
-    QSpacerItem *horizontalSpacer_11;
-    QPushButton *pushButton_13;
-    QSpacerItem *horizontalSpacer_12;
-    QHBoxLayout *horizontalLayout_9;
-    QSpacerItem *horizontalSpacer_13;
-    QPushButton *pushButton_14;
-    QSpacerItem *horizontalSpacer_14;
-    QHBoxLayout *horizontalLayout_10;
-    QSpacerItem *horizontalSpacer_15;
-    QPushButton *pushButton_15;
-    QSpacerItem *horizontalSpacer_16;
+    QVBoxLayout *verticalSpacer_4;
+    QVBoxLayout *userList;
     QSpacerItem *verticalSpacer_3;
     QSpacerItem *horizontalSpacer_2;
 
@@ -405,110 +390,25 @@ public:
 
         horizontalLayout_3->addLayout(verticalLayout_5);
 
-        verticalLayout_4 = new QVBoxLayout();
-        verticalLayout_4->setSpacing(10);
-        verticalLayout_4->setObjectName("verticalLayout_4");
-        verticalLayout_4->setContentsMargins(-1, -1, 0, -1);
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setObjectName("horizontalLayout_5");
-        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        verticalSpacer_4 = new QVBoxLayout();
+        verticalSpacer_4->setSpacing(10);
+        verticalSpacer_4->setObjectName("verticalSpacer_4");
+        verticalSpacer_4->setContentsMargins(-1, -1, 0, -1);
+        userList = new QVBoxLayout();
+        userList->setObjectName("userList");
 
-        horizontalLayout_5->addItem(horizontalSpacer_5);
-
-        pushButton_10 = new QPushButton(assignmentCategories);
-        pushButton_10->setObjectName("pushButton_10");
-        pushButton_10->setLayoutDirection(Qt::RightToLeft);
-        pushButton_10->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
-        QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/Image/Images/placeholderProfileIcon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_10->setIcon(icon1);
-        pushButton_10->setIconSize(QSize(25, 25));
-
-        horizontalLayout_5->addWidget(pushButton_10);
-
-        horizontalSpacer_6 = new QSpacerItem(5, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
-
-        horizontalLayout_5->addItem(horizontalSpacer_6);
-
-
-        verticalLayout_4->addLayout(horizontalLayout_5);
-
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setObjectName("horizontalLayout_8");
-        horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_8->addItem(horizontalSpacer_11);
-
-        pushButton_13 = new QPushButton(assignmentCategories);
-        pushButton_13->setObjectName("pushButton_13");
-        pushButton_13->setLayoutDirection(Qt::RightToLeft);
-        pushButton_13->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
-        pushButton_13->setIcon(icon1);
-        pushButton_13->setIconSize(QSize(25, 25));
-
-        horizontalLayout_8->addWidget(pushButton_13);
-
-        horizontalSpacer_12 = new QSpacerItem(5, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
-
-        horizontalLayout_8->addItem(horizontalSpacer_12);
-
-
-        verticalLayout_4->addLayout(horizontalLayout_8);
-
-        horizontalLayout_9 = new QHBoxLayout();
-        horizontalLayout_9->setObjectName("horizontalLayout_9");
-        horizontalSpacer_13 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_9->addItem(horizontalSpacer_13);
-
-        pushButton_14 = new QPushButton(assignmentCategories);
-        pushButton_14->setObjectName("pushButton_14");
-        pushButton_14->setLayoutDirection(Qt::RightToLeft);
-        pushButton_14->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
-        pushButton_14->setIcon(icon1);
-        pushButton_14->setIconSize(QSize(25, 25));
-
-        horizontalLayout_9->addWidget(pushButton_14);
-
-        horizontalSpacer_14 = new QSpacerItem(5, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
-
-        horizontalLayout_9->addItem(horizontalSpacer_14);
-
-
-        verticalLayout_4->addLayout(horizontalLayout_9);
-
-        horizontalLayout_10 = new QHBoxLayout();
-        horizontalLayout_10->setObjectName("horizontalLayout_10");
-        horizontalSpacer_15 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_10->addItem(horizontalSpacer_15);
-
-        pushButton_15 = new QPushButton(assignmentCategories);
-        pushButton_15->setObjectName("pushButton_15");
-        pushButton_15->setLayoutDirection(Qt::RightToLeft);
-        pushButton_15->setStyleSheet(QString::fromUtf8("font-size: 24px;font-family: Inter;color: rgb(255, 255, 255); font-weight:bold; border:none;"));
-        pushButton_15->setIcon(icon1);
-        pushButton_15->setIconSize(QSize(25, 25));
-
-        horizontalLayout_10->addWidget(pushButton_15);
-
-        horizontalSpacer_16 = new QSpacerItem(5, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
-
-        horizontalLayout_10->addItem(horizontalSpacer_16);
-
-
-        verticalLayout_4->addLayout(horizontalLayout_10);
+        verticalSpacer_4->addLayout(userList);
 
         verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_4->addItem(verticalSpacer_3);
+        verticalSpacer_4->addItem(verticalSpacer_3);
 
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        verticalLayout_4->addItem(horizontalSpacer_2);
+        verticalSpacer_4->addItem(horizontalSpacer_2);
 
 
-        horizontalLayout_3->addLayout(verticalLayout_4);
+        horizontalLayout_3->addLayout(verticalSpacer_4);
 
 
         verticalLayout_3->addLayout(horizontalLayout_3);
@@ -557,10 +457,6 @@ public:
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
         postEntryText->setPlaceholderText(QCoreApplication::translate("Ticket", "Enter post...  ", nullptr));
         postButton->setText(QCoreApplication::translate("Ticket", "Post", nullptr));
-        pushButton_10->setText(QCoreApplication::translate("Ticket", "Greg ", nullptr));
-        pushButton_13->setText(QCoreApplication::translate("Ticket", "Greg ", nullptr));
-        pushButton_14->setText(QCoreApplication::translate("Ticket", "Greg ", nullptr));
-        pushButton_15->setText(QCoreApplication::translate("Ticket", "Greg ", nullptr));
     } // retranslateUi
 
 };

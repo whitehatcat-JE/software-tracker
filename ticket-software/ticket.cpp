@@ -67,18 +67,34 @@ Ticket::Ticket(int projectID, int ticketID, QWidget *parent) :
     }
 
     QVector<FileManager::UserRelations> userRelations = myFiles.loadUserRelations();
+    QVector<FileManager::User> users = myFiles.loadUsers();
 
     for (int userRelationIdx = 0; userRelationIdx < userRelations.size(); userRelationIdx++) {
-        if (userRelations[userRelationIdx].uniqueIdentifier == state.userID) {
-            for (int ticketIdx = 0; ticketIdx < userRelations[userRelationIdx].tickets.size(); ticketIdx++) {
-                if (userRelations[userRelationIdx].tickets[ticketIdx].projectID == IDProject &&
-                    userRelations[userRelationIdx].tickets[ticketIdx].ticketID == IDTicket) {
+        for (int ticketIdx = 0; ticketIdx < userRelations[userRelationIdx].tickets.size(); ticketIdx++) {
+            if (userRelations[userRelationIdx].tickets[ticketIdx].projectID == IDProject &&
+                userRelations[userRelationIdx].tickets[ticketIdx].ticketID == IDTicket) {
+                QHBoxLayout* userBoxLayout = new QHBoxLayout;
+                userBoxLayout->addStretch(1);
+                QPushButton* userButton = new QPushButton;
+                userButton->setStyleSheet("font-size: 24px;font-family: Inter;color:white; font-weight:bold; border:none;");
+                userButton->setLayoutDirection(Qt::RightToLeft);
+                userButton->setObjectName("assignedUser");
+                for (int userIdx = 0; userIdx < users.size(); userIdx++) {
+                    if (users[userIdx].uniqueIdentifier == userRelations[userRelationIdx].uniqueIdentifier) {
+                        userButton->setIcon(QIcon(":/Images/Images/PFP/" + myFiles.getAvatar(users[userIdx].profilePicID) + ".png"));
+                        userButton->setIconSize(QSize(50, 50));
+                        userButton->setText(users[userIdx].username + " ");
+                        break;
+                    }
+                }
+                userBoxLayout->addWidget(userButton);
+                ui->userList->addLayout(userBoxLayout);
+                if (userRelations[userRelationIdx].uniqueIdentifier == state.userID) {
                     ui->assignSelfButton->setText("Unassign");
                     ui->assignSelfButton->setStyleSheet("font-size: 24px;font-family: Inter;color:#CA0736; font-weight:bold; border:none; background-color:white; border-radius:1px; margin-right:10px;");
-                    break;
                 }
+                break;
             }
-            break;
         }
     }
 
@@ -345,6 +361,7 @@ void Ticket::on_assignSelfButton_clicked()
     FileManager myFiles;
     QVector<FileManager::UserRelations> userRelations = myFiles.loadUserRelations();
     FileManager::StateData state = myFiles.loadState();
+    QVector<FileManager::User> users = myFiles.loadUsers();
 
     if (ui->assignSelfButton->text() == "Self-Assign") {
         ui->assignSelfButton->setText("Unassign");
@@ -375,5 +392,33 @@ void Ticket::on_assignSelfButton_clicked()
         }
     }
     myFiles.saveUserRelations(userRelations);
+    QVector<QPushButton*> buttons = ui->assignedItems->findChildren<QPushButton *>(QString(), Qt::FindChildrenRecursively);
+    for (int widIdx = 0; widIdx < buttons.size(); widIdx++) {
+        if (buttons.at(widIdx)->objectName() == "assignedUser") { delete buttons.at(widIdx); }
+    }
+    for (int userRelationIdx = 0; userRelationIdx < userRelations.size(); userRelationIdx++) {
+        for (int ticketIdx = 0; ticketIdx < userRelations[userRelationIdx].tickets.size(); ticketIdx++) {
+            if (userRelations[userRelationIdx].tickets[ticketIdx].projectID == IDProject &&
+                userRelations[userRelationIdx].tickets[ticketIdx].ticketID == IDTicket) {
+                QHBoxLayout* userBoxLayout = new QHBoxLayout;
+                userBoxLayout->addStretch(1);
+                QPushButton* userButton = new QPushButton;
+                userButton->setStyleSheet("font-size: 24px;font-family: Inter;color:white; font-weight:bold; border:none;");
+                userButton->setLayoutDirection(Qt::RightToLeft);
+                userButton->setObjectName("assignedUser");
+                for (int userIdx = 0; userIdx < users.size(); userIdx++) {
+                    if (users[userIdx].uniqueIdentifier == userRelations[userRelationIdx].uniqueIdentifier) {
+                        userButton->setIcon(QIcon(":/Images/Images/PFP/" + myFiles.getAvatar(users[userIdx].profilePicID) + ".png"));
+                        userButton->setIconSize(QSize(50, 50));
+                        userButton->setText(users[userIdx].username + " ");
+                        break;
+                    }
+                }
+                userBoxLayout->addWidget(userButton);
+                ui->userList->addLayout(userBoxLayout);
+                break;
+            }
+        }
+    }
 }
 

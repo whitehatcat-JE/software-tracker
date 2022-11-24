@@ -231,7 +231,7 @@ QString FileManager::getAvatar(int profilePicID) {
     case 2:
         return "chicken";
     case 3:
-        return "GreyDog";
+        return "GrayDog";
     case 4:
         return "dog";
     case 5:
