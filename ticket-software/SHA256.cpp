@@ -3,6 +3,11 @@
 #include <sstream>
 #include <iomanip>
 
+// EXTERNAL LIBRARY - NOT PART OF PROJECT CODE
+// LICENSED UNDER CC0, AS SUCH NO FORMS OF ACKNOWLEDGEMENT NEEDED
+
+// LIBRARY USED TO HASH STRINGS
+
 SHA256::SHA256() : m_blocklen(0), m_bitlen(0) {
     m_state[0] = 0x6a09e667;
     m_state[1] = 0xbb67ae85;

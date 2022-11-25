@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../ticket-software/addticket.h"
+#include "../../../../../Music/ticket-software/addticket.h"
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'addticket.h' doesn't include <QObject>."

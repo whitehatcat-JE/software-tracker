@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../ticket-software/archive.h"
+#include "../../../../../Music/ticket-software/archive.h"
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'archive.h' doesn't include <QObject>."

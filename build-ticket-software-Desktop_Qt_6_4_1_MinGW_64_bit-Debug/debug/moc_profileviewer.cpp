@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../ticket-software/profileviewer.h"
+#include "../../../../../Music/ticket-software/profileviewer.h"
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'profileviewer.h' doesn't include <QObject>."

@@ -1,53 +1,56 @@
 #include "archive.h"
 #include "ui_archive.h"
-
-Archive::Archive(int projectID, QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::Archive)
-{
+// Archive constructor
+Archive::Archive(int projectID, QWidget *parent) : QWidget(parent), ui(new Ui::Archive) {
     ui->setupUi(this);
     IDProject = projectID;
-
+    // Loads project data
     FileManager myFiles;
     QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
-
-
+    // Displays project name
     for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
-        if (projects[projectIdx].uniqueIdentifier != IDProject) { continue; }
-        ui->title->setText(projects[projectIdx].name);
+        if (projects[projectIdx].uniqueIdentifier != IDProject) {
+            ui->title->setText(projects[projectIdx].name);
+            break;
+        }
     }
+    // Hides management button if user access level is too low
     int userAccessLevel = myFiles.getAccessLevel(myFiles.loadState().userID);
     if (userAccessLevel < 2) {
         ui->managementButton->hide();
         ui->line_8->hide();
     }
+
+    // Loads all archived project tickets
     reloadTickets();
 }
-
-Archive::~Archive()
-{
-    if (closing) {
+// Archive destructor
+Archive::~Archive() {
+    if (closing) { // Checks if user is trying to quit program
         FileManager myFiles;
         FileManager::StateData currentState;
         currentState.newPage = -1;
         myFiles.saveState(currentState);
-    }
-    delete ui;
+    } delete ui; // Closes page
 }
 
+// Displays all archived project tickets
 void Archive::reloadTickets() {
+    // Deletes currently displayed tickets
     QVector<QPushButton*> uiButtons = ui->assignedItems->findChildren<QPushButton *>(QString(), Qt::FindChildrenRecursively);
     for (int widIdx = 0; widIdx < uiButtons.size(); widIdx++) {
         if (uiButtons.at(widIdx)->objectName() == "archivedTicket") { delete uiButtons.at(widIdx); }
     }
-
+    // Re-creates all tickets
     FileManager myFiles;
     QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
     int userAccessLevel = myFiles.getAccessLevel(myFiles.loadState().userID);
     for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
         if (projects[projectIdx].uniqueIdentifier != IDProject) { continue; }
+        // Loops through all tickets in project
         for (int ticketIdx = 0; ticketIdx < projects[projectIdx].tickets.size(); ticketIdx++) {
-            if (projects[projectIdx].tickets[ticketIdx].isOpen) { continue; }
+            if (projects[projectIdx].tickets[ticketIdx].isOpen) { continue; } // Checks if ticket is archived
+            // Creates and formats displayed ticket
             int ticketCreationTime = projects[projectIdx].tickets[ticketIdx].creationTime;
             QPushButton* ticketButton = new QPushButton;
             ticketButton->setStyleSheet("background-color:#32ACBE; font-size:24px; font-weight:bold; color:white; padding:5px; text-align:left; border:0px; padding-left:10px;");
@@ -66,14 +69,14 @@ void Archive::reloadTickets() {
             deleteButton->setMaximumWidth(100);
             deleteButton->setObjectName("archivedTicket");
             connect(deleteButton, &QPushButton::clicked, [this, ticketCreationTime] { deleteTicket(ticketCreationTime); });
-
+            // Adds ticket to layout
             QHBoxLayout* ticketLayout = new QHBoxLayout;
 
             ui->pageFrame->addLayout(ticketLayout);
             ticketLayout->addWidget(ticketButton);
             ticketLayout->addWidget(openButton);
             ticketLayout->addWidget(deleteButton);
-            if (userAccessLevel == 0) {
+            if (userAccessLevel == 0) { // Hides ticket manipulation buttons if user access level is too low
                 openButton->hide();
                 deleteButton->hide();
             }
@@ -81,12 +84,14 @@ void Archive::reloadTickets() {
     }
 }
 
+// Un-archives ticket
 void Archive::reOpenTicket(int ticketID) {
     FileManager myFiles;
     QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
-
+    // Finds ticket in DB
     for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
         for (int ticketIdx = 0; ticketIdx < projects[projectIdx].tickets.size(); ticketIdx++) {
+            // Adds re-opened log to ticket
             FileManager::Log newLog;
             newLog.creationTime = QDateTime::currentDateTime().toSecsSinceEpoch();
             newLog.description = "Ticket re-opened";
@@ -99,26 +104,29 @@ void Archive::reOpenTicket(int ticketID) {
             break;
         }
     }
-
+    // Saves changes
     reloadTickets();
 }
 
+// Deletes ticket from project
 void Archive::deleteTicket(int ticketID) {
     FileManager myFiles;
     QVector<FileManager::Project> projects = myFiles.interpretProjects(myFiles.loadProjects());
-
+    // Finds ticket
     for (int projectIdx = 0; projectIdx < projects.size(); projectIdx++) {
         for (int ticketIdx = 0; ticketIdx < projects[projectIdx].tickets.size(); ticketIdx++) {
             if (projects[projectIdx].tickets[ticketIdx].creationTime != ticketID) { continue; }
+            // Delete ticket
             projects[projectIdx].tickets.removeAt(ticketIdx);
             myFiles.saveProjects(myFiles.compileProjects(projects));
             break;
         }
     }
-
+    // Saves changes
     reloadTickets();
 }
 
+// Opens ticket page
 void Archive::openTicket(int ticketID) {
     FileManager myFiles;
     FileManager::StateData state;
@@ -130,8 +138,8 @@ void Archive::openTicket(int ticketID) {
     this->close();
 }
 
-void Archive::on_assignButton_clicked()
-{
+// Opens assigments page
+void Archive::on_assignButton_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
     state.newPage = 2;
@@ -140,9 +148,8 @@ void Archive::on_assignButton_clicked()
     this->close();
 }
 
-
-void Archive::on_profileButton_clicked()
-{
+// Opens profile page
+void Archive::on_profileButton_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
     state.newPage = 1;
@@ -151,9 +158,8 @@ void Archive::on_profileButton_clicked()
     this->close();
 }
 
-
-void Archive::on_managementButton_clicked()
-{
+// Opens management page
+void Archive::on_managementButton_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
     state.newPage = 7;
@@ -162,9 +168,8 @@ void Archive::on_managementButton_clicked()
     this->close();
 }
 
-
-void Archive::on_logoutButton_clicked()
-{
+// Logs out user
+void Archive::on_logoutButton_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
     state.newPage = 0;

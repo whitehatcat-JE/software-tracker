@@ -30,7 +30,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -55,10 +55,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\SHA256.cpp"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\SHA256.cpp"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/SHA256.cpp"
+    "file": "C:/Users/ccporirua/Music/ticket-software/SHA256.cpp"
 },
 {
     "arguments": [
@@ -91,7 +91,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -116,10 +116,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\addticket.cpp"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\addticket.cpp"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/addticket.cpp"
+    "file": "C:/Users/ccporirua/Music/ticket-software/addticket.cpp"
 },
 {
     "arguments": [
@@ -152,7 +152,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -177,10 +177,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\archive.cpp"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\archive.cpp"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/archive.cpp"
+    "file": "C:/Users/ccporirua/Music/ticket-software/archive.cpp"
 },
 {
     "arguments": [
@@ -213,7 +213,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -238,10 +238,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\assignments.cpp"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\assignments.cpp"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/assignments.cpp"
+    "file": "C:/Users/ccporirua/Music/ticket-software/assignments.cpp"
 },
 {
     "arguments": [
@@ -274,7 +274,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -299,10 +299,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\filemanager.cpp"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\filemanager.cpp"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/filemanager.cpp"
+    "file": "C:/Users/ccporirua/Music/ticket-software/filemanager.cpp"
 },
 {
     "arguments": [
@@ -335,7 +335,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -360,10 +360,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\groupmanagement.cpp"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\groupmanagement.cpp"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/groupmanagement.cpp"
+    "file": "C:/Users/ccporirua/Music/ticket-software/groupmanagement.cpp"
 },
 {
     "arguments": [
@@ -396,7 +396,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -421,10 +421,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\main.cpp"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\main.cpp"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/main.cpp"
+    "file": "C:/Users/ccporirua/Music/ticket-software/main.cpp"
 },
 {
     "arguments": [
@@ -457,7 +457,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -482,10 +482,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\login.cpp"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\login.cpp"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/login.cpp"
+    "file": "C:/Users/ccporirua/Music/ticket-software/login.cpp"
 },
 {
     "arguments": [
@@ -518,7 +518,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -543,10 +543,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\management.cpp"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\management.cpp"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/management.cpp"
+    "file": "C:/Users/ccporirua/Music/ticket-software/management.cpp"
 },
 {
     "arguments": [
@@ -579,7 +579,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -604,10 +604,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\managementselection.cpp"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\managementselection.cpp"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/managementselection.cpp"
+    "file": "C:/Users/ccporirua/Music/ticket-software/managementselection.cpp"
 },
 {
     "arguments": [
@@ -640,7 +640,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -665,10 +665,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\profile.cpp"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\profile.cpp"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/profile.cpp"
+    "file": "C:/Users/ccporirua/Music/ticket-software/profile.cpp"
 },
 {
     "arguments": [
@@ -701,7 +701,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -726,10 +726,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\profileviewer.cpp"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\profileviewer.cpp"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/profileviewer.cpp"
+    "file": "C:/Users/ccporirua/Music/ticket-software/profileviewer.cpp"
 },
 {
     "arguments": [
@@ -762,7 +762,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -787,10 +787,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\project.cpp"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\project.cpp"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/project.cpp"
+    "file": "C:/Users/ccporirua/Music/ticket-software/project.cpp"
 },
 {
     "arguments": [
@@ -823,7 +823,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -848,10 +848,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\projectmanagement.cpp"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\projectmanagement.cpp"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/projectmanagement.cpp"
+    "file": "C:/Users/ccporirua/Music/ticket-software/projectmanagement.cpp"
 },
 {
     "arguments": [
@@ -884,7 +884,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -909,10 +909,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\ticket.cpp"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\ticket.cpp"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/ticket.cpp"
+    "file": "C:/Users/ccporirua/Music/ticket-software/ticket.cpp"
 },
 {
     "arguments": [
@@ -945,7 +945,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -970,10 +970,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\usermanagement.cpp"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\usermanagement.cpp"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/usermanagement.cpp"
+    "file": "C:/Users/ccporirua/Music/ticket-software/usermanagement.cpp"
 },
 {
     "arguments": [
@@ -1006,7 +1006,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -1031,10 +1031,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\SHA256.h"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\SHA256.h"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/SHA256.h"
+    "file": "C:/Users/ccporirua/Music/ticket-software/SHA256.h"
 },
 {
     "arguments": [
@@ -1067,7 +1067,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -1092,10 +1092,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\addticket.h"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\addticket.h"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/addticket.h"
+    "file": "C:/Users/ccporirua/Music/ticket-software/addticket.h"
 },
 {
     "arguments": [
@@ -1128,7 +1128,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -1153,10 +1153,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\archive.h"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\archive.h"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/archive.h"
+    "file": "C:/Users/ccporirua/Music/ticket-software/archive.h"
 },
 {
     "arguments": [
@@ -1189,7 +1189,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -1214,10 +1214,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\assignments.h"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\assignments.h"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/assignments.h"
+    "file": "C:/Users/ccporirua/Music/ticket-software/assignments.h"
 },
 {
     "arguments": [
@@ -1250,7 +1250,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -1275,10 +1275,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\filemanager.h"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\filemanager.h"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/filemanager.h"
+    "file": "C:/Users/ccporirua/Music/ticket-software/filemanager.h"
 },
 {
     "arguments": [
@@ -1311,7 +1311,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -1336,10 +1336,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\groupmanagement.h"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\groupmanagement.h"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/groupmanagement.h"
+    "file": "C:/Users/ccporirua/Music/ticket-software/groupmanagement.h"
 },
 {
     "arguments": [
@@ -1372,7 +1372,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -1397,10 +1397,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\login.h"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\login.h"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/login.h"
+    "file": "C:/Users/ccporirua/Music/ticket-software/login.h"
 },
 {
     "arguments": [
@@ -1433,7 +1433,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -1458,10 +1458,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\management.h"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\management.h"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/management.h"
+    "file": "C:/Users/ccporirua/Music/ticket-software/management.h"
 },
 {
     "arguments": [
@@ -1494,7 +1494,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -1519,10 +1519,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\managementselection.h"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\managementselection.h"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/managementselection.h"
+    "file": "C:/Users/ccporirua/Music/ticket-software/managementselection.h"
 },
 {
     "arguments": [
@@ -1555,7 +1555,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -1580,10 +1580,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\profile.h"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\profile.h"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/profile.h"
+    "file": "C:/Users/ccporirua/Music/ticket-software/profile.h"
 },
 {
     "arguments": [
@@ -1616,7 +1616,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -1641,10 +1641,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\profileviewer.h"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\profileviewer.h"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/profileviewer.h"
+    "file": "C:/Users/ccporirua/Music/ticket-software/profileviewer.h"
 },
 {
     "arguments": [
@@ -1677,7 +1677,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -1702,10 +1702,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\project.h"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\project.h"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/project.h"
+    "file": "C:/Users/ccporirua/Music/ticket-software/project.h"
 },
 {
     "arguments": [
@@ -1738,7 +1738,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -1763,10 +1763,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\projectmanagement.h"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\projectmanagement.h"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/projectmanagement.h"
+    "file": "C:/Users/ccporirua/Music/ticket-software/projectmanagement.h"
 },
 {
     "arguments": [
@@ -1799,7 +1799,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -1824,10 +1824,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\ticket.h"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\ticket.h"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/ticket.h"
+    "file": "C:/Users/ccporirua/Music/ticket-software/ticket.h"
 },
 {
     "arguments": [
@@ -1860,7 +1860,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -1885,10 +1885,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software\\usermanagement.h"
+        "C:\\Users\\ccporirua\\Music\\ticket-software\\usermanagement.h"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/ticket-software/usermanagement.h"
+    "file": "C:/Users/ccporirua/Music/ticket-software/usermanagement.h"
 },
 {
     "arguments": [
@@ -1921,7 +1921,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -1946,10 +1946,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\ui_groupmanagement.h"
+        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\ui_profile.h"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/ui_groupmanagement.h"
+    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/ui_profile.h"
 },
 {
     "arguments": [
@@ -1982,129 +1982,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\debug",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\mkspecs\\win32-g++",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\x86_64-w64-mingw32",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\backward",
-        "-isystem",
-        "C:\\Qt\\Tools\\QtCreator\\bin\\clang\\lib\\clang\\14.0.3\\include",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\x86_64-w64-mingw32\\include",
-        "-fmessage-length=0",
-        "-fdiagnostics-show-note-include-stack",
-        "-fretain-comments-from-system-headers",
-        "-fmacro-backtrace-limit=0",
-        "-ferror-limit=1000",
-        "-x",
-        "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\ui_archive.h"
-    ],
-    "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/ui_archive.h"
-},
-{
-    "arguments": [
-        "clang",
-        "-Wno-documentation-unknown-command",
-        "-Wno-unknown-warning-option",
-        "-Wno-unknown-pragmas",
-        "-nostdinc",
-        "-nostdinc++",
-        "-g",
-        "-std=gnu++1z",
-        "-Wall",
-        "-Wextra",
-        "-Wextra",
-        "-fexceptions",
-        "-mthreads",
-        "-fsyntax-only",
-        "-m64",
-        "--target=x86_64-w64-mingw32",
-        "-DUNICODE",
-        "-D_UNICODE",
-        "-DWIN32",
-        "-DMINGW_HAS_SECURE_API",
-        "-DQT_QML_DEBUG",
-        "-DQT_WIDGETS_LIB",
-        "-DQT_GUI_LIB",
-        "-DQT_CORE_LIB",
-        "-DQT_NEEDS_QMAIN",
-        "-DQ_CREATOR_RUN",
-        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
-        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
-        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\debug",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\mkspecs\\win32-g++",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\x86_64-w64-mingw32",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\backward",
-        "-isystem",
-        "C:\\Qt\\Tools\\QtCreator\\bin\\clang\\lib\\clang\\14.0.3\\include",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\x86_64-w64-mingw32\\include",
-        "-fmessage-length=0",
-        "-fdiagnostics-show-note-include-stack",
-        "-fretain-comments-from-system-headers",
-        "-fmacro-backtrace-limit=0",
-        "-ferror-limit=1000",
-        "-x",
-        "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\ui_login.h"
-    ],
-    "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/ui_login.h"
-},
-{
-    "arguments": [
-        "clang",
-        "-Wno-documentation-unknown-command",
-        "-Wno-unknown-warning-option",
-        "-Wno-unknown-pragmas",
-        "-nostdinc",
-        "-nostdinc++",
-        "-g",
-        "-std=gnu++1z",
-        "-Wall",
-        "-Wextra",
-        "-Wextra",
-        "-fexceptions",
-        "-mthreads",
-        "-fsyntax-only",
-        "-m64",
-        "--target=x86_64-w64-mingw32",
-        "-DUNICODE",
-        "-D_UNICODE",
-        "-DWIN32",
-        "-DMINGW_HAS_SECURE_API",
-        "-DQT_QML_DEBUG",
-        "-DQT_WIDGETS_LIB",
-        "-DQT_GUI_LIB",
-        "-DQT_CORE_LIB",
-        "-DQT_NEEDS_QMAIN",
-        "-DQ_CREATOR_RUN",
-        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
-        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
-        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -2165,251 +2043,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\debug",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\mkspecs\\win32-g++",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\x86_64-w64-mingw32",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\backward",
-        "-isystem",
-        "C:\\Qt\\Tools\\QtCreator\\bin\\clang\\lib\\clang\\14.0.3\\include",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\x86_64-w64-mingw32\\include",
-        "-fmessage-length=0",
-        "-fdiagnostics-show-note-include-stack",
-        "-fretain-comments-from-system-headers",
-        "-fmacro-backtrace-limit=0",
-        "-ferror-limit=1000",
-        "-x",
-        "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\ui_assignments.h"
-    ],
-    "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/ui_assignments.h"
-},
-{
-    "arguments": [
-        "clang",
-        "-Wno-documentation-unknown-command",
-        "-Wno-unknown-warning-option",
-        "-Wno-unknown-pragmas",
-        "-nostdinc",
-        "-nostdinc++",
-        "-g",
-        "-std=gnu++1z",
-        "-Wall",
-        "-Wextra",
-        "-Wextra",
-        "-fexceptions",
-        "-mthreads",
-        "-fsyntax-only",
-        "-m64",
-        "--target=x86_64-w64-mingw32",
-        "-DUNICODE",
-        "-D_UNICODE",
-        "-DWIN32",
-        "-DMINGW_HAS_SECURE_API",
-        "-DQT_QML_DEBUG",
-        "-DQT_WIDGETS_LIB",
-        "-DQT_GUI_LIB",
-        "-DQT_CORE_LIB",
-        "-DQT_NEEDS_QMAIN",
-        "-DQ_CREATOR_RUN",
-        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
-        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
-        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\debug",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\mkspecs\\win32-g++",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\x86_64-w64-mingw32",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\backward",
-        "-isystem",
-        "C:\\Qt\\Tools\\QtCreator\\bin\\clang\\lib\\clang\\14.0.3\\include",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\x86_64-w64-mingw32\\include",
-        "-fmessage-length=0",
-        "-fdiagnostics-show-note-include-stack",
-        "-fretain-comments-from-system-headers",
-        "-fmacro-backtrace-limit=0",
-        "-ferror-limit=1000",
-        "-x",
-        "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\ui_addticket.h"
-    ],
-    "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/ui_addticket.h"
-},
-{
-    "arguments": [
-        "clang",
-        "-Wno-documentation-unknown-command",
-        "-Wno-unknown-warning-option",
-        "-Wno-unknown-pragmas",
-        "-nostdinc",
-        "-nostdinc++",
-        "-g",
-        "-std=gnu++1z",
-        "-Wall",
-        "-Wextra",
-        "-Wextra",
-        "-fexceptions",
-        "-mthreads",
-        "-fsyntax-only",
-        "-m64",
-        "--target=x86_64-w64-mingw32",
-        "-DUNICODE",
-        "-D_UNICODE",
-        "-DWIN32",
-        "-DMINGW_HAS_SECURE_API",
-        "-DQT_QML_DEBUG",
-        "-DQT_WIDGETS_LIB",
-        "-DQT_GUI_LIB",
-        "-DQT_CORE_LIB",
-        "-DQT_NEEDS_QMAIN",
-        "-DQ_CREATOR_RUN",
-        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
-        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
-        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\debug",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\mkspecs\\win32-g++",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\x86_64-w64-mingw32",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\backward",
-        "-isystem",
-        "C:\\Qt\\Tools\\QtCreator\\bin\\clang\\lib\\clang\\14.0.3\\include",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\x86_64-w64-mingw32\\include",
-        "-fmessage-length=0",
-        "-fdiagnostics-show-note-include-stack",
-        "-fretain-comments-from-system-headers",
-        "-fmacro-backtrace-limit=0",
-        "-ferror-limit=1000",
-        "-x",
-        "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\ui_managementselection.h"
-    ],
-    "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/ui_managementselection.h"
-},
-{
-    "arguments": [
-        "clang",
-        "-Wno-documentation-unknown-command",
-        "-Wno-unknown-warning-option",
-        "-Wno-unknown-pragmas",
-        "-nostdinc",
-        "-nostdinc++",
-        "-g",
-        "-std=gnu++1z",
-        "-Wall",
-        "-Wextra",
-        "-Wextra",
-        "-fexceptions",
-        "-mthreads",
-        "-fsyntax-only",
-        "-m64",
-        "--target=x86_64-w64-mingw32",
-        "-DUNICODE",
-        "-D_UNICODE",
-        "-DWIN32",
-        "-DMINGW_HAS_SECURE_API",
-        "-DQT_QML_DEBUG",
-        "-DQT_WIDGETS_LIB",
-        "-DQT_GUI_LIB",
-        "-DQT_CORE_LIB",
-        "-DQT_NEEDS_QMAIN",
-        "-DQ_CREATOR_RUN",
-        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
-        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
-        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\debug",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug",
-        "-IC:\\Qt\\6.4.1\\mingw_64\\mkspecs\\win32-g++",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\x86_64-w64-mingw32",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\backward",
-        "-isystem",
-        "C:\\Qt\\Tools\\QtCreator\\bin\\clang\\lib\\clang\\14.0.3\\include",
-        "-isystem",
-        "C:\\Qt\\Tools\\mingw1120_64\\x86_64-w64-mingw32\\include",
-        "-fmessage-length=0",
-        "-fdiagnostics-show-note-include-stack",
-        "-fretain-comments-from-system-headers",
-        "-fmacro-backtrace-limit=0",
-        "-ferror-limit=1000",
-        "-x",
-        "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\ui_projectmanagement.h"
-    ],
-    "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/ui_projectmanagement.h"
-},
-{
-    "arguments": [
-        "clang",
-        "-Wno-documentation-unknown-command",
-        "-Wno-unknown-warning-option",
-        "-Wno-unknown-pragmas",
-        "-nostdinc",
-        "-nostdinc++",
-        "-g",
-        "-std=gnu++1z",
-        "-Wall",
-        "-Wextra",
-        "-Wextra",
-        "-fexceptions",
-        "-mthreads",
-        "-fsyntax-only",
-        "-m64",
-        "--target=x86_64-w64-mingw32",
-        "-DUNICODE",
-        "-D_UNICODE",
-        "-DWIN32",
-        "-DMINGW_HAS_SECURE_API",
-        "-DQT_QML_DEBUG",
-        "-DQT_WIDGETS_LIB",
-        "-DQT_GUI_LIB",
-        "-DQT_CORE_LIB",
-        "-DQT_NEEDS_QMAIN",
-        "-DQ_CREATOR_RUN",
-        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
-        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
-        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -2470,7 +2104,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -2495,10 +2129,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\ui_ticket.h"
+        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\ui_addticket.h"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/ui_ticket.h"
+    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/ui_addticket.h"
 },
 {
     "arguments": [
@@ -2531,7 +2165,68 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtCore",
+        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\debug",
+        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\mkspecs\\win32-g++",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\x86_64-w64-mingw32",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\backward",
+        "-isystem",
+        "C:\\Qt\\Tools\\QtCreator\\bin\\clang\\lib\\clang\\14.0.3\\include",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\x86_64-w64-mingw32\\include",
+        "-fmessage-length=0",
+        "-fdiagnostics-show-note-include-stack",
+        "-fretain-comments-from-system-headers",
+        "-fmacro-backtrace-limit=0",
+        "-ferror-limit=1000",
+        "-x",
+        "c++-header",
+        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\ui_managementselection.h"
+    ],
+    "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/ui_managementselection.h"
+},
+{
+    "arguments": [
+        "clang",
+        "-Wno-documentation-unknown-command",
+        "-Wno-unknown-warning-option",
+        "-Wno-unknown-pragmas",
+        "-nostdinc",
+        "-nostdinc++",
+        "-g",
+        "-std=gnu++1z",
+        "-Wall",
+        "-Wextra",
+        "-Wextra",
+        "-fexceptions",
+        "-mthreads",
+        "-fsyntax-only",
+        "-m64",
+        "--target=x86_64-w64-mingw32",
+        "-DUNICODE",
+        "-D_UNICODE",
+        "-DWIN32",
+        "-DMINGW_HAS_SECURE_API",
+        "-DQT_QML_DEBUG",
+        "-DQT_WIDGETS_LIB",
+        "-DQT_GUI_LIB",
+        "-DQT_CORE_LIB",
+        "-DQT_NEEDS_QMAIN",
+        "-DQ_CREATOR_RUN",
+        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
+        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
+        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -2592,7 +2287,312 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtCore",
+        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\debug",
+        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\mkspecs\\win32-g++",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\x86_64-w64-mingw32",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\backward",
+        "-isystem",
+        "C:\\Qt\\Tools\\QtCreator\\bin\\clang\\lib\\clang\\14.0.3\\include",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\x86_64-w64-mingw32\\include",
+        "-fmessage-length=0",
+        "-fdiagnostics-show-note-include-stack",
+        "-fretain-comments-from-system-headers",
+        "-fmacro-backtrace-limit=0",
+        "-ferror-limit=1000",
+        "-x",
+        "c++-header",
+        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\ui_ticket.h"
+    ],
+    "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/ui_ticket.h"
+},
+{
+    "arguments": [
+        "clang",
+        "-Wno-documentation-unknown-command",
+        "-Wno-unknown-warning-option",
+        "-Wno-unknown-pragmas",
+        "-nostdinc",
+        "-nostdinc++",
+        "-g",
+        "-std=gnu++1z",
+        "-Wall",
+        "-Wextra",
+        "-Wextra",
+        "-fexceptions",
+        "-mthreads",
+        "-fsyntax-only",
+        "-m64",
+        "--target=x86_64-w64-mingw32",
+        "-DUNICODE",
+        "-D_UNICODE",
+        "-DWIN32",
+        "-DMINGW_HAS_SECURE_API",
+        "-DQT_QML_DEBUG",
+        "-DQT_WIDGETS_LIB",
+        "-DQT_GUI_LIB",
+        "-DQT_CORE_LIB",
+        "-DQT_NEEDS_QMAIN",
+        "-DQ_CREATOR_RUN",
+        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
+        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
+        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtCore",
+        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\debug",
+        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\mkspecs\\win32-g++",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\x86_64-w64-mingw32",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\backward",
+        "-isystem",
+        "C:\\Qt\\Tools\\QtCreator\\bin\\clang\\lib\\clang\\14.0.3\\include",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\x86_64-w64-mingw32\\include",
+        "-fmessage-length=0",
+        "-fdiagnostics-show-note-include-stack",
+        "-fretain-comments-from-system-headers",
+        "-fmacro-backtrace-limit=0",
+        "-ferror-limit=1000",
+        "-x",
+        "c++-header",
+        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\ui_login.h"
+    ],
+    "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/ui_login.h"
+},
+{
+    "arguments": [
+        "clang",
+        "-Wno-documentation-unknown-command",
+        "-Wno-unknown-warning-option",
+        "-Wno-unknown-pragmas",
+        "-nostdinc",
+        "-nostdinc++",
+        "-g",
+        "-std=gnu++1z",
+        "-Wall",
+        "-Wextra",
+        "-Wextra",
+        "-fexceptions",
+        "-mthreads",
+        "-fsyntax-only",
+        "-m64",
+        "--target=x86_64-w64-mingw32",
+        "-DUNICODE",
+        "-D_UNICODE",
+        "-DWIN32",
+        "-DMINGW_HAS_SECURE_API",
+        "-DQT_QML_DEBUG",
+        "-DQT_WIDGETS_LIB",
+        "-DQT_GUI_LIB",
+        "-DQT_CORE_LIB",
+        "-DQT_NEEDS_QMAIN",
+        "-DQ_CREATOR_RUN",
+        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
+        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
+        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtCore",
+        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\debug",
+        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\mkspecs\\win32-g++",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\x86_64-w64-mingw32",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\backward",
+        "-isystem",
+        "C:\\Qt\\Tools\\QtCreator\\bin\\clang\\lib\\clang\\14.0.3\\include",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\x86_64-w64-mingw32\\include",
+        "-fmessage-length=0",
+        "-fdiagnostics-show-note-include-stack",
+        "-fretain-comments-from-system-headers",
+        "-fmacro-backtrace-limit=0",
+        "-ferror-limit=1000",
+        "-x",
+        "c++-header",
+        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\ui_archive.h"
+    ],
+    "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/ui_archive.h"
+},
+{
+    "arguments": [
+        "clang",
+        "-Wno-documentation-unknown-command",
+        "-Wno-unknown-warning-option",
+        "-Wno-unknown-pragmas",
+        "-nostdinc",
+        "-nostdinc++",
+        "-g",
+        "-std=gnu++1z",
+        "-Wall",
+        "-Wextra",
+        "-Wextra",
+        "-fexceptions",
+        "-mthreads",
+        "-fsyntax-only",
+        "-m64",
+        "--target=x86_64-w64-mingw32",
+        "-DUNICODE",
+        "-D_UNICODE",
+        "-DWIN32",
+        "-DMINGW_HAS_SECURE_API",
+        "-DQT_QML_DEBUG",
+        "-DQT_WIDGETS_LIB",
+        "-DQT_GUI_LIB",
+        "-DQT_CORE_LIB",
+        "-DQT_NEEDS_QMAIN",
+        "-DQ_CREATOR_RUN",
+        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
+        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
+        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtCore",
+        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\debug",
+        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\mkspecs\\win32-g++",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\x86_64-w64-mingw32",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\backward",
+        "-isystem",
+        "C:\\Qt\\Tools\\QtCreator\\bin\\clang\\lib\\clang\\14.0.3\\include",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\x86_64-w64-mingw32\\include",
+        "-fmessage-length=0",
+        "-fdiagnostics-show-note-include-stack",
+        "-fretain-comments-from-system-headers",
+        "-fmacro-backtrace-limit=0",
+        "-ferror-limit=1000",
+        "-x",
+        "c++-header",
+        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\ui_projectmanagement.h"
+    ],
+    "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/ui_projectmanagement.h"
+},
+{
+    "arguments": [
+        "clang",
+        "-Wno-documentation-unknown-command",
+        "-Wno-unknown-warning-option",
+        "-Wno-unknown-pragmas",
+        "-nostdinc",
+        "-nostdinc++",
+        "-g",
+        "-std=gnu++1z",
+        "-Wall",
+        "-Wextra",
+        "-Wextra",
+        "-fexceptions",
+        "-mthreads",
+        "-fsyntax-only",
+        "-m64",
+        "--target=x86_64-w64-mingw32",
+        "-DUNICODE",
+        "-D_UNICODE",
+        "-DWIN32",
+        "-DMINGW_HAS_SECURE_API",
+        "-DQT_QML_DEBUG",
+        "-DQT_WIDGETS_LIB",
+        "-DQT_GUI_LIB",
+        "-DQT_CORE_LIB",
+        "-DQT_NEEDS_QMAIN",
+        "-DQ_CREATOR_RUN",
+        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
+        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
+        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtCore",
+        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\debug",
+        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug",
+        "-IC:\\Qt\\6.4.1\\mingw_64\\mkspecs\\win32-g++",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\x86_64-w64-mingw32",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\backward",
+        "-isystem",
+        "C:\\Qt\\Tools\\QtCreator\\bin\\clang\\lib\\clang\\14.0.3\\include",
+        "-isystem",
+        "C:\\Qt\\Tools\\mingw1120_64\\x86_64-w64-mingw32\\include",
+        "-fmessage-length=0",
+        "-fdiagnostics-show-note-include-stack",
+        "-fretain-comments-from-system-headers",
+        "-fmacro-backtrace-limit=0",
+        "-ferror-limit=1000",
+        "-x",
+        "c++-header",
+        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\ui_groupmanagement.h"
+    ],
+    "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/ui_groupmanagement.h"
+},
+{
+    "arguments": [
+        "clang",
+        "-Wno-documentation-unknown-command",
+        "-Wno-unknown-warning-option",
+        "-Wno-unknown-pragmas",
+        "-nostdinc",
+        "-nostdinc++",
+        "-g",
+        "-std=gnu++1z",
+        "-Wall",
+        "-Wextra",
+        "-Wextra",
+        "-fexceptions",
+        "-mthreads",
+        "-fsyntax-only",
+        "-m64",
+        "--target=x86_64-w64-mingw32",
+        "-DUNICODE",
+        "-D_UNICODE",
+        "-DWIN32",
+        "-DMINGW_HAS_SECURE_API",
+        "-DQT_QML_DEBUG",
+        "-DQT_WIDGETS_LIB",
+        "-DQT_GUI_LIB",
+        "-DQT_CORE_LIB",
+        "-DQT_NEEDS_QMAIN",
+        "-DQ_CREATOR_RUN",
+        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
+        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
+        "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -2653,7 +2653,7 @@
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
         "-IC:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
-        "-IC:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\ticket-software",
+        "-IC:\\Users\\ccporirua\\Music\\ticket-software",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtWidgets",
         "-IC:\\Qt\\6.4.1\\mingw_64\\include\\QtGui",
@@ -2678,9 +2678,9 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\ui_profile.h"
+        "C:\\Users\\ccporirua\\Documents\\mazeGame\\software-tracker\\build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug\\ui_assignments.h"
     ],
     "directory": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/ui_profile.h"
+    "file": "C:/Users/ccporirua/Documents/mazeGame/software-tracker/build-ticket-software-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/ui_assignments.h"
 }
 ]

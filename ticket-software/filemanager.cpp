@@ -1,7 +1,9 @@
 #include "filemanager.h"
+// Included Qt modules
 #include <QDebug>
 
 FileManager::FileManager(){}
+
 // Loads project data from disk
 QString FileManager::loadProjects() {
     // Open file from disk
@@ -13,6 +15,7 @@ QString FileManager::loadProjects() {
     file.close();
     return projectData;
 };
+
 // Saves project data to disk
 void FileManager::saveProjects(QString projectData) {
     // Open file from disk
@@ -23,6 +26,7 @@ void FileManager::saveProjects(QString projectData) {
     stream << projectData;
     file.close();
 };
+
 // Converts projects vector into a single string
 QString FileManager::compileProjects(QVector<Project> projects) {
     QString compiledData = ""; // Complete project data string
@@ -48,6 +52,7 @@ QString FileManager::compileProjects(QVector<Project> projects) {
         } compiledData += "/,"; // Indicates end of ticket
     } return compiledData;
 };
+
 // Converts string of projects data into projects vector
 QVector<FileManager::Project> FileManager::interpretProjects(QString projectData) {
     // Variable Initalizations
@@ -150,12 +155,14 @@ QVector<FileManager::Project> FileManager::interpretProjects(QString projectData
     } return projects;
 };
 
+// Writes user data to disk
 void FileManager::saveUsers(QVector<FileManager::User> users) {
+    // Opens user data file
     QFile file("users.csv");
     file.open(QIODevice::ReadWrite | QIODevice::Truncate);
     QTextStream stream(&file);
     if (!file.isOpen()) { return; }
-
+    // Writes all user data
     for (int userIdx = 0; userIdx < users.size(); userIdx++) {
         stream << users[userIdx].username << "`" <<
             users[userIdx].password << "`" <<
@@ -168,16 +175,21 @@ void FileManager::saveUsers(QVector<FileManager::User> users) {
             users[userIdx].profilePicID << "`" <<
             users[userIdx].uniqueIdentifier << "`\n";
     }
+
     file.close();
 }
 
+// Loads all user data from disk
 QVector<FileManager::User> FileManager::loadUsers() {
+    // Opens user data file
     QFile file("users.csv");
     file.open(QIODevice::ReadOnly);
     if (!file.isOpen()) { return {}; }
 
+    // Reads each line of file
     QVector<FileManager::User> users = {};
     while (!file.atEnd()) {
+        // Stores user data read
         QByteArray line = file.readLine();
         QVector<QByteArray> lineVec = line.split('`').toVector();
         FileManager::User newUser;
@@ -198,30 +210,40 @@ QVector<FileManager::User> FileManager::loadUsers() {
     return users;
 }
 
+// Checks if user credentials are valid
 bool FileManager::validateUser(int userId, QString userPassword) {
+    // Finds user ID
     QVector<FileManager::User> users = loadUsers();
     for (int userIdx = 0; userIdx < users.size(); userIdx++) {
         if (users[userIdx].uniqueIdentifier == userId) {
+            // Checks if password matches
             if (users[userIdx].password == hash(userId, userPassword)) { return true; }
             return false;
         }
     } return false;
 }
 
+// Gets access level of given user
 int FileManager::getAccessLevel(int userID) {
+    // Finds userID
     QVector<FileManager::User> users = loadUsers();
     for (int userIdx = 0; userIdx < users.size(); userIdx++) {
-        if (users[userIdx].uniqueIdentifier == userID) { return users[userIdx].accessLevel; }
-    } return 0;
+        if (users[userIdx].uniqueIdentifier == userID) { return users[userIdx].accessLevel; } // Returns access level
+    } return 0; // Default return value
 }
 
+// Hashes a given QString, applying given salt
 QString FileManager::hash(int salt, QString str) {
+    // Creates salted plaintext password
     std::string saltedPassword = std::to_string(salt) + str.toStdString();
+    // Hashes password
     SHA256 sha;
     sha.update(saltedPassword);
+    // Returns hashed password
     return QString::fromStdString(SHA256::toString(sha.digest()));
 }
 
+// Gets image file name of given image file id
 QString FileManager::getAvatar(int profilePicID) {
     switch (profilePicID) {
     case 0:
@@ -245,12 +267,13 @@ QString FileManager::getAvatar(int profilePicID) {
     }
 }
 
+// Writes cached state to disk
 void FileManager::saveState(StateData state) {
-    FileManager::StateData oldState = FileManager::loadState();
     // Open file from disk
+    FileManager::StateData oldState = FileManager::loadState();
     QFile file("cachedState.csv");
     file.open(QIODevice::ReadWrite | QIODevice::Truncate);
-    // Writes project data to disk
+    // Writes state to disk
     QTextStream stream(&file);
     if (state.password == "") {
         state.userID = oldState.userID;
@@ -262,11 +285,14 @@ void FileManager::saveState(StateData state) {
     file.close();
 }
 
+// Loads cached state from disk
 FileManager::StateData FileManager::loadState() {
+    // Open file from disk
     FileManager::StateData myState;
     QFile file("cachedState.csv");
     file.open(QIODevice::ReadOnly);
     if (!file.isOpen()) { return myState; }
+    // Reads state and constructs state vector
     QTextStream stream(&file);
     QString stateInfo = stream.readLine();
     QVector<QString> stateInfoVec;
@@ -277,22 +303,26 @@ FileManager::StateData FileManager::loadState() {
     myState.newPage = stateInfoVec[2].toInt();
     myState.pageData = stateInfoVec[3].toInt();
     myState.secondaryPageData = stateInfoVec[4].toInt();
+
     file.close();
     return myState;
 }
 
+// Wipes cachedState from disk
 void FileManager::clearState() {
     QFile file ("cachedState.csv");
     file.remove();
 }
 
-
+// Loads user relations from disk
 QVector<FileManager::UserRelations> FileManager::loadUserRelations() {
+    // Oopens file
     QFile file("userRelations.csv");
     file.open(QIODevice::ReadOnly);
 
     if (!file.isOpen()) { return {}; }
 
+    // Creates new userRelations struct for each existing user
     QVector<FileManager::UserRelations> userRelations = {};
     QVector<FileManager::User> users = loadUsers();
     for (int userIdx = 0; userIdx < users.size(); userIdx++) {
@@ -300,7 +330,7 @@ QVector<FileManager::UserRelations> FileManager::loadUserRelations() {
         newUserRelations.uniqueIdentifier = users[userIdx].uniqueIdentifier;
         userRelations.push_back(newUserRelations);
     }
-
+    // Adds all userRelations to relevant struct
     while (!file.atEnd()) {
         QByteArray line = file.readLine();
         QVector<QByteArray> lineVec = line.split('`').toVector();
@@ -317,20 +347,26 @@ QVector<FileManager::UserRelations> FileManager::loadUserRelations() {
             }
         }
     }
+
     file.close();
     return userRelations;
 }
 
+// Writes userRelations to disk
 void FileManager::saveUserRelations(QVector<FileManager::UserRelations> userRelations) {
+    // Opens file
     QFile file("userRelations.csv");
     file.open(QIODevice::ReadWrite | QIODevice::Truncate);
     if (!file.isOpen()) { return; }
+    // Loops through all users in userRelations QVector
     QTextStream stream(&file);
     for (int userIdx = 0; userIdx < userRelations.size(); userIdx++) {
+        // Writes all user-project relations
         for (int projectRelationIdx = 0; projectRelationIdx < userRelations[userIdx].projects.size(); projectRelationIdx++) {
             stream << userRelations[userIdx].uniqueIdentifier << "`0`" <<
                 userRelations[userIdx].projects[projectRelationIdx] << "`\n";
         }
+        // Writes all user-ticket relations
         for (int ticketRelationIdx = 0; ticketRelationIdx < userRelations[userIdx].tickets.size(); ticketRelationIdx++) {
             stream << userRelations[userIdx].uniqueIdentifier << "`1`" <<
                 userRelations[userIdx].tickets[ticketRelationIdx].projectID << "`" <<
@@ -340,14 +376,16 @@ void FileManager::saveUserRelations(QVector<FileManager::UserRelations> userRela
     file.close();
 }
 
+// Loads all groups from disk
 QVector<FileManager::Group> FileManager::loadGroups() {
+    // Opens groups file
     QFile groupFile("groups.csv");
     groupFile.open(QIODevice::ReadOnly);
-
+    // Opens groupRelations file
     QFile relationFile("groupRelations.csv");
     relationFile.open(QIODevice::ReadOnly);
     if (!groupFile.isOpen() || !relationFile.isOpen()) { return {}; }
-
+    // Adds all groups
     QVector<FileManager::Group> groups = {};
     QVector<int> groupIDs;
     while (!groupFile.atEnd()) {
@@ -359,15 +397,17 @@ QVector<FileManager::Group> FileManager::loadGroups() {
         groups.push_back(newGroup);
         groupIDs.push_back(newGroup.ID);
     }
-    bool missingData = false;
+    // Adds all group relation data
+    bool missingData = false; // Checks if group is missing
     while (!relationFile.atEnd()) {
         QByteArray line = relationFile.readLine();
         QVector<QByteArray> lineVec = line.split(',').toVector();
-        if (!groupIDs.contains(lineVec[0].toInt())) {
-            missingData = true;
+        if (!groupIDs.contains(lineVec[0].toInt())) { // Triggers if group is missing
+            missingData = true; // Stops attempt at writing to group
             continue;
         }
-        if (lineVec[1].toInt() == 0) {
+
+        if (lineVec[1].toInt() == 0) { // Adds group-ticket relation
             FileManager::TicketIDs newTicket;
             newTicket.projectID = lineVec[2].toInt();
             newTicket.ticketID = lineVec[3].toInt();
@@ -377,14 +417,14 @@ QVector<FileManager::Group> FileManager::loadGroups() {
                     break;
                 }
             }
-        } else if (lineVec[1].toInt() == 1) {
+        } else if (lineVec[1].toInt() == 1) { // Adds group-project relation
             for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
                 if (groups[groupIdx].ID == lineVec[0].toInt()) {
                     groups[groupIdx].projects.push_back(lineVec[2].toInt());
                     break;
                 }
             }
-        } else if (lineVec[1].toInt() == 2) {
+        } else if (lineVec[1].toInt() == 2) { // Adds group-user relation
             for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
                 if (groups[groupIdx].ID == lineVec[0].toInt()) {
                     groups[groupIdx].users.push_back(lineVec[2].toInt());
@@ -393,37 +433,44 @@ QVector<FileManager::Group> FileManager::loadGroups() {
             }
         }
     }
-
+    // Closes files
     groupFile.close();
     relationFile.close();
-
+    // Fixes any missing data
     if (missingData) { saveGroups(groups); }
-
+    // Returns group data
     return groups;
 }
 
+// Writes group data to disk
 void FileManager::saveGroups(QVector<FileManager::Group> groups) {
+    // Opens group file
     QFile groupFile("groups.csv");
     groupFile.open(QIODevice::ReadWrite | QIODevice::Truncate);
+    // Opens group relation file
     QFile relationFile("groupRelations.csv");
     relationFile.open(QIODevice::ReadWrite | QIODevice::Truncate);
     if (!groupFile.isOpen() || !relationFile.isOpen()) { return; }
     QTextStream rStream(&relationFile);
     QTextStream gStream(&groupFile);
-
+    // Loops through all groups
     for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
         gStream << groups[groupIdx].ID << "," << groups[groupIdx].name << ",\n";
+        // Writes group-ticket relations
         for (int ticketIdx = 0; ticketIdx < groups[groupIdx].tickets.size(); ticketIdx++) {
             rStream << groups[groupIdx].ID << ",0," << groups[groupIdx].tickets[ticketIdx].projectID
                     << "," << groups[groupIdx].tickets[ticketIdx].ticketID << "\n";
         }
+        // Writes group-project relations
         for (int projectIdx = 0; projectIdx < groups[groupIdx].projects.size(); projectIdx++) {
             rStream << groups[groupIdx].ID << ",1," << groups[groupIdx].projects[projectIdx] << "\n";
         }
+        // Writes group-user relations
         for (int userIdx = 0; userIdx < groups[groupIdx].users.size(); userIdx++) {
             rStream << groups[groupIdx].ID << ",2," << groups[groupIdx].users[userIdx] << "\n";
         }
     }
+    // Closes files
     groupFile.close();
     relationFile.close();
 }

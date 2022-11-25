@@ -1,49 +1,52 @@
 #include "groupmanagement.h"
 #include "ui_groupmanagement.h"
 
-GroupManagement::GroupManagement(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::GroupManagement)
-{
+// GroupManagement constructor
+GroupManagement::GroupManagement(QWidget *parent) : QWidget(parent), ui(new Ui::GroupManagement) {
     ui->setupUi(this);
-
     reloadGroups();
 }
 
-GroupManagement::~GroupManagement()
-{
-    if (closing) {
+// GroupManagement destructor
+GroupManagement::~GroupManagement() {
+    if (closing) { // Checks if user is trying to quit program
         FileManager myFiles;
         FileManager::StateData currentState;
         currentState.newPage = -1;
         myFiles.saveState(currentState);
-    }
-    delete ui;
+    } delete ui; // Closes page
 }
 
+// Loads all groups
 void GroupManagement::reloadGroups(){
+    // Deletes existing group buttons
     QVector<QPushButton*> buttons = ui->assignedItems->findChildren<QPushButton *>(QString(), Qt::FindChildrenRecursively);
     for (int widIdx = 0; widIdx < buttons.size(); widIdx++) {
         if (buttons.at(widIdx)->objectName() == "groupInfo") { delete buttons.at(widIdx); }
     }
+    // Deletes existing group input fields
     QVector<QLineEdit*> groupNameFields = ui->assignedItems->findChildren<QLineEdit *>(QString(), Qt::FindChildrenRecursively);
     for (int widIdx = 0; widIdx < groupNameFields.size(); widIdx++) {
         if (groupNameFields.at(widIdx)->objectName() == "groupInfo") { delete groupNameFields.at(widIdx); }
     }
+    // Loops through all groups
     FileManager myFiles;
     QVector<FileManager::Group> groups = myFiles.loadGroups();
     for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
+        // Draws new group
         int groupIdentifier = groups[groupIdx].ID;
 
         QHBoxLayout* groupLayout = new QHBoxLayout;
 
         QLineEdit* groupTextField = new QLineEdit;
+        // Group manipulation buttons
         QPushButton* projectsButton = new QPushButton;
         QPushButton* usersButton = new QPushButton;
         QPushButton* ticketsButton = new QPushButton;
         QPushButton* editButton = new QPushButton;
         QPushButton* deleteButton = new QPushButton;
 
+        // Formats group buttons / fields
         groupTextField->setText(groups[groupIdx].name);
         groupTextField->setStyleSheet("background-color:#CA0736; color:white; font-weight:bold; font-size:24px; border:0px; text-align:left; padding-left:10px;");
         groupTextField->setMaximumHeight(50);
@@ -71,7 +74,6 @@ void GroupManagement::reloadGroups(){
         usersButton->setObjectName("groupInfo");
         connect(usersButton, &QPushButton::clicked, [this, groupIdentifier] { openGroupUsers(groupIdentifier); });
 
-
         editButton->setIcon(QIcon(":/Image/Images/editIcon.png"));
         editButton->setStyleSheet("background-color:transparent; border:0px;");
         editButton->setIconSize(QSize(50, 50));
@@ -86,19 +88,20 @@ void GroupManagement::reloadGroups(){
         deleteButton->setObjectName("groupInfo");
         connect(deleteButton, &QPushButton::clicked, [this, groupIdentifier] { deleteGroup(groupIdentifier); });
 
+        // Adds group to layout
         groupLayout->addWidget(groupTextField);
         groupLayout->addWidget(projectsButton);
         groupLayout->addWidget(ticketsButton);
         groupLayout->addWidget(usersButton);
         groupLayout->addWidget(editButton);
         groupLayout->addWidget(deleteButton);
-
+        // Adds layout to UI
         ui->pageFrame->addLayout(groupLayout);
     }
 }
 
-void GroupManagement::on_assignButton_clicked()
-{
+// Opens assignments page
+void GroupManagement::on_assignButton_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
     state.newPage = 2;
@@ -107,9 +110,8 @@ void GroupManagement::on_assignButton_clicked()
     this->close();
 }
 
-
-void GroupManagement::on_profileButton_clicked()
-{
+// Opens profile page
+void GroupManagement::on_profileButton_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
     state.newPage = 1;
@@ -118,9 +120,8 @@ void GroupManagement::on_profileButton_clicked()
     this->close();
 }
 
-
-void GroupManagement::on_managementButton_clicked()
-{
+// Opens management page
+void GroupManagement::on_managementButton_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
     state.newPage = 7;
@@ -129,9 +130,8 @@ void GroupManagement::on_managementButton_clicked()
     this->close();
 }
 
-
-void GroupManagement::on_logoutButton_clicked()
-{
+// Logs out user
+void GroupManagement::on_logoutButton_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
     state.newPage = 0;
@@ -140,17 +140,16 @@ void GroupManagement::on_logoutButton_clicked()
     this->close();
 }
 
-
-void GroupManagement::on_createGroupButton_clicked()
-{
-    if (ui->newGroupName->text().size() == 0) {
+// Creates a new group
+void GroupManagement::on_createGroupButton_clicked() {
+    if (ui->newGroupName->text().size() == 0) { // Display error message if name is blank
         QMessageBox::warning(
             this,
             tr("Missing Fields"),
             tr("Please fill in all fields first") );
         return;
     }
-
+    // Adds new group to groupDB
     FileManager myFiles;
     QVector<FileManager::Group> groups = myFiles.loadGroups();
     FileManager::Group newGroup;
@@ -159,27 +158,31 @@ void GroupManagement::on_createGroupButton_clicked()
     else { newGroup.ID = groups[groups.size()-1].ID+1; }
     groups.push_back(newGroup);
     myFiles.saveGroups(groups);
+    // Redraws groups
     reloadGroups();
 }
 
+// Edit group name
 void GroupManagement::editGroup(int groupID, QLineEdit* textField, QPushButton* editButton) {
-    if (textField->isReadOnly()) {
+    if (textField->isReadOnly()) { // Enable group name editing
         textField->setReadOnly(false);
         textField->setStyleSheet("background-color:white; color:#CA0736; font-weight:bold; font-size:24px; border:0px; text-align:left; padding-left:10px;");
         editButton->setIcon(QIcon(":/Image/Images/editEnabledIcon.png"));
         return;
     }
-    if (textField->text().size() == 0) {
+
+    if (textField->text().size() == 0) { // Displays error if name is blank
         QMessageBox::warning(
             this,
             tr("No name entered"),
             tr("Group name cannot be empty") );
         return;
     }
+    // Disable group name editing
     textField->setReadOnly(true);
     textField->setStyleSheet("background-color:#CA0736; color:white; font-weight:bold; font-size:24px; border:0px; text-align:left; padding-left:10px;");
     editButton->setIcon(QIcon(":/Image/Images/editIcon.png"));
-
+    // Writes new group name to groupDB
     FileManager myFiles;
     QVector<FileManager::Group> groups = myFiles.loadGroups();
     for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
@@ -190,18 +193,24 @@ void GroupManagement::editGroup(int groupID, QLineEdit* textField, QPushButton* 
     }
 }
 
+// Deletes group
 void GroupManagement::deleteGroup(int groupID) {
+    // Loads groupData
     FileManager myFiles;
     QVector<FileManager::Group> groups = myFiles.loadGroups();
+    // Removes group from groupData
     for (int groupIdx = 0; groupIdx < groups.size(); groupIdx++) {
         if (groups[groupIdx].ID != groupID) { continue; }
         groups.removeAt(groupIdx);
     }
+    // Saves group data
     myFiles.saveGroups(groups);
+    // Applies group data changes to UI
     reloadGroups();
 
 }
 
+// Opens project management selection page
 void GroupManagement::openGroupProjects(int groupID) {
     FileManager myFiles;
     FileManager::StateData state;
@@ -213,6 +222,7 @@ void GroupManagement::openGroupProjects(int groupID) {
     this->close();
 }
 
+// Opens ticket management selection page
 void GroupManagement::openGroupTickets(int groupID) {
     FileManager myFiles;
     FileManager::StateData state;
@@ -224,6 +234,7 @@ void GroupManagement::openGroupTickets(int groupID) {
     this->close();
 }
 
+// Open user management selection page
 void GroupManagement::openGroupUsers(int groupID) {
     FileManager myFiles;
     FileManager::StateData state;

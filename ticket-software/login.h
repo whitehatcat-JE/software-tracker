@@ -1,40 +1,36 @@
 #ifndef LOGIN_H
 #define LOGIN_H
-
+// Includes Qt types
 #include <QMainWindow>
 #include <string>
 #include <array>
 #include <QObject>
 #include <QLineEdit>
-
+#include <cstring>
+#include <sstream>
+#include <iomanip>
+#include <QMessageBox>
+#include <QVector>
+// Includes file management system
 #include "filemanager.h"
 
-QT_BEGIN_NAMESPACE
+// Declares Login class
 namespace Ui { class Login; }
-QT_END_NAMESPACE
-
-class Login : public QMainWindow
-{
+class Login : public QMainWindow {
     Q_OBJECT
-
 public:
-    Login(QWidget *parent = nullptr);
-    ~Login();
+    Login(QWidget *parent = nullptr); // Login class constructor
+    ~Login(); // Login class destructor
 
-private slots:
+private slots: // All slot connections from UI
     void on_logInBtn_clicked();
-   // void on_BTNSign_clicked();
-
     void on_hidePasswordButton_clicked();
 
-private:
+private: // Declarations used by Login class methods
     Ui::Login *ui;
     FileManager fManager;
-    //MainScreen mScreen();
     bool signedIn = false;
     int userIndex;
     bool closing = true;
 };
-
-
 #endif // LOGIN_H

@@ -1,40 +1,31 @@
 #include "login.h"
 #include "ui_login.h"
-#include "filemanager.h"
-#include "SHA256.h"
 
-#include <cstring>
-#include <sstream>
-#include <iomanip>
-#include <QMessageBox>
-#include <QVector>
-
-Login::Login(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::Login)
-{
+// Login constructor
+Login::Login(QWidget *parent) : QMainWindow(parent) , ui(new Ui::Login) {
     ui->setupUi(this);
 }
 
-Login::~Login()
-{
-    if (closing) {
+// Login destructor
+Login::~Login() {
+    if (closing) { // Checks if user is trying to quit program
         FileManager myFiles;
         FileManager::StateData currentState;
         currentState.newPage = -1;
         myFiles.saveState(currentState);
-    }
-    delete ui;
+    } delete ui; // Closes page
 }
-
-void Login::on_logInBtn_clicked()
-{
-    QString username = ui->lineEditUsername->text();
+// Attempts to login user
+void Login::on_logInBtn_clicked() {
+    QString username = ui->lineEditUsername->text(); // Gets inputted username
+    // Loops through all users
     FileManager myFiles;
     QVector<FileManager::User> users = myFiles.loadUsers();
     for (int userIdx = 0; userIdx < users.size(); userIdx++) {
         if (users[userIdx].username == username) {
+            // Checks if user password matches
             if (myFiles.validateUser(users[userIdx].uniqueIdentifier, ui->lineEditPassword->text())) {
+                // Changes to profile page
                 FileManager::StateData state;
                 state.newPage = 1;
                 state.userID = users[userIdx].uniqueIdentifier;
@@ -46,18 +37,17 @@ void Login::on_logInBtn_clicked()
             }
         }
     }
+    // Error message were invalid login information has been inputted
     QMessageBox::warning(this, "Login", "Incorrect username or password. Please try again");
 }
 
-void Login::on_hidePasswordButton_clicked()
-{
-    if (ui->lineEditPassword->echoMode() == QLineEdit::Password) {
+// Hides / shows password text
+void Login::on_hidePasswordButton_clicked() {
+    if (ui->lineEditPassword->echoMode() == QLineEdit::Password) { // Shows password text
         ui->lineEditPassword->setEchoMode(QLineEdit::Normal);
         ui->hidePasswordButton->setIcon(QIcon(":/Images/Images/showPasswordIcon.png"));
-    }
-    else {
+    } else { // Hides password text
         ui->lineEditPassword->setEchoMode(QLineEdit::Password);
         ui->hidePasswordButton->setIcon(QIcon(":/Images/Images/hiddenPasswordIcon.png"));
     }
 }
-

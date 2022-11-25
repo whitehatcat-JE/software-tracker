@@ -1,23 +1,21 @@
 #include "management.h"
 #include "ui_management.h"
-
-Management::Management(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::Management)
-{
+// Management constructor
+Management::Management(QWidget *parent) : QWidget(parent), ui(new Ui::Management) {
     ui->setupUi(this);
 }
 
+// Management destructor
 Management::~Management() {
-    if (closing) {
+    if (closing) { // Checks if user is trying to quit program
         FileManager myFiles;
         FileManager::StateData currentState;
         currentState.newPage = -1;
         myFiles.saveState(currentState);
-    }
-    delete ui;
+    } delete ui; // Closes page
 }
 
+// Opens assignement page
 void Management::on_assignedButton_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
@@ -27,6 +25,7 @@ void Management::on_assignedButton_clicked() {
     this->close();
 }
 
+// Opens profile page
 void Management::on_profileButton_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
@@ -36,6 +35,7 @@ void Management::on_profileButton_clicked() {
     this->close();
 }
 
+// Logs out user
 void Management::on_logoutButton_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
@@ -45,8 +45,8 @@ void Management::on_logoutButton_clicked() {
     this->close();
 }
 
-void Management::on_usersButton_clicked()
-{
+// Opens user management page
+void Management::on_usersButton_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
     state.newPage = 8;
@@ -55,8 +55,8 @@ void Management::on_usersButton_clicked()
     this->close();
 }
 
-void Management::on_groupsButton_clicked()
-{
+// Opens group management page
+void Management::on_groupsButton_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
     state.newPage = 9;
@@ -65,8 +65,8 @@ void Management::on_groupsButton_clicked()
     this->close();
 }
 
-void Management::on_projectsButton_clicked()
-{
+// Opens project management page
+void Management::on_projectsButton_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
     state.newPage = 10;

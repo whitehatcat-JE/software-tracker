@@ -1,11 +1,15 @@
 #ifndef SHA256_H
 #define SHA256_H
 
+// EXTERNAL LIBRARY - NOT PART OF PROJECT CODE
+// LICENSED UNDER CC0, AS SUCH NO FORMS OF ACKNOWLEDGEMENT NEEDED
+
+// LIBRARY USED TO HASH STRINGS
+
 #include <string>
 #include <array>
 
 class SHA256 {
-
 public:
     SHA256();
     void update(const uint8_t* data, size_t length);
@@ -48,6 +52,4 @@ private:
     void pad();
     void revert(uint8_t* hash);
 };
-
-
 #endif // SHA256_H

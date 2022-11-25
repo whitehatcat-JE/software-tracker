@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../ticket-software/projectmanagement.h"
+#include "../../../../../Music/ticket-software/projectmanagement.h"
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'projectmanagement.h' doesn't include <QObject>."

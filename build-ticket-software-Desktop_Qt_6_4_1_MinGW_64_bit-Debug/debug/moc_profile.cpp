@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../ticket-software/profile.h"
+#include "../../../../../Music/ticket-software/profile.h"
 #include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -27,7 +27,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_Profile_t {
-    uint offsetsAndSizes[64];
+    uint offsetsAndSizes[38];
     char stringdata0[8];
     char stringdata1[23];
     char stringdata2[1];
@@ -47,19 +47,6 @@ struct qt_meta_stringdata_Profile_t {
     char stringdata16[24];
     char stringdata17[28];
     char stringdata18[24];
-    char stringdata19[13];
-    char stringdata20[13];
-    char stringdata21[11];
-    char stringdata22[11];
-    char stringdata23[9];
-    char stringdata24[21];
-    char stringdata25[9];
-    char stringdata26[6];
-    char stringdata27[12];
-    char stringdata28[20];
-    char stringdata29[11];
-    char stringdata30[17];
-    char stringdata31[13];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_Profile_t::offsetsAndSizes) + ofs), len 
@@ -83,20 +70,7 @@ Q_CONSTINIT static const qt_meta_stringdata_Profile_t qt_meta_stringdata_Profile
         QT_MOC_LITERAL(290, 24),  // "on_profileButton_clicked"
         QT_MOC_LITERAL(315, 23),  // "on_assignButton_clicked"
         QT_MOC_LITERAL(339, 27),  // "on_managementButton_clicked"
-        QT_MOC_LITERAL(367, 23),  // "on_logoutButton_clicked"
-        QT_MOC_LITERAL(391, 12),  // "hidePassword"
-        QT_MOC_LITERAL(404, 12),  // "QPushButton*"
-        QT_MOC_LITERAL(417, 10),  // "echoSwitch"
-        QT_MOC_LITERAL(428, 10),  // "QLineEdit*"
-        QT_MOC_LITERAL(439, 8),  // "password"
-        QT_MOC_LITERAL(448, 20),  // "confirmButtonPressed"
-        QT_MOC_LITERAL(469, 8),  // "QDialog*"
-        QT_MOC_LITERAL(478, 5),  // "popup"
-        QT_MOC_LITERAL(484, 11),  // "newPassword"
-        QT_MOC_LITERAL(496, 19),  // "cancelButtonPressed"
-        QT_MOC_LITERAL(516, 10),  // "updateInfo"
-        QT_MOC_LITERAL(527, 16),  // "updateProfilePic"
-        QT_MOC_LITERAL(544, 12)   // "profilePicID"
+        QT_MOC_LITERAL(367, 23)   // "on_logoutButton_clicked"
     },
     "Profile",
     "on_EditDetails_clicked",
@@ -116,20 +90,7 @@ Q_CONSTINIT static const qt_meta_stringdata_Profile_t qt_meta_stringdata_Profile
     "on_profileButton_clicked",
     "on_assignButton_clicked",
     "on_managementButton_clicked",
-    "on_logoutButton_clicked",
-    "hidePassword",
-    "QPushButton*",
-    "echoSwitch",
-    "QLineEdit*",
-    "password",
-    "confirmButtonPressed",
-    "QDialog*",
-    "popup",
-    "newPassword",
-    "cancelButtonPressed",
-    "updateInfo",
-    "updateProfilePic",
-    "profilePicID"
+    "on_logoutButton_clicked"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -140,7 +101,7 @@ Q_CONSTINIT static const uint qt_meta_data_Profile[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      21,   14, // methods
+      16,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -148,27 +109,22 @@ Q_CONSTINIT static const uint qt_meta_data_Profile[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,  140,    2, 0x08,    1 /* Private */,
-       4,    0,  143,    2, 0x08,    3 /* Private */,
-       5,    1,  144,    2, 0x08,    4 /* Private */,
-       6,    0,  147,    2, 0x08,    6 /* Private */,
-       7,    0,  148,    2, 0x08,    7 /* Private */,
-       8,    0,  149,    2, 0x08,    8 /* Private */,
-       9,    0,  150,    2, 0x08,    9 /* Private */,
-      10,    0,  151,    2, 0x08,   10 /* Private */,
-      11,    0,  152,    2, 0x08,   11 /* Private */,
-      12,    0,  153,    2, 0x08,   12 /* Private */,
-      13,    0,  154,    2, 0x08,   13 /* Private */,
-      14,    0,  155,    2, 0x08,   14 /* Private */,
-      15,    0,  156,    2, 0x08,   15 /* Private */,
-      16,    0,  157,    2, 0x08,   16 /* Private */,
-      17,    0,  158,    2, 0x08,   17 /* Private */,
-      18,    0,  159,    2, 0x08,   18 /* Private */,
-      19,    2,  160,    2, 0x08,   19 /* Private */,
-      24,    2,  165,    2, 0x08,   22 /* Private */,
-      28,    1,  170,    2, 0x08,   25 /* Private */,
-      29,    0,  173,    2, 0x08,   27 /* Private */,
-      30,    1,  174,    2, 0x08,   28 /* Private */,
+       1,    1,  110,    2, 0x08,    1 /* Private */,
+       4,    0,  113,    2, 0x08,    3 /* Private */,
+       5,    1,  114,    2, 0x08,    4 /* Private */,
+       6,    0,  117,    2, 0x08,    6 /* Private */,
+       7,    0,  118,    2, 0x08,    7 /* Private */,
+       8,    0,  119,    2, 0x08,    8 /* Private */,
+       9,    0,  120,    2, 0x08,    9 /* Private */,
+      10,    0,  121,    2, 0x08,   10 /* Private */,
+      11,    0,  122,    2, 0x08,   11 /* Private */,
+      12,    0,  123,    2, 0x08,   12 /* Private */,
+      13,    0,  124,    2, 0x08,   13 /* Private */,
+      14,    0,  125,    2, 0x08,   14 /* Private */,
+      15,    0,  126,    2, 0x08,   15 /* Private */,
+      16,    0,  127,    2, 0x08,   16 /* Private */,
+      17,    0,  128,    2, 0x08,   17 /* Private */,
+      18,    0,  129,    2, 0x08,   18 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Bool,    3,
@@ -187,11 +143,6 @@ Q_CONSTINIT static const uint qt_meta_data_Profile[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 20, 0x80000000 | 22,   21,   23,
-    QMetaType::Void, 0x80000000 | 25, 0x80000000 | 22,   26,   27,
-    QMetaType::Void, 0x80000000 | 25,   26,
-    QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   31,
 
        0        // eod
 };
@@ -238,23 +189,7 @@ Q_CONSTINIT const QMetaObject Profile::staticMetaObject = { {
         // method 'on_managementButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_logoutButton_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'hidePassword'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QPushButton *, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QLineEdit *, std::false_type>,
-        // method 'confirmButtonPressed'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QDialog *, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QLineEdit *, std::false_type>,
-        // method 'cancelButtonPressed'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QDialog *, std::false_type>,
-        // method 'updateInfo'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'updateProfilePic'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -281,41 +216,7 @@ void Profile::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 13: _t->on_assignButton_clicked(); break;
         case 14: _t->on_managementButton_clicked(); break;
         case 15: _t->on_logoutButton_clicked(); break;
-        case 16: _t->hidePassword((*reinterpret_cast< std::add_pointer_t<QPushButton*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QLineEdit*>>(_a[2]))); break;
-        case 17: _t->confirmButtonPressed((*reinterpret_cast< std::add_pointer_t<QDialog*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QLineEdit*>>(_a[2]))); break;
-        case 18: _t->cancelButtonPressed((*reinterpret_cast< std::add_pointer_t<QDialog*>>(_a[1]))); break;
-        case 19: _t->updateInfo(); break;
-        case 20: _t->updateProfilePic((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         default: ;
-        }
-    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        switch (_id) {
-        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-        case 16:
-            switch (*reinterpret_cast<int*>(_a[1])) {
-            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-            case 1:
-                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QLineEdit* >(); break;
-            case 0:
-                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QPushButton* >(); break;
-            }
-            break;
-        case 17:
-            switch (*reinterpret_cast<int*>(_a[1])) {
-            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-            case 0:
-                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QDialog* >(); break;
-            case 1:
-                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QLineEdit* >(); break;
-            }
-            break;
-        case 18:
-            switch (*reinterpret_cast<int*>(_a[1])) {
-            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-            case 0:
-                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QDialog* >(); break;
-            }
-            break;
         }
     }
 }
@@ -339,13 +240,13 @@ int Profile::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 21)
+        if (_id < 16)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 21;
+        _id -= 16;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 21)
-            qt_static_metacall(this, _c, _id, _a);
-        _id -= 21;
+        if (_id < 16)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 16;
     }
     return _id;
 }

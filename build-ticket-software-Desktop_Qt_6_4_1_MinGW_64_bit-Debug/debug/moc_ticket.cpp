@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../ticket-software/ticket.h"
+#include "../../../../../Music/ticket-software/ticket.h"
 #include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -27,20 +27,19 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_Ticket_t {
-    uint offsetsAndSizes[26];
+    uint offsetsAndSizes[24];
     char stringdata0[7];
     char stringdata1[22];
     char stringdata2[1];
-    char stringdata3[11];
-    char stringdata4[25];
-    char stringdata5[24];
-    char stringdata6[28];
-    char stringdata7[24];
-    char stringdata8[25];
-    char stringdata9[29];
-    char stringdata10[26];
+    char stringdata3[25];
+    char stringdata4[24];
+    char stringdata5[28];
+    char stringdata6[24];
+    char stringdata7[25];
+    char stringdata8[29];
+    char stringdata9[26];
+    char stringdata10[28];
     char stringdata11[28];
-    char stringdata12[28];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_Ticket_t::offsetsAndSizes) + ofs), len 
@@ -49,21 +48,19 @@ Q_CONSTINIT static const qt_meta_stringdata_Ticket_t qt_meta_stringdata_Ticket =
         QT_MOC_LITERAL(0, 6),  // "Ticket"
         QT_MOC_LITERAL(7, 21),  // "on_postButton_clicked"
         QT_MOC_LITERAL(29, 0),  // ""
-        QT_MOC_LITERAL(30, 10),  // "reloadLogs"
-        QT_MOC_LITERAL(41, 24),  // "on_profileButton_clicked"
-        QT_MOC_LITERAL(66, 23),  // "on_assignButton_clicked"
-        QT_MOC_LITERAL(90, 27),  // "on_managementButton_clicked"
-        QT_MOC_LITERAL(118, 23),  // "on_logoutButton_clicked"
-        QT_MOC_LITERAL(142, 24),  // "on_archiveButton_clicked"
-        QT_MOC_LITERAL(167, 28),  // "on_assignGroupButton_clicked"
-        QT_MOC_LITERAL(196, 25),  // "on_priorityButton_clicked"
-        QT_MOC_LITERAL(222, 27),  // "on_assignUserButton_clicked"
-        QT_MOC_LITERAL(250, 27)   // "on_assignSelfButton_clicked"
+        QT_MOC_LITERAL(30, 24),  // "on_profileButton_clicked"
+        QT_MOC_LITERAL(55, 23),  // "on_assignButton_clicked"
+        QT_MOC_LITERAL(79, 27),  // "on_managementButton_clicked"
+        QT_MOC_LITERAL(107, 23),  // "on_logoutButton_clicked"
+        QT_MOC_LITERAL(131, 24),  // "on_archiveButton_clicked"
+        QT_MOC_LITERAL(156, 28),  // "on_assignGroupButton_clicked"
+        QT_MOC_LITERAL(185, 25),  // "on_priorityButton_clicked"
+        QT_MOC_LITERAL(211, 27),  // "on_assignUserButton_clicked"
+        QT_MOC_LITERAL(239, 27)   // "on_assignSelfButton_clicked"
     },
     "Ticket",
     "on_postButton_clicked",
     "",
-    "reloadLogs",
     "on_profileButton_clicked",
     "on_assignButton_clicked",
     "on_managementButton_clicked",
@@ -83,7 +80,7 @@ Q_CONSTINIT static const uint qt_meta_data_Ticket[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -91,20 +88,18 @@ Q_CONSTINIT static const uint qt_meta_data_Ticket[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   80,    2, 0x08,    1 /* Private */,
-       3,    0,   81,    2, 0x08,    2 /* Private */,
-       4,    0,   82,    2, 0x08,    3 /* Private */,
-       5,    0,   83,    2, 0x08,    4 /* Private */,
-       6,    0,   84,    2, 0x08,    5 /* Private */,
-       7,    0,   85,    2, 0x08,    6 /* Private */,
-       8,    0,   86,    2, 0x08,    7 /* Private */,
-       9,    0,   87,    2, 0x08,    8 /* Private */,
-      10,    0,   88,    2, 0x08,    9 /* Private */,
-      11,    0,   89,    2, 0x08,   10 /* Private */,
-      12,    0,   90,    2, 0x08,   11 /* Private */,
+       1,    0,   74,    2, 0x08,    1 /* Private */,
+       3,    0,   75,    2, 0x08,    2 /* Private */,
+       4,    0,   76,    2, 0x08,    3 /* Private */,
+       5,    0,   77,    2, 0x08,    4 /* Private */,
+       6,    0,   78,    2, 0x08,    5 /* Private */,
+       7,    0,   79,    2, 0x08,    6 /* Private */,
+       8,    0,   80,    2, 0x08,    7 /* Private */,
+       9,    0,   81,    2, 0x08,    8 /* Private */,
+      10,    0,   82,    2, 0x08,    9 /* Private */,
+      11,    0,   83,    2, 0x08,   10 /* Private */,
 
  // slots: parameters
-    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -129,8 +124,6 @@ Q_CONSTINIT const QMetaObject Ticket::staticMetaObject = { {
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<Ticket, std::true_type>,
         // method 'on_postButton_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'reloadLogs'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_profileButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -161,16 +154,15 @@ void Ticket::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         (void)_t;
         switch (_id) {
         case 0: _t->on_postButton_clicked(); break;
-        case 1: _t->reloadLogs(); break;
-        case 2: _t->on_profileButton_clicked(); break;
-        case 3: _t->on_assignButton_clicked(); break;
-        case 4: _t->on_managementButton_clicked(); break;
-        case 5: _t->on_logoutButton_clicked(); break;
-        case 6: _t->on_archiveButton_clicked(); break;
-        case 7: _t->on_assignGroupButton_clicked(); break;
-        case 8: _t->on_priorityButton_clicked(); break;
-        case 9: _t->on_assignUserButton_clicked(); break;
-        case 10: _t->on_assignSelfButton_clicked(); break;
+        case 1: _t->on_profileButton_clicked(); break;
+        case 2: _t->on_assignButton_clicked(); break;
+        case 3: _t->on_managementButton_clicked(); break;
+        case 4: _t->on_logoutButton_clicked(); break;
+        case 5: _t->on_archiveButton_clicked(); break;
+        case 6: _t->on_assignGroupButton_clicked(); break;
+        case 7: _t->on_priorityButton_clicked(); break;
+        case 8: _t->on_assignUserButton_clicked(); break;
+        case 9: _t->on_assignSelfButton_clicked(); break;
         default: ;
         }
     }
@@ -196,13 +188,13 @@ int Ticket::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 10;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 10)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 11;
+        _id -= 10;
     }
     return _id;
 }

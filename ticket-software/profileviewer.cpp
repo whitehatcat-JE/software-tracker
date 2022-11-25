@@ -1,22 +1,23 @@
 #include "profileviewer.h"
 #include "ui_profileviewer.h"
 
-ProfileViewer::ProfileViewer(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::ProfileViewer)
-{
+// ProfileViewer constructor
+ProfileViewer::ProfileViewer(QWidget *parent) : QMainWindow(parent), ui(new Ui::ProfileViewer) {
     ui->setupUi(this);
     FileManager myFiles;
+    // Hides management button if user access level is too low
     int userAccessLevel = myFiles.getAccessLevel(myFiles.loadState().userID);
     if (userAccessLevel < 2) {
         ui->managementButton_2->hide();
         ui->line_11->hide();
     }
+    // Loads users from db
     QVector<FileManager::User> users = myFiles.loadUsers();
     FileManager::StateData state = myFiles.loadState();
-
+    // Finds given user
     for (int userIdx = 0; userIdx < users.size(); userIdx++) {
         if (state.pageData == users[userIdx].uniqueIdentifier) {
+            // Changes page data to reflect current user
             ui->Name->setText(users[userIdx].username);
             ui->JobTitle->setText(users[userIdx].job);
             ui->workHours->setText(users[userIdx].activeTimes);
@@ -30,19 +31,18 @@ ProfileViewer::ProfileViewer(QWidget *parent) :
     }
 }
 
-ProfileViewer::~ProfileViewer()
-{
-    if (closing) {
+// ProfileViewer destructor
+ProfileViewer::~ProfileViewer() {
+    if (closing) { // Checks if user is trying to quit program
         FileManager myFiles;
         FileManager::StateData currentState;
         currentState.newPage = -1;
         myFiles.saveState(currentState);
-    }
-    delete ui;
+    } delete ui; // Closes page
 }
 
-void ProfileViewer::on_managementButton_2_clicked()
-{
+// Open management page
+void ProfileViewer::on_managementButton_2_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
     state.newPage = 7;
@@ -51,9 +51,8 @@ void ProfileViewer::on_managementButton_2_clicked()
     this->close();
 }
 
-
-void ProfileViewer::on_assignButton_2_clicked()
-{
+// Open assignments page
+void ProfileViewer::on_assignButton_2_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
     state.newPage = 2;
@@ -62,9 +61,8 @@ void ProfileViewer::on_assignButton_2_clicked()
     this->close();
 }
 
-
-void ProfileViewer::on_profileButton_2_clicked()
-{
+// Open profile page
+void ProfileViewer::on_profileButton_2_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
     state.newPage = 1;
@@ -73,9 +71,8 @@ void ProfileViewer::on_profileButton_2_clicked()
     this->close();
 }
 
-
-void ProfileViewer::on_logoutButton_2_clicked()
-{
+// Logs out user
+void ProfileViewer::on_logoutButton_2_clicked() {
     FileManager myFiles;
     FileManager::StateData state;
     state.newPage = 0;
